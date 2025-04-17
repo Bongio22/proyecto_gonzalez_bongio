@@ -8,7 +8,7 @@
 </main>
 
 <!-- Contenedor principal de envíos, formas de envío y métodos de pago -->
-<div class="container my-5">
+<div class="containerComercializacion my-5">
 
     <!-- Sección de Opciones de Entrega -->
     <div class="text-center mb-4">

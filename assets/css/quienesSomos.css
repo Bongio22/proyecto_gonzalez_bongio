@@ -1,15 +1,56 @@
 /*QUIENES SOMOS*/
 /* Estilo para los párrafos dentro de los contenedores */
-.container {
+.containerQuienesSomos {
+  background-color: var(--color);
+  margin: 0 auto;
+  width: 600px;
+  height: 600x;
   padding: 20px;  /* Añade espacio alrededor del contenido */
   border-radius: 10px;  /* Bordes redondeados para los contenedores */
+  display: flex;  /* Flexbox para alinear los elementos */
+  flex-direction: column;  /* Coloca los elementos en una columna */
+  h2{
+    font-family: var(--fuente);
+    margin-bottom: 100px;
+  }
+  .card-text{
+    font-family: var(--fuente);
+  }
 }
-  
 /* Fondo blanco para los párrafos dentro de las tarjetas */
 .card-text {
   background-color: #ffffff;  /* Fondo blanco */
   padding: 10px;  /* Añadir espacio interno alrededor del texto */
   border-radius: 5px;  /* Bordes redondeados */
 }
+
+.containerStaff{
+  background-color: var(--color);
+  margin: 0 auto;
+  h2{
+    font-family: var(--fuente);
+  }
+  padding-bottom: 20px;
+  width: 90%;
+  border-radius: 10px;  /* Bordes redondeados para los contenedores */
+  .card-body{
+
+    .card-title{
+      font-family: var(--fuente);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card-text{
+      font-family: var(--fuente);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    padding-bottom: 20px;  /* Añadir espacio interno alrededor del texto */
+  }
   
+
+
+}
+
+
   /*QUIENES SOMOS*/

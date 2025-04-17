@@ -1,5 +1,5 @@
 <!-- Contenedor principal -->
-<div class="container my-5">
+<div class="containerQuienesSomos my-5">
     <!-- Título principal -->
     <h2 class="text-center mb-4">¿Quiénes somos?</h2>
 
@@ -42,7 +42,7 @@
 </div>
 
 <!-- Contenedor principal -->
-<div class="container my-5">
+<div class="containerStaff my-5">
     <!-- Título principal -->
     <h2 class="text-center mb-4">Staff</h2>
 
@@ -65,7 +65,7 @@
         </div>
 
         <!-- Contenedor Mauri -->
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class=" col-12 col-sm-6 col-md-4">
             <div class="card h-100 text-center border rounded shadow-sm">
                 <img src=<?php echo base_url("assets/img/Staff/mauriVendedor.jpg" );?> class="card-img-top img-fluid rounded-circle p-3
                 mx-auto" alt="Foto de Mauri" style="max-width: 400px;">
@@ -83,7 +83,7 @@
         </div>
 
         <!-- Contenedor Yami -->
-        <div class="col-12 col-sm-6 col-md-4">
+        <div class=" col-12 col-sm-6 col-md-4">
             <div class="card h-100 text-center border rounded shadow-sm">
                 <img src=<?php echo base_url("assets/img/Staff/yamilaCM.jpg" );?>
                     class="card-img-top img-fluid rounded-circle p-3 mx-auto" alt="Foto de Yami"

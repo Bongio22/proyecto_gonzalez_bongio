@@ -1,10 +1,22 @@
 /* Contenedor COMERCIALIZACIÓN*/
 /* Estilo para el contenedor reducido */
-.small-container {
-  max-width: 800px; /* Ancho máximo reducido */
-  border-radius: 5px; /* Bordes redondeados */
-  margin: 20 auto; /* Centra el contenedor */
-  padding: 20px; /* Espaciado interno */
+.texto-comercializacion{
+  padding-top: 25px;
+  font-family: var(--fuente); /* Fuente personalizada */
+  color: white; /* Color de texto blanco */
+}
+.containerComercializacion{
+  margin: 0 auto; /* Centra el contenedor */
+  width: 700px !important;  /* Ancho del contenedor */
+  border-radius: 15px; /* Bordes redondeados */
+  padding-bottom: 25px; /* Espaciado inferior */
+  background-color: var(--color); /* Color de fondo */
+  .bordered-text{
+    font-family: var(--fuente);
+  }
+  .card-text{
+    font-family: var(--fuente);
+  }
 }
   
   /* Estilo para el texto dentro del contenedor */

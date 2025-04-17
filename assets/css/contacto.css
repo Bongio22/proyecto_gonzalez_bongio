@@ -5,10 +5,18 @@ body {
     margin: 0;
     padding: 0;
   }
+
+.texto-Formulario{
+  font-family: var(--fuente);
+  color: white !important;
+}
+
+
   
   .form-container {
     max-width: 400px;
-    margin: 50px auto;
+    
+    margin: 30px auto;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
@@ -18,6 +26,7 @@ body {
   .form-container h2 {
     text-align: center;
     margin-bottom: 20px;
+
   }
   
   .form-container label {
@@ -37,14 +46,12 @@ body {
     box-sizing: border-box; /* Asegura que padding y borde se incluyan en el ancho total */
   }
   
-  .form-container textarea {
-    resize: none; /* Deshabilita el cambio de tamaño */
-  }
+  
   
   .form-container input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #2f0c2c !important;
     border: none;
     border-radius: 5px;
     color: #ffffff;
@@ -53,7 +60,7 @@ body {
   }
   
   .form-container input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #2f0c2c !important;
   }
   
   @media (max-width: 600px) {

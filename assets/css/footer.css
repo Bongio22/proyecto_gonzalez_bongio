@@ -1,11 +1,16 @@
 /*FOOTER*/
 /* Estilo general para el pie de página */
+:root{
+  --color-fondofooter: #5e1759;
+}
+
 footer {
-    background-color: rgb(179, 104, 249); /* Color de fondo del pie de página */
+    background-color: var(--color-fondofooter) !important; /* Color de fondo del pie de página */
     padding: 10px 0; /* Espaciado interno reducido */
     width: 100%; /* Asegura que el footer ocupe todo el ancho */
     margin: 0; /* Elimina margen */
     position: relative; /* Asegura que esté correctamente posicionado */
+    border: white;
   }
   
   /* Contenedor del pie de página */
@@ -68,7 +73,7 @@ footer {
   
   /* Estilo para el borde superior del texto */
   .border-top {
-    border-top: 1px solid #ccc; /* Añade un borde superior */
+    border-top: 1px solid var(--color-fondo); /* Añade un borde superior */
     padding-top: 2px; /* Espaciado superior reducido */
   }
   

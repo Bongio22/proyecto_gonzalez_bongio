@@ -1,8 +1,10 @@
 /* NAVBAR */
 /* Fondo celeste pastel para la barra de navegación */
+:root{
+  --fondo-navbar: #461242;
+}
 .navbar { 
-    background-color: rgb(179, 104, 249) !important; 
-    border: 1px solid blueviolet; 
+    background-color: var(--fondo-navbar) !important; 
     padding: 10px 0; /* Espaciado interno superior e inferior */
     margin: 0; /* Elimina margen */
     width: 100%; /* Asegura que la navbar ocupe todo el ancho */

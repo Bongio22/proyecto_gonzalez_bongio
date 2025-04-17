@@ -1,5 +1,4 @@
 <!-- Pagina de contacto -->
-
 <!-- presentacion -->
 <h2 class="texto-Formulario">¡Estamos aquí para ayudarte!</h2>
 <p class="texto-Formulario">Si tienes alguna duda, consulta o reclamo, no dudes en contactarnos.<br> Nuestro equipo de
@@ -7,8 +6,7 @@
 <p class="texto-Formulario">¡Esperamos saber de ti pronto!</p>
 
 <!-- Columna de contacto -->
- <div class="contact-container">
-
+ 
     <div class="form-container">
         <h2>Contacto</h2>
         <form action="contactar.php" method="POST" id="contactForm">
@@ -30,7 +28,7 @@
             <input type="submit" value="Enviar Consulta">
         </form>
     </div>
-</div>
+
 
 
 

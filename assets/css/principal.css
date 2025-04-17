@@ -1,25 +1,42 @@
 /*Cuerpo*/
+:root{
+  --color-fondo: #170616;
+  --color: #5e1759;
+  --fuente: 'Cormorant Garamond';
+}
 body {
   margin: 0; /* Elimina márgenes del body */
   padding: 0; /* Elimina padding del body */
   min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-  background-color: black !important;
+  background-color: var(--color-fondo) !important;
 }
 .container-texto-bienvenida{
-  width: 1500px;
-  height: 400;
-  margin: auto;
+  width: 1000px;
+  height: 300;
+  margin: 0 auto;
+  margin-top: 20px;
   padding:20px;
+  display: flex;
+  flex-direction: column;
   h1{
     font: size 600px;
     color: white;
+    font-family: var(--fuente);
   }
   .texto-bienvenida{
     color:white;
-    background-color: rgb(179, 104, 249);
-    width: 1200px;
+    background-color: var(--color-bienvenida);
+    width: 1000px;
     height: 200px;
     padding:20px;
-    margin: auto;
+    font-family: var(--fuente);
+    
+  }
+
+  @media (max-width: 768px) {
+    .container-texto-bienvenida {
+      padding: 15px;
+    }
   }
 }
+
