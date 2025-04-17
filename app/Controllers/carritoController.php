@@ -14,47 +14,49 @@ class CarritoController extends BaseController
 
     // CARRITO DE COMPRAS
     public function carrito()
-{
-    $cart = \Config\Services::cart();
-    $data['titulo'] = 'Carrito de compras';
-    $data['productos'] = $cart->contents();
+    {
+        $cart = \Config\Services::cart();
+        $data['titulo'] = 'Carrito de compras';
+        $data['productos'] = $cart->contents();
 
-    // Verifica si el carrito tiene productos
-    if (empty($data['productos'])) {
-        $data['mensaje'] = 'Tu carrito está vacío.';
+        // Verifica si el carrito tiene productos
+        if (empty($data['productos'])) {
+            $data['mensaje'] = 'Tu carrito está vacío.';
+        }
+
+        return view('plantillas/header', $data)
+            . view('plantillas/navbar')
+            . view('front/carrito', $data)
+            . view('plantillas/footer');
     }
 
-    return view('plantillas/header', $data)
-        . view('plantillas/navbar')
-        . view('front/carrito', $data)
-        . view('plantillas/footer');
-}
+
+    public function add_carrito($id_producto = null)
+    {
+        if (!$id_producto) {
+            return redirect()->to('/carrito')->with('mensaje', 'Producto no válido.');
+        }
+
+        $cart = \Config\Services::cart();
+        $productoModel = new ProductoModel();
+        $producto = $productoModel->find($id_producto);
+
+        if ($producto && $producto['stock'] > 0) {
+            $data = [
+                'id'    => (int) $producto['idProducto'],  // Forzar a entero
+                'name'  => $producto['descripcion'],
+                'price' => (float) $producto['precioUnit'], // Forzar a float
+                'qty'   => 1,
+            ];
+
+            $cart->insert($data);
 
 
-public function add_carrito($id_producto = null)
-{
-    if (!$id_producto) {
-        return redirect()->to('/carrito')->with('mensaje', 'Producto no válido.');
+            return redirect()->to('/carrito')->with('mensaje', '¡Producto agregado al carrito!');
+        }
+
+        return redirect()->to('/carrito')->with('mensaje', '¡No hay stock disponible!');
     }
-
-    $cart = \Config\Services::cart();
-    $productoModel = new ProductoModel();
-    $producto = $productoModel->find($id_producto);
-
-    if ($producto && $producto['stock'] > 0) {
-        $data = [
-            'id'    => $producto['idProducto'],
-            'name'  => $producto['descripcion'],
-            'price' => $producto['precioUnit'],
-            'qty'   => 1,
-        ];
-        $cart->insert($data);
-
-        return redirect()->to('/carrito')->with('mensaje', '¡Producto agregado al carrito!');
-    }
-
-    return redirect()->to('/carrito')->with('mensaje', '¡No hay stock disponible!');
-}
 
     public function guardar_venta()
     {
