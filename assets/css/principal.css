@@ -1,0 +1,25 @@
+/*Cuerpo*/
+body {
+  margin: 0; /* Elimina márgenes del body */
+  padding: 0; /* Elimina padding del body */
+  min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+  background-color: black !important;
+}
+.container-texto-bienvenida{
+  width: 1500px;
+  height: 400;
+  margin: auto;
+  padding:20px;
+  h1{
+    font: size 600px;
+    color: white;
+  }
+  .texto-bienvenida{
+    color:white;
+    background-color: rgb(179, 104, 249);
+    width: 1200px;
+    height: 200px;
+    padding:20px;
+    margin: auto;
+  }
+}

@@ -1,11 +1,10 @@
-
 <!-- Carrusel de imágenes -->
-    
+<div class="container-principal">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src=<?= base_url("assets/img/Presentacion/presentacion1.png") ?> class="d-block img-fluid mx-auto" 
-                alt="presentacion1">
+                <img src=<?= base_url("assets/img/Presentacion/presentacion1.png") ?> class="d-block img-fluid mx-auto"
+                    alt="presentacion1">
             </div>
             <div class="carousel-item">
                 <img src=<?= base_url("assets/img/Presentacion/presentacion2.png") ?> class="d-block img-fluid mx-auto"
@@ -31,15 +30,18 @@
     </div>
 
     <!-- Texto de bienvenida -->
-    <div class="container">
+    <div class="container-texto-bienvenida">
         <h1 class="text-center mt-4">
             <strong>¡Bienvenidos a FrikiVerse!</strong>
         </h1>
         <p class="texto-bienvenida">
-            <bold>Somos FrikiVerse, un espacio dedicado a todos los apasionados del mundo geek, otaku y coleccionista. Desde
-                nuestros inicios hace 5 años en la provincia de Corrientes, hemos trabajado con dedicación para ofrecerte
-                una experiencia única, donde tus hobbies y pasiones toman vida.</bold>
-
+            <bold>Somos FrikiVerse, un espacio dedicado a todos los apasionados del mundo geek, otaku y
+                coleccionista.
+                Desde
+                nuestros inicios hace 5 años en la provincia de Corrientes, hemos trabajado con dedicación para
+                ofrecerte
+                una experiencia única, donde tus hobbies y pasiones toman vida.
+            </bold>
         </p>
     </div>
 
@@ -83,7 +85,8 @@
                         <h2 class="product-title">
                             <a href="figuras.html">Figuras</a>
                         </h2>
-                        <p class="product-description">Figuras coleccionables de alta calidad para todos los fanáticos.</p>
+                        <p class="product-description">Figuras coleccionables de alta calidad para todos los fanáticos.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -103,3 +106,4 @@
             </div>
         </div>
     </div>
+</div>

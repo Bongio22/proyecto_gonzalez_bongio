@@ -1,0 +1,57 @@
+/* NAVBAR */
+/* Fondo celeste pastel para la barra de navegación */
+.navbar { 
+    background-color: rgb(179, 104, 249) !important; 
+    border: 1px solid blueviolet; 
+    padding: 10px 0; /* Espaciado interno superior e inferior */
+    margin: 0; /* Elimina margen */
+    width: 100%; /* Asegura que la navbar ocupe todo el ancho */
+  }
+  
+  /* Estilo para los enlaces del menú */
+  .nav-link {
+    color: white !important; /* Letras negras */
+    border: 1px solid #feffff; /* Borde fino */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px 15px; /* Espaciado interno */
+    margin-right: 10px; /* Separación entre enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Letras en negrita */
+  }
+  
+  .nav-link:hover {
+    background-color: black; /* Fondo gris claro al pasar el mouse */
+    color: white !important; /* Letras más oscuras */
+  }
+  
+  /* Botones de sesión y registro */
+  .btn-outline-dark {
+    color: black; /* Letras negras */
+    border: 1px solid #ddd; /* Borde fino */
+    background-color: white !important; /* Fondo blanco */
+  }
+  
+  .btn-outline-dark:hover {
+    background-color: black !important; /* Fondo negro al pasar el mouse */
+  }
+  
+  .btn-dark {
+    color: black; /* Letras blancas */
+    border: 1px solid #ddd;
+    background-color: white !important; 
+  }
+  
+  .btn-dark:hover {
+    background-color: black !important; /* Fondo oscuro */
+  }
+  
+  /* Ajuste de separación entre botones */
+  .d-flex > button {
+    margin-left: 10px; /* Separación entre los botones */
+  }
+  
+  /* Contenedor para alinear los botones de sesión y registro a la derecha */
+  .d-flex.justify-content-end {
+    margin-left: auto; /* Empuja los botones hacia la derecha */
+  }
+/*NAVBAR*/

@@ -1,0 +1,162 @@
+
+/*PRODUCTOS*/
+/* Contenedor principal de productos */
+.product-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(179, 104, 249);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  text-align: center;
+}
+  
+/* Filas y columnas de productos */
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+  
+.product-col {
+  flex: 1 1 100%; /* Base 100% */
+  max-width: 100%;
+}
+  
+@media (min-width: 576px) {
+  .product-col {
+    flex: 1 1 48%; /* Base 50% */
+  }
+}
+  
+@media (min-width: 768px) {
+  .product-col {
+    flex: 1 1 32%; /* Base 33% */
+  }
+}
+  
+@media (min-width: 992px) {
+  .product-col {
+    flex: 1 1 23%; /* Base 25% */
+  }
+}
+  
+/* Tarjetas de producto */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ajusta automáticamente según el contenido */
+  padding: 10px;
+  box-sizing: border-box;
+}
+  
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+  
+.product-info {
+  padding: 10px;
+}
+  
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+  
+.product-title a {
+  color: inherit;
+  text-decoration: none;
+}
+  
+.product-description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+  
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid #ddd;
+}
+  
+/* Estilo para cada columna del producto */
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Asegura que el contenido esté distribuido uniformemente */
+  height: 350px;  /* Fija una altura estándar para todos los productos */
+  padding: 10px;
+  box-sizing: border-box;  /* Incluye el padding dentro del tamaño del contenedor */
+}
+  
+.product-item img {
+  width: 100%;  /* La imagen ocupará el 100% del ancho del contenedor */
+  height: 200px;  /* Fija una altura estándar para las imágenes */
+  object-fit: contain;  /* Ajusta la imagen al contenedor sin deformarla */
+}
+  
+.product-details {
+  padding: 10px;  /* Espacio interno para el texto */
+  flex-grow: 1;  /* Permite que el contenido ocupe el espacio disponible */
+}
+  
+.product-title a {
+  color: inherit;  /* Hereda el color del contenedor para quitar color del enlace */
+  text-decoration: none;  /* Elimina el subrayado de los enlaces */
+}
+  
+.product-title {
+  margin-bottom: 10px;  /* Espacio debajo del título */
+  font-size: 1.2rem;  /* Tamaño de fuente ajustado */
+}
+  
+.product-description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;  /* Elimina márgenes innecesarios */
+}
+  
+/* Estilo para las columnas dentro del contenedor */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;  /* Espacio entre los productos */
+}
+  
+.col-12 {
+  flex: 1 1 100%;
+}
+  
+.col-sm-6 {
+  flex: 1 1 48%;
+}
+  
+.col-md-4 {
+ flex: 1 1 32%;
+}
+  
+.col-lg-3 {
+  flex: 1 1 23%;
+}
+/*PRODUCTOS*/

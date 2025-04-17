@@ -1,0 +1,109 @@
+/*CONTACTO*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .form-container input[type="text"],
+  .form-container input[type="email"],
+  .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que padding y borde se incluyan en el ancho total */
+  }
+  
+  .form-container textarea {
+    resize: none; /* Deshabilita el cambio de tamaño */
+  }
+  
+  .form-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .form-container input[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  @media (max-width: 600px) {
+    .form-container {
+        padding: 10px;
+    }
+  
+    .form-container h2 {
+        font-size: 1.2em;
+    }
+  }
+  
+  /*IMAGEN DE LA TIENDA/
+  /* Estilos generales del contenedor */
+  .store-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 90%; /* Ocupa un 90% del ancho disponible */
+    box-sizing: border-box;
+  }
+  
+  /* Texto */
+  .store-text {
+    color: #000; /* Negro */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Imagen */
+  .store-image {
+    width: 100%; /* Ajusta el ancho al tamaño del contenedor */
+    max-width: 600px; /* Tamaño máximo de la imagen */
+    height: auto; /* Mantiene las proporciones */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .store-text {
+        font-size: 1rem; /* Reduce el tamaño de fuente */
+    }
+  
+    .store-image {
+        max-width: 90%; /* Reduce el tamaño de la imagen en pantallas pequeñas */
+    }
+  }
+  /*CONTACTO*/

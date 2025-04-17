@@ -1,0 +1,33 @@
+/* Contenedor COMERCIALIZACIÓN*/
+/* Estilo para el contenedor reducido */
+.small-container {
+  max-width: 800px; /* Ancho máximo reducido */
+  border-radius: 5px; /* Bordes redondeados */
+  margin: 20 auto; /* Centra el contenedor */
+  padding: 20px; /* Espaciado interno */
+}
+  
+  /* Estilo para el texto dentro del contenedor */
+.bordered {
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+}
+  
+/* Ajustes en los títulos */
+.titulo {
+  margin-bottom: 20px; /* Espaciado inferior para los títulos */
+}
+  
+/* Estilo para los párrafos */
+.card-text {
+  margin-bottom: 15px; /* Espaciado inferior para los párrafos */
+  line-height: 1.6; /* Espaciado entre líneas */
+  text-align: center; /* Centra el texto */
+}
+  
+  /* Ajustes para imágenes en la sección de agradecimiento */
+  .term_img {
+    display: inline-block; /* Permite que la imagen se alinee con el texto */
+    vertical-align: middle; /* Alinea verticalmente la imagen */
+  }
+/* Contenedor COMERCIALIZACIÓN*/

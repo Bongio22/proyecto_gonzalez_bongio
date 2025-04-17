@@ -1,0 +1,148 @@
+
+/* USUARIO */
+/* Fondo con gradiente para toda la página */
+.form-wrapper {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el contenedor llene la pantalla */
+  margin: 0;
+  padding: 0;
+}
+  
+.form-container-usuario {
+  display: flex;
+  align-items: flex-start; /* Alineación superior para todos los elementos */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px; /* Reduce el ancho máximo */
+  min-height: 600px; /* Aumenta la altura mínima */
+  width: 90%; /* Para asegurar que en pantallas pequeñas se adapte */
+  padding: 30px; /* Aumenta el espaciado interno */
+}
+  
+.profile-image-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  margin-top: 20px; /* Ajustar la posición vertical de toda la sección de imagen */
+}
+  
+.profile-image-section img {
+  border-radius: 50%;
+  width: 120px; /* Aumenta el tamaño de la imagen */
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 10px; /* Espacio entre la imagen y el botón */
+}
+  
+.profile-image-section label {
+  display: inline-block;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px; /* Espacio adicional para que el botón esté más abajo */
+}
+  
+.profile-image-section input[type="file"] {
+  display: none; /* Oculta el input de archivo */
+}
+  
+.form-content {
+  flex: 2;
+  margin-left: 30px; /* Más espacio entre la imagen y el formulario */
+  display: flex;
+  flex-direction: column; /* Alinear contenido en columna */
+  justify-content: center; /* Centra verticalmente el contenido */
+}
+  
+.form-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.6em; /* Aumenta ligeramente el tamaño del título */
+}
+  
+.form-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+  
+.form-content input[type="text"],
+.form-content input[type="email"],
+.form-content input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+  
+.form-content .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+  
+.form-content .buttons button {
+  padding: 12px 24px; /* Aumenta el tamaño de los botones */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+  
+.save-btn {
+  background-color: #28a745;
+  color: #ffffff;
+}
+  
+.cancel-btn {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+  
+.save-btn:hover {
+  background-color: #218838;
+}
+  
+.cancel-btn:hover {
+  background-color: #c82333;
+}
+  
+@media (max-width: 600px) {
+  .form-container-usuario {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: center; /* Centra elementos */
+    padding: 20px;
+  }
+  
+  .profile-image-section,
+  .form-content {
+    margin-left: 0; /* Elimina el margen en móviles */
+    text-align: center; /* Centra el texto */
+  }
+  
+  .profile-image-section img {
+    width: 100px; /* Ajusta el tamaño de la imagen en móviles */
+    height: 100px;
+  }
+  
+  .form-content h2 {
+    font-size: 1.5em; /* Ajusta el tamaño del título en móviles */
+  }
+  .form-content input[type="text"],
+  .form-content input[type="email"],
+  .form-content input[type="password"] {
+    padding: 10px; /* Ajusta el padding en móviles */
+  }
+}
+/* USUARIO */

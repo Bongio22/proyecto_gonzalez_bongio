@@ -1,0 +1,15 @@
+/*QUIENES SOMOS*/
+/* Estilo para los párrafos dentro de los contenedores */
+.container {
+  padding: 20px;  /* Añade espacio alrededor del contenido */
+  border-radius: 10px;  /* Bordes redondeados para los contenedores */
+}
+  
+/* Fondo blanco para los párrafos dentro de las tarjetas */
+.card-text {
+  background-color: #ffffff;  /* Fondo blanco */
+  padding: 10px;  /* Añadir espacio interno alrededor del texto */
+  border-radius: 5px;  /* Bordes redondeados */
+}
+  
+  /*QUIENES SOMOS*/

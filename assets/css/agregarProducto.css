@@ -1,0 +1,68 @@
+
+/* AGREGAR PRODUCTO */
+/* Estilo para el formulario de agregar producto */
+.form-agregar-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 500px; /* Máximo ancho del formulario */
+    width: 100%; /* Asegura que el formulario se ajuste a la pantalla */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  }
+  
+  .form-agregar-producto label {
+    width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-agregar-producto input[type="text"],
+  .form-agregar-producto input[type="number"],
+  .form-agregar-producto select,
+  .form-agregar-producto input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  }
+  
+  /* Estilo para el botón de agregar producto */
+  .btn-agregar-producto {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%; /* Botón ocupará todo el ancho disponible */
+  }
+  
+  .btn-agregar-producto:hover {
+    background-color: #218838;
+  }
+  
+  /* Media Queries para Responsividad */
+  @media (max-width: 600px) {
+    .form-agregar-producto {
+      padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+  
+    .form-agregar-producto input[type="text"],
+    .form-agregar-producto input[type="number"],
+    .form-agregar-producto select,
+    .form-agregar-producto input[type="file"],
+    .btn-agregar-producto {
+      padding: 8px; /* Menos padding en los inputs y botón */
+      font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+  }
+  /* AGREGAR PRODUCTO */

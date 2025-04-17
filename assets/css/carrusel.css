@@ -1,0 +1,59 @@
+/* CARRUSEL */
+.carousel {
+  width: 1300px; /* Define el ancho como un porcentaje del contenedor padre */
+  height: 700px;
+  margin: 0 auto; /* Centra el carrusel horizontalmente */
+  overflow: hidden;
+}
+  
+  .carousel-item {
+    width: 1300px;
+    height: aut; /* Mantiene el alto definido del carrusel */
+    padding: 20px;
+    margin: auto;
+  }
+  
+  /* Asegura que las imágenes se ajusten correctamente dentro del carrusel */
+  .carousel-item img {
+    width: 100%;  /* La imagen ocupará todo el ancho del carrusel */
+    height: 100%;  /* La imagen ocupará todo el alto del contenedor */
+    object-fit:cover;  /* Ajustar imagen al tamaño sin deformarla */
+  }
+  
+  /* Estilo básico para el contenedor */
+  .container {
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 1200px; /* Ajuste del ancho máximo para pantallas grandes */
+  }
+  
+  /* Alineación y espaciado del título */
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem; /* Tamaño de fuente en pantallas grandes */
+  }
+  
+  /* Estilo del párrafo con texto blanco y fondo resaltado */
+  .texto-bienvenida {
+    color: white; /* Texto en blanco */
+    font-size: 1.5rem; /* Aumento del tamaño del texto del párrafo */
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px; /* Espaciado dentro del párrafo */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  /* Ajustes específicos para pantallas pequeñas (como móviles) */
+@media (max-width: 768px) {
+  h1 {
+  font-size: 2rem; /* Reducir el tamaño del título en pantallas pequeñas */
+  }
+  
+  .texto-bienvenida {
+    font-size: 1.2rem; /* Aumento del tamaño del texto en pantallas pequeñas */
+    padding: 15px; /* Añadir espacio dentro del párrafo */
+  }
+}
+/*CARRUSEL*/
