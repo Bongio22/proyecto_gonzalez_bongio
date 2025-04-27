@@ -72,45 +72,47 @@ body {
         font-size: 1.2em;
     }
   }
-  
-  /*IMAGEN DE LA TIENDA/
-  /* Estilos generales del contenedor */
-  .store-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .info-nosotros {
     text-align: center;
-    margin: 20px auto;
-    padding: 10px;
-    max-width: 90%; /* Ocupa un 90% del ancho disponible */
-    box-sizing: border-box;
-  }
+    padding: 20px;
   
-  /* Texto */
-  .store-text {
-    color: #000; /* Negro */
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-  
-  /* Imagen */
-  .store-image {
-    width: 100%; /* Ajusta el ancho al tamaño del contenedor */
-    max-width: 600px; /* Tamaño máximo de la imagen */
-    height: auto; /* Mantiene las proporciones */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .store-text {
-        font-size: 1rem; /* Reduce el tamaño de fuente */
+    .titulo {
+      font-family: var(--fuente);
+      color: white;
+      margin-bottom: 15px;
     }
   
-    .store-image {
-        max-width: 90%; /* Reduce el tamaño de la imagen en pantallas pequeñas */
+    .descripcion h5 {
+      font-family: var(--fuente);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; /* Espacio entre icono y texto */
+      margin-bottom: 10px;
     }
+  
+    .icono-contacto {
+      width: 24px; /* Tamaño pequeño tipo icono */
+      height: 24px;
+    }
+    .ubicacion {
+      text-align: center; /* Centra TODO lo que esté adentro */
+      margin-top: 15px; 
+    }
+    
+    .ubicacion h5 {
+      font-family: var(--fuente);
+      color: white;
+      margin-bottom: 10px; /* Espacio entre texto e imagen */
+    }
+    
+    .icono-ubicacion {
+      width: 40%;
+      height: 40%;
+    }
+    
+    
   }
+  
   /*CONTACTO*/

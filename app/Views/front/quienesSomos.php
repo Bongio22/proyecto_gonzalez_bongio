@@ -44,7 +44,7 @@
 <!-- Contenedor principal -->
 <div class="containerStaff my-5">
     <!-- Título principal -->
-    <h2 class="text-center mb-4">Staff</h2>
+    <h1 class="text-center mb-4">Staff</h1>
 
     <!-- Fila para los perfiles del staff -->
     <div class="row gy-4">

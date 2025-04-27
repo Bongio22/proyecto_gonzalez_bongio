@@ -4,7 +4,7 @@
   --color-fondofooter: #5e1759;
 }
 
-footer {
+  footer {
     background-color: var(--color-fondofooter) !important; /* Color de fondo del pie de página */
     padding: 10px 0; /* Espaciado interno reducido */
     width: 100%; /* Asegura que el footer ocupe todo el ancho */
@@ -68,6 +68,7 @@ footer {
   /* Estilo para el texto del pie de página */
   .footer-text {
     margin: 5px 0; /* Añade margen superior e inferior al texto */
+    color: white;
     text-align: center; /* Centra el texto */
   }
   

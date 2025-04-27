@@ -1,10 +1,8 @@
 <!-- Encabezado de la sección -->
-<h2 class="titulo text-center display-6 p-5">Términos y Usos</h2>
+<h4 class="titulo text-center display-6 p-4">Términos y Usos</h4>
 <!-- Contenedor principal -->
-<div class="small-container">
-
     <!-- Contenedor del texto -->
-    <div class="bordered">
+    <div class="bordered row gy-2">
 
         <!-- Párrafos con los términos y condiciones -->
         <p class="card-text">Estos términos y condiciones regulan el uso del sitio web y los servicios ofrecidos por
@@ -64,7 +62,6 @@
     </div>
     <!-- Agradecimiento -->
     <h4 class="titulo-agradecimiento display-6 p-5">¡Gracias por elegir Frikiverse!
-        <img src="<?php echo base_url("assets/img/logo/icono.jpeg"); ?>" class="term_img" alt="..." width="60">
+        <img src="<?=base_url('assets/img/Logo/icono.png')?>" class="term_img" alt="..." width="60">
     </h4>
 
-</div>

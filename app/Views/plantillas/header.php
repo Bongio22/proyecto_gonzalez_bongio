@@ -24,4 +24,5 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/quienesSomos.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/registro.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/usuario.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/terminosUsos.css'); ?>">
 </head>

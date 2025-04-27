@@ -21,6 +21,9 @@
                             <strong>Envío a Domicilio:</strong> Realizamos envíos a domicilio a todo el país para que
                             puedas recibir tus productos directamente en la puerta de tu hogar u oficina.
                         </p>
+                        <div class="icono">
+                                <img src="<?php echo base_url('assets/img/Iconos/Entrega/delivery.png'); ?>" alt="Tarjeta">
+                            </div>
                     </div>
                 </div>
             </div>
@@ -31,6 +34,9 @@
                             <strong>Retirar en Tienda:</strong> Si prefieres, puedes recoger tu pedido directamente en
                             nuestra tienda ubicada en Corrientes. ¡Estaremos felices de verte!
                         </p>
+                        <div class="icono">
+                                <img src="<?php echo base_url('assets/img/Iconos/Entrega/store.png'); ?>" alt="Tarjeta">
+                            </div>
                     </div>
                 </div>
             </div>
@@ -51,12 +57,12 @@
                             <strong>Si estás fuera de Argentina, contáctanos para más detalles.</strong>
                         </p>
                         <div class="d-flex justify-content-center gap-3">
-                            <a href=<?php echo base_url("https://www.instagram.com/");?>>
-                                <img src=<?php echo base_url("assets/img/redes/ig.png");?> alt="Instagram" width="24"
+                            <a href=<?php echo base_url("https://www.instagram.com/"); ?>>
+                                <img src=<?php echo base_url("assets/img/redes/ig.png"); ?> alt="Instagram" width="24"
                                     height="24">
                             </a>
-                            <a href=<?php echo base_url("https://web.whatsapp.com/");?>>
-                                <img src=<?php echo base_url("assets/img/redes/wpp.png");?> alt="WhatsApp" width="24"
+                            <a href=<?php echo base_url("https://web.whatsapp.com/"); ?>>
+                                <img src=<?php echo base_url("assets/img/redes/wpp.png"); ?> alt="WhatsApp" width="24"
                                     height="24">
                             </a>
                         </div>
@@ -67,9 +73,9 @@
     </div>
 
     <!-- Sección de Métodos de Pago -->
-    <div class="text-center mb-4">
+    <div class="metodo-container text-center mb-4">
         <h4 class="bordered-text pt-4 pb-2">Métodos de Pago</h4>
-        <p class="text-muted">Te ofrecemos diferentes formas de pago para que puedas elegir la que más te convenga.</p>
+        <p class="texto-metodos text-muted">Te ofrecemos diferentes formas de pago para que puedas elegir la que más te convenga.</p>
         <div class="row g-4">
             <div class="col-12 col-md-4">
                 <div class="card h-100">
@@ -78,6 +84,14 @@
                             <strong>Tarjeta de Crédito/Débito:</strong> Aceptamos todas las principales tarjetas de
                             crédito y débito, para que puedas comprar con seguridad.
                         </p>
+                        <div class="iconos-container mt-3">
+                            <div class="icono">
+                                <img src="<?php echo base_url('assets/img/Iconos/TiposPagos/mastecard.png'); ?>" alt="Bancario">
+                            </div>
+                            <div class="icono">
+                                <img src="<?php echo base_url('assets/img/Iconos/TiposPagos/visa.png'); ?>" alt="Tarjeta">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,6 +102,9 @@
                             <strong>Transferencia Bancaria:</strong> Si prefieres transferir el dinero, también
                             ofrecemos esta opción. Solo contáctanos para obtener los datos bancarios.
                         </p>
+                        <div class="icono mt-3">
+                            <img src=<?php echo base_url("assets/img/Iconos/TiposPagos/bancario.png"); ?>></img>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,6 +115,9 @@
                             <strong>Pago en Efectivo:</strong> Puedes pagar en efectivo al retirar tu pedido en nuestra
                             tienda física. ¡Te esperamos!
                         </p>
+                        <div class="icono mt-3">
+                            <img src=<?php echo base_url("assets/img/Iconos/TiposPagos/cash.png"); ?>></img>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,12 +137,12 @@
                             Al realizar tu pedido, recibirás una estimación de la fecha de entrega.
                         </p>
                         <div class="d-flex justify-content-center gap-3">
-                            <a href=<?php  echo base_url("https://www.instagram.com/");?>>
+                            <a href=<?php echo base_url("https://www.instagram.com/"); ?>>
                                 <img src="assets/img/redes/ig.png" alt="Instagram" width="24" height="24"></a>
-                            <a href=<?php echo base_url("https://web.whatsapp.com/");?>>
+                            <a href=<?php echo base_url("https://web.whatsapp.com/"); ?>>
                                 <img src="assets/img/redes/wpp.png" alt="WhatsApp" width="24" height="24">
                             </a>
-                            <a href=<?php echo base_url("contacto");?>>
+                            <a href=<?php echo base_url("contacto"); ?>>
                                 <button type="button" class="btn btn-outline-primary btn-sm">
                                     Ver más...
                                 </button></a>

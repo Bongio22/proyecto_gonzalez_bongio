@@ -7,18 +7,51 @@
 }
 .containerComercializacion{
   margin: 0 auto; /* Centra el contenedor */
-  width: 700px !important;  /* Ancho del contenedor */
+  width: 60% ;  /* Ancho del contenedor */
+  max-width: 1200px;
   border-radius: 15px; /* Bordes redondeados */
   padding-bottom: 25px; /* Espaciado inferior */
   background-color: var(--color); /* Color de fondo */
+
+  .card-body{
+    max-width: 1000px; /* Ancho máximo del cuerpo de la tarjeta */
+  }
+
+  .icono img{
+    width: 40px; /* Ancho de la imagen */
+    height: 40px; /* Alto de la imagen */
+    margin-top: -10px; /* Mueve la imagen 10px hacia arriba */
+  }
+
   .bordered-text{
     font-family: var(--fuente);
   }
   .card-text{
     font-family: var(--fuente);
   }
+  .bordered-text{
+    color: white;
+  }
 }
+  .metodo-container{
+    .texto-metodos{
+      color: white !important;
+    }
+    .iconos-container {
+      display: flex; /* Hace que los hijos estén en una fila */
+      justify-content: center; /* Centra las imágenes horizontalmente */
+      gap: 20px; /* Espacio entre las imágenes */
+    }
+    .icono img{
+        width: 40px; /* Ancho de la imagen */
+        height: 40px; /* Alto de la imagen */
+        margin-top: -10px; /* Mueve la imagen 10px hacia arriba */
+      }
   
+  }
+  
+
+
   /* Estilo para el texto dentro del contenedor */
 .bordered {
   border-radius: 5px; /* Bordes redondeados */

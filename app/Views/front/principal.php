@@ -29,21 +29,19 @@
         </button>
     </div>
 
-    <!-- Texto de bienvenida -->
-    <div class="container-texto-bienvenida">
-        <h1 class="text-center mt-4">
-            <strong>¡Bienvenidos a FrikiVerse!</strong>
-        </h1>
-        <p class="texto-bienvenida">
-            <bold>Somos FrikiVerse, un espacio dedicado a todos los apasionados del mundo geek, otaku y
-                coleccionista.
-                Desde
-                nuestros inicios hace 5 años en la provincia de Corrientes, hemos trabajado con dedicación para
-                ofrecerte
-                una experiencia única, donde tus hobbies y pasiones toman vida.
-            </bold>
-        </p>
-    </div>
+  <!-- Texto de bienvenida -->
+<div class="container-texto-bienvenida">
+    <h2 class="text-center mt-4">
+        <strong>¡Bienvenidos a FrikiVerse!</strong>
+    </h2>
+    <p class="texto-bienvenida">
+        Somos FrikiVerse, un espacio dedicado a todos los apasionados del mundo geek, otaku y
+        coleccionista.
+        Desde nuestros inicios hace 5 años en la provincia de Corrientes, hemos trabajado con dedicación para
+        ofrecerte una experiencia única, donde tus hobbies y pasiones toman vida.
+    </p>
+</div>
+
 
     <!-- Sección de Categorías de Productos -->
     <div class="product-container">

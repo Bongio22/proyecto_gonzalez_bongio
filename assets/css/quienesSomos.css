@@ -3,7 +3,8 @@
 .containerQuienesSomos {
   background-color: var(--color);
   margin: 0 auto;
-  width: 600px;
+  width: 70%;
+  max-width: 1200px;  /* Ancho máximo para pantallas grandes */
   height: 600x;
   padding: 20px;  /* Añade espacio alrededor del contenido */
   border-radius: 10px;  /* Bordes redondeados para los contenedores */
@@ -11,6 +12,7 @@
   flex-direction: column;  /* Coloca los elementos en una columna */
   h2{
     font-family: var(--fuente);
+    color: white;
     margin-bottom: 100px;
   }
   .card-text{
@@ -27,8 +29,10 @@
 .containerStaff{
   background-color: var(--color);
   margin: 0 auto;
-  h2{
+  h1{
+    padding-top: 30px;
     font-family: var(--fuente);
+    color: white;
   }
   padding-bottom: 20px;
   width: 90%;

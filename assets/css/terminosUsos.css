@@ -1,0 +1,18 @@
+.titulo{
+    margin: 0 auto;
+    padding-top: 10px;
+    color: aliceblue;
+}
+
+.bordered{
+    margin : 0 auto;
+    width: 70%;
+    padding-top: 5px;
+}
+
+.titulo-agradecimiento{
+    margin: 0 auto !important;
+    width: 60%;
+    padding-top: 10px;
+    color: aliceblue;
+}
