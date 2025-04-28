@@ -1,50 +1,5 @@
 /* CARRUSEL */
-.carousel {
-  width: 100%;
-  max-width: 1000px; /* Tope máximo en pantallas grandes */
-  aspect-ratio: 2 / 1; /* Mantiene proporción sin depender de height fijo */
-  margin: 0 auto; /* Centra el carrusel horizontalmente */
-  overflow: hidden;
-  position: relative; /* Para manejar bien las posiciones */
-}
 
-.carousel-inner {
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-item {
-  width: 100%;
-  height: 100%;
-  margin: 0 ;
-  padding: 0;
-}
-
-.carousel-item img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block;
-}
-
-/* Alineación y espaciado del título */
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 2.5rem;
-}
-
-/* Estilo del párrafo con texto blanco y fondo resaltado */
-.texto-bienvenida {
-  color: white;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  text-align: center;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #333; /* Fondo agregado si no tenías */
-}
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
@@ -63,3 +18,18 @@ h1 {
 }
 
 /* CARRUSEL */
+
+.container-principal {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner, .carousel-item {
+  height: 500px; /* O el tamaño que vos quieras */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantiene proporciones lindas sin deformar */
+}
