@@ -12,7 +12,15 @@
 
 .titulo-agradecimiento{
     margin: 0 auto !important;
-    width: 60%;
+    max-width: 200px;
+    width: 100%;
     padding-top: 10px;
     color: aliceblue;
+    .term_img{
+        max-height: 100px;
+        max-width: 100px;
+        width: 60%;
+        height: 60%;
+        margin: 0;
+    }
 }

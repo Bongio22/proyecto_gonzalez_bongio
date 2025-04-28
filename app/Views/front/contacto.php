@@ -39,12 +39,14 @@
     </div>
     <div class="descripcion">
         <h5>
-            <img src="<?php echo base_url('assets/img/Iconos/contacto/telefono.png') ?>" alt="Teléfono" class="icono-contacto">
+            <img src="<?php echo base_url('assets/img/Iconos/contacto/telefono.png') ?>" alt="Teléfono"
+                class="icono-contacto">
             3794-955499
         </h5>
         <h5>
-            <img src="<?php echo base_url('assets/img/Iconos/contacto/email.png') ?>" alt="Email" class="icono-contacto">
-            equilibrioZen@gmail.com
+            <img src="<?php echo base_url('assets/img/Iconos/contacto/email.png') ?>" alt="Email"
+                class="icono-contacto">
+            frikiverse@gmail.com
         </h5>
     </div>
     <div class="titulo mt-5">
@@ -52,7 +54,8 @@
     </div>
     <div class="ubicacion">
         <h5>Av. 3 de abril 3564</h5>
-        <img src="<?php echo base_url('assets/img/Iconos/contacto/ubicacion.png') ?>" alt="Ubicación" class="icono-ubicacion mt-2">
+        <img src="<?php echo base_url('assets/img/Iconos/contacto/ubicacion.png') ?>" alt="Ubicación"
+            class="icono-ubicacion mt-2">
     </div>
 
 </div>

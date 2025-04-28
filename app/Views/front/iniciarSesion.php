@@ -20,7 +20,7 @@
         <input type="password" id="password" name="password" required>
 
         <input type="submit" value="Iniciar Sesión">
-        </>
+
         <p class="texto-Formulario">
             ¿Aun no tienes cuenta? <a href="<?= base_url('registrarse') ?>" class="no-subrayado">Registrate</a>
         </p>

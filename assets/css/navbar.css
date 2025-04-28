@@ -44,7 +44,7 @@
   }
   
   .btn-dark {
-    color: black; /* Letras blancas */
+    color: black; /* Letras negras */
     border: 1px solid #ddd;
     background-color: white !important; 
   }
