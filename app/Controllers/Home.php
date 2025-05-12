@@ -48,14 +48,14 @@ class Home extends Controller
     public function iniciar_sesion()
     {
         $data['titulo'] = 'Iniciar Sesión';
-        return view('plantillas/header', $data) . view('plantillas/navbar') . view('front/iniciarSesion') . view('plantillas/footer');
+        return view('plantillas/header', $data) . view('plantillas/navbar') . view('back/iniciarSesion') . view('plantillas/footer');
     }
 
     /*LLama a la pagina de registro*/
     public function registrarse()
     {
         $data['titulo'] = 'Registrarse';
-        return view('plantillas/header', $data) . view('plantillas/navbar') . view('front/registrarse') . view('plantillas/footer');
+        return view('plantillas/header', $data) . view('plantillas/navbar') . view('back/registrarse') . view('plantillas/footer');
     }
 
     public function modificarDatos()

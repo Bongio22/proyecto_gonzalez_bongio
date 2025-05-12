@@ -5,17 +5,18 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 
-class sesionController extends BaseController
-{
+class sesionController extends BaseController{
+    //se instancia el modelo de usuario
     protected $usuarioModel;
 
-    public function __construct()
-    {
+    //se instancia el modelo de usuario
+    public function __construct(){
         $this->usuarioModel = new UsuarioModel(); // Instanciar el modelo de Usuario
     }
 
-    public function registrarUsuario()
-    {
+    //se registra el usuario
+    public function registrarUsuario(){
+        
         // Verificar que el formulario fue enviado
         if ($this->request->getMethod() === 'POST') {
             // Capturar los datos del formulario
@@ -56,10 +57,10 @@ class sesionController extends BaseController
             ];
 
             if ($this->usuarioModel->insert($data)) {
-                session()->setFlashdata('mensaje', "Usuario registrado con éxito.");
-                return redirect()->to('principal');
+                session()->setFlashdata('mensaje', "Usuario registrado con éxito");
+                return redirect()->to('registrarse');
             } else {
-                session()->setFlashdata('errores', ["Hubo un problema al registrar al usuario. Intenta nuevamente."]);
+                session()->setFlashdata('errores', ["Hubo un problema al registrar al usuario. Por favor, intenta nuevamente más tarde."]);
                 return redirect()->to('registrarse');
             }
         }
