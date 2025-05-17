@@ -16,12 +16,13 @@ $routes->get('terminosyUsos', 'Home::terminos_usos');
 
 /*Rutas par el manejo de Usuario*/ 
 $routes->get('registrarse', 'Home::registrarse'); // Ruta para mostrar el formulario
-$routes->post('registrarse', 'sesionController::registrarUsuario');
+$routes->post('registrarse', 'loginController::registrarUsuario');
 $routes->get('iniciarSesion', 'Home::iniciar_sesion');
-$routes->post('iniciarSesion', 'sesionController::iniciarSesion');
-$routes->get('cerrarSesion', 'sesionController::cerrarSesion');
+$routes->post('iniciarSesion', 'loginController::iniciarSesion');
+$routes->get('cerrarSesion', 'loginController::cerrarSesion');
 $routes->get('misDatos', 'Home::modificarDatos');
-$routes->post('misDatos', 'sesionController::modificarUsuario');
+$routes->post('misDatos', 'loginController::modificarUsuario');
+$routes->get('panelAdmin', 'Home::panelAdmin');
 /*Rutas para el manejo de Usuario*/ 
 
 /*Rutas para el manejo de Productos*/ 

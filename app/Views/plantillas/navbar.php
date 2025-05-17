@@ -65,7 +65,7 @@
                 </div>
                 <?php elseif (session('idRol') == 1): // Asumiendo que 1 es el ID para Administrador ?>
                 <!-- Opciones para Administrador -->
-                <a class="btn btn-outline-dark me-2" href="<?php echo base_url('adminPanel'); ?>">Administrar</a>
+                <a class="btn btn-outline-dark me-2" href="<?php echo base_url('panelAdmin'); ?>">Administrar</a>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
