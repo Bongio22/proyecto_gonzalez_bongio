@@ -7,7 +7,7 @@ $("#menu-toggle-2").click(function(e) {
    e.preventDefault();
    $("#wrapper").toggleClass("toggled-2");
    $('#menu ul').hide();
-});
+});///////////////////////////////7fddddddddddddddddddddd
 
 function initMenu() {
    $('#menu ul').hide();
