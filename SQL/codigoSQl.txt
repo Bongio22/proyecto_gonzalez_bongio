@@ -1,0 +1,134 @@
+
+CREATE DATABASE frikiverse;
+USE frikiverse;
+CREATE TABLE Rol
+(
+  idRol INT NOT NULL,
+  descripcion VARCHAR(20) NOT NULL,
+  PRIMARY KEY (idRol)
+);
+
+CREATE TABLE Categoria
+(
+  idCategoria INT NOT NULL,
+  descripcion VARCHAR(20) NOT NULL,
+  PRIMARY KEY (idCategoria)
+);
+
+CREATE TABLE Estado
+(
+  idEstado INT NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
+  PRIMARY KEY (idEstado)
+);
+
+CREATE TABLE Envio
+(
+  idEnvio INT NOT NULL,
+  descripcion VARCHAR(220) NOT NULL,
+  idEstado INT NOT NULL,
+  PRIMARY KEY (idEnvio),
+  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+);
+
+CREATE TABLE Usuario
+(
+  idUsuario INT NOT NULL,
+  nombre VARCHAR(20) NOT NULL,
+  apellido VARCHAR(20) NOT NULL,
+  correoElectronico VARCHAR(30) NOT NULL,
+  contrasenia VARCHAR(20) NOT NULL,
+  fotoPerfil VARCHAR(255) NOT NULL,
+  nroTelefono INT NOT NULL,
+  idRol INT NOT NULL,
+  idEstado INT NOT NULL,
+  PRIMARY KEY (idUsuario),
+  FOREIGN KEY (idRol) REFERENCES Rol(idRol),
+  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+);
+
+CREATE TABLE Producto
+(
+  idProducto INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  precioUnit FLOAT NOT NULL,
+  stock INT NOT NULL,
+  fotoProducto VARCHAR(255) NOT NULL,
+  idCategoria INT NOT NULL,
+  idEstado INT NOT NULL,
+  PRIMARY KEY (idProducto),
+  FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria),
+  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+);
+
+CREATE TABLE MetodoPago
+(
+  idMetodoPago INT NOT NULL,
+  nombre VARCHAR(255) NOT NULL,
+  idEstado INT NOT NULL,
+  PRIMARY KEY (idMetodoPago),
+  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+);
+
+CREATE TABLE Consulta
+(
+  idConsulta INT NOT NULL,
+  nombre VARCHAR(255) NOT NULL,
+  apellido VARCHAR(255) NOT NULL,
+  nroTelefono INT NOT NULL,
+  asunto VARCHAR(255) NOT NULL,
+  respondido VARCHAR(2) NOT NULL,
+  respuesta VARCHAR(255) NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
+  idUsuario INT NOT NULL,
+  PRIMARY KEY (idConsulta),
+  FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+
+CREATE TABLE Ventas_cabecera
+(
+  idVentas INT NOT NULL,
+  fecha DATE NOT NULL,
+  total_venta FLOAT NOT NULL,
+  usuario_id INT NOT NULL,
+  PRIMARY KEY (idVentas),
+  FOREIGN KEY (usuario_id) REFERENCES Usuario(idUsuario)
+);
+
+CREATE TABLE Ventas_detalle
+(
+  idVentasDetalle INT NOT NULL,
+  cantidad INT NOT NULL,
+  precio FLOAT NOT NULL,
+  venta_id INT NOT NULL,
+  producto_id INT NOT NULL,
+  PRIMARY KEY (idVentasDetalle),
+  FOREIGN KEY (venta_id) REFERENCES Ventas_cabecera(idVentas),
+  FOREIGN KEY (producto_id) REFERENCES Producto(idProducto)
+);
+
+CREATE TABLE Factura
+(
+  idFactura INT NOT NULL,
+  importeTotal FLOAT NOT NULL,
+  fecha DATE NOT NULL,
+  idMetodoPago INT NOT NULL,
+  idEnvio INT NOT NULL,
+  idUsuario INT NOT NULL,
+  PRIMARY KEY (idFactura),
+  FOREIGN KEY (idMetodoPago) REFERENCES MetodoPago(idMetodoPago),
+  FOREIGN KEY (idEnvio) REFERENCES Envio(idEnvio),
+  FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+
+CREATE TABLE DetalleFactura
+(
+  idDetalleFactura INT NOT NULL,
+  cantidad INT NOT NULL,
+  subtotal FLOAT NOT NULL,
+  idProducto INT NOT NULL,
+  idFactura INT NOT NULL,
+  PRIMARY KEY (idDetalleFactura),
+  FOREIGN KEY (idProducto) REFERENCES Producto(idProducto),
+  FOREIGN KEY (idFactura) REFERENCES Factura(idFactura)
+);
