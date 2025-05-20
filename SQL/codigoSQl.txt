@@ -41,10 +41,10 @@ CREATE TABLE Usuario
   fotoPerfil VARCHAR(255) NOT NULL,
   nroTelefono INT NOT NULL,
   idRol INT NOT NULL,
-  idEstado INT NOT NULL,
+  idEstadoUsuario INT NOT NULL,
   PRIMARY KEY (idUsuario),
   FOREIGN KEY (idRol) REFERENCES Rol(idRol),
-  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+  FOREIGN KEY (idEstado) REFERENCES Estado(idEstadoUsuario)
 );
 
 CREATE TABLE Producto
@@ -132,3 +132,8 @@ CREATE TABLE DetalleFactura
   FOREIGN KEY (idProducto) REFERENCES Producto(idProducto),
   FOREIGN KEY (idFactura) REFERENCES Factura(idFactura)
 );
+
+INSERT into Rol(idRol,descripcion) VALUES(1,"Administrador");
+INSERT into Rol(idRol,descripcion) VALUES(2,"Cliente");
+INSERT into estado(idEstado,descripcion) VALUES(1,"Activo");
+INSERT into estado(idEstado,descripcion) VALUES(2,"Desactivado");
