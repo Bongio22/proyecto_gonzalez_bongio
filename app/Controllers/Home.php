@@ -63,21 +63,11 @@ class Home extends Controller
         $data['titulo'] = 'MisDatos';
         return view('plantillas/header', $data) . view('plantillas/navbar') . view('usuario/misDatos') . view('plantillas/footer');
     }
-    public function agregarProducto()
-    {
-        $categoriaModel = new \App\Models\CategoriaModel();
-        $data['categorias'] = $categoriaModel->findAll(); // Obtener todas las categorías
-
-        return view('plantillas/header', $data)
-            . view('plantillas/navbar')
-            . view('front/agregarProducto', $data) // Pasar las categorías a la vista
-            . view('plantillas/footer');
-    }
+    
 
     public function panelAdmin(){
         $data['titulo'] = 'Panel de Administración';
         echo view('plantillas/header',$data);
-        echo view('plantillas/navbar');
         echo view('front/admin/panelAdmin');
         echo view('plantillas/footer');
     }
@@ -88,4 +78,6 @@ class Home extends Controller
         echo view('front/admin/panelUsuario');
         echo view('plantillas/footer');
     }
+
+   
 }

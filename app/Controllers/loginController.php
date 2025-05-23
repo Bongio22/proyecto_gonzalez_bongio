@@ -104,7 +104,7 @@ class loginController extends BaseController
                 session()->set('nroTelefono', $usuario['nroTelefono']);
                 session()->set('fotoPerfil', $usuario['fotoPerfil']); // Guardar la foto de perfil
 
-                return redirect()->to('principal');
+                return redirect()->to('panelAdmin');
             }
         }
 

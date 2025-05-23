@@ -14,21 +14,19 @@ class productosController extends BaseController
     protected $usuarioModel;
     protected $categoriaModel;
     protected $db;
-
-    public function __construct()
-    {
+    
+    //constructor
+    public function __construct(){
         $this->productoModel = new ProductoModel();
         $this->usuarioModel = new UsuarioModel();
         $this->categoriaModel = new CategoriaModel();
         $this->db = Config::connect(); // Conectar a la base de datos
     }
 
-    // Método para cargar la vista de productos
-    public function productos()
-    {
+    //vista productos
+    public function productos(){
         // Obtener las categorías
         $categorias = $this->obtenerCategorias();
-
         // Obtener parámetros de búsqueda
         $categoria = $this->request->getGet('categoria'); // Obtener la categoría seleccionada
         $busqueda = $this->request->getGet('busqueda'); // Obtener el término de búsqueda
@@ -41,13 +39,11 @@ class productosController extends BaseController
             'productos' => $productos,
             'categorias' => $categorias,
         ];
-
         // Cargar las diferentes partes de la plantilla
         $header = view('plantillas/header');
         $navbar = view('plantillas/navbar');
         $productosView = view('front/productos', $data);
         $footer = view('plantillas/footer');
-
         // Devolver la vista completa
         return $header . $navbar . $productosView . $footer;
     }
@@ -99,7 +95,7 @@ class productosController extends BaseController
         // retorna las vistas
         return view('plantillas/header') .
             view('plantillas/navbar') .
-            view('front/modificarProducto', [
+            view('front/admin/modificarProducto', [
                 'producto' => $producto,
                 'categorias' => $categorias,
             ]) .
@@ -145,6 +141,17 @@ class productosController extends BaseController
         return redirect()->to(site_url('productos'));
     }
 
+
+    public function agregarProducto()
+    {
+        $categoriaModel = new \App\Models\CategoriaModel();
+        $data['categorias'] = $categoriaModel->findAll(); // Obtener todas las categorías
+
+        return view('plantillas/header', $data)
+            . view('plantillas/navbar')
+            . view('front/admin/agregarProducto', $data) // Pasar las categorías a la vista
+            . view('plantillas/footer');
+    }
 
     public function guardarProducto()
     {
@@ -203,5 +210,13 @@ class productosController extends BaseController
     // Redirigir de nuevo a la página de productos
     return redirect()->to(site_url('productos'));
 }
+
+public function productosAdmin(){
+    $data['titulo'] = 'Productos Administrador';
+    echo view('plantillas/header',$data);
+    echo view('front/admin/productosAdmin');
+    echo view('plantillas/footer');
+}
+
 
 }

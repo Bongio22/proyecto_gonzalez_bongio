@@ -1,4 +1,3 @@
-
 <div id="sidebar">
     <h2>Panel de Administrador</h2>
     <ul>
@@ -8,7 +7,6 @@
         <li><a href="<?php echo base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
     </ul>
 </div>
-
 
 <style>
     #sidebar {
