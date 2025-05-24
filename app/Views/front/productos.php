@@ -36,8 +36,8 @@
             <tbody>
                 <?php if (!empty($productos)): ?>
                 <?php foreach ($productos as $producto): ?>
-                <?php if (session()->get('idRol') == 2 && $producto['stock'] == -1): ?>
-                <!-- No mostrar el producto si idRol = 2 y stock = -1 -->
+                <?php if (session()->get('idRol') == 2 && $producto['stock'] == 0): ?>
+                <!-- No mostrar el producto si idRol = 2 y stock = 0 -->
                 <?php continue; ?>
                 <?php endif; ?>
                 <tr>

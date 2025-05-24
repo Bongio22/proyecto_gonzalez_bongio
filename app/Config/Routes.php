@@ -30,12 +30,13 @@ $routes->get('productos', 'productosController::productos'); // Ruta para listar
 $routes->get('productosAdmin', 'productosController::productosAdmin');
 $routes->get('modificarProducto/(:num)', 'productosController::cargarVistaModificarProducto/$1');
 $routes->post('modificarProducto', 'productosController::modificarProducto'); // Ruta para guardar cambios
+$routes->post('agregarProducto', 'productosController::guardarProducto');    // Ruta para guardar el producto
 $routes->get('productosController/eliminarProducto/(:num)', 'productosController::eliminarProducto/$1');
 /*Rutas para el manejo de Productos*/ 
 
 /*Rutas para el manejo del Carrito*/ 
 $routes->get('agregarProducto', 'productosController::agregarProducto'); // Ruta para cargar el formulario
-$routes->post('agregarProducto', '::guardarProducto');    // Ruta para guardar el producto
+
 $routes->get('carrito', 'CarritoController::carrito'); // Ruta para ver el carrito
 $routes->post('agregarAlCarrito/(:num)', 'CarritoController::add_carrito/$1');
 $routes->get('agregarAlCarrito/(:num)', 'CarritoController::add_carrito/$1');

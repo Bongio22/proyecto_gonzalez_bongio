@@ -16,6 +16,6 @@ class ProductoModel extends Model
         'stock',
         'fotoProducto',
         'idCategoria',
-        'idEstado' // Campo ajustado para coincidir con la tabla
+        'idEstadoProducto'
     ];
 }

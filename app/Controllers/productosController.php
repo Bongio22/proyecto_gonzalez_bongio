@@ -14,9 +14,10 @@ class productosController extends BaseController
     protected $usuarioModel;
     protected $categoriaModel;
     protected $db;
-    
+
     //constructor
-    public function __construct(){
+    public function __construct()
+    {
         $this->productoModel = new ProductoModel();
         $this->usuarioModel = new UsuarioModel();
         $this->categoriaModel = new CategoriaModel();
@@ -24,7 +25,8 @@ class productosController extends BaseController
     }
 
     //vista productos
-    public function productos(){
+    public function productos()
+    {
         // Obtener las categorías
         $categorias = $this->obtenerCategorias();
         // Obtener parámetros de búsqueda
@@ -121,7 +123,7 @@ class productosController extends BaseController
             'stock' => $stock,
             'idCategoria' => $this->request->getPost('idCategoria'),
             // Actualizamos el estado según el stock
-            'idEstado' => ($stock == 0) ? 0 : 1,
+            'idEstadoProducto' => ($stock == 0) ? 0 : 1,
         ];
 
         // Verificar si se ha enviado un archivo y si es válido
@@ -164,9 +166,9 @@ class productosController extends BaseController
 
         // Establecer el estado del producto según el stock
         if ($data['stock'] == 0) {
-            $data['idEstado'] = 0; // Producto no disponible
+            $data['idEstadoProducto'] = 0; // Producto no disponible
         } else {
-            $data['idEstado'] = 1; // Producto disponible
+            $data['idEstadoProducto'] = 1; // Producto disponible
         }
 
         // Procesar la subida de imagen si se proporciona
@@ -187,36 +189,35 @@ class productosController extends BaseController
     }
 
     public function eliminarProducto($idProducto)
-{
-    // Verificar si se recibió un ID de producto
-    if (empty($idProducto)) {
-        session()->setFlashdata('error', 'No se seleccionó ningún producto para eliminar.');
+    {
+        // Verificar si se recibió un ID de producto
+        if (empty($idProducto)) {
+            session()->setFlashdata('error', 'No se seleccionó ningún producto para eliminar.');
+            return redirect()->to(site_url('productos'));
+        }
+
+        // Datos a actualizar: stock = -1 y estado = 2
+        $data = [
+            'stock' => 0,
+            'idEstadoProducto' => 2
+        ];
+
+        // Actualizar el producto en la base de datos
+        if ($this->productoModel->where('idProducto', $idProducto)->set($data)->update()) {
+            session()->setFlashdata('success', 'Producto eliminado correctamente.');
+        } else {
+            session()->setFlashdata('error', 'Error al eliminar el producto.');
+        }
+
+        // Redirigir de nuevo a la página de productos
         return redirect()->to(site_url('productos'));
     }
 
-    // Datos a actualizar: stock = -1 y estado = 2
-    $data = [
-        'stock' => -1,
-        'idEstado' => 0
-    ];
-
-    // Actualizar el producto en la base de datos
-    if ($this->productoModel->where('idProducto', $idProducto)->set($data)->update()) {
-        session()->setFlashdata('success', 'Producto eliminado correctamente.');
-    } else {
-        session()->setFlashdata('error', 'Error al eliminar el producto.');
+    public function productosAdmin()
+    {
+        $data['titulo'] = 'Productos Administrador';
+        echo view('plantillas/header', $data);
+        echo view('front/admin/productosAdmin');
+        echo view('plantillas/footer');
     }
-
-    // Redirigir de nuevo a la página de productos
-    return redirect()->to(site_url('productos'));
-}
-
-public function productosAdmin(){
-    $data['titulo'] = 'Productos Administrador';
-    echo view('plantillas/header',$data);
-    echo view('front/admin/productosAdmin');
-    echo view('plantillas/footer');
-}
-
-
 }
