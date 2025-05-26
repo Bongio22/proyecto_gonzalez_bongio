@@ -1,5 +1,14 @@
 <h1 class="titulo-carrito">Carrito de Compras</h1>
 
+<?php
+$total = 0;
+if (!empty($_SESSION['carrito'])) {
+    foreach ($_SESSION['carrito'] as $item) {
+        $total += $item['precioUnit'] * $item['cantidad'];
+    }
+}
+?>
+
 <table class="tabla-carrito">
     <thead>
         <tr>
@@ -29,16 +38,18 @@
 
 <div class="acciones-carrito">
     <div class="acciones-izquierda">
-        <form method="post"><button type="submit" name="vaciar">Vaciar Carrito</button></form>
-        <form action="productos.php"><button type="submit">Añadir Producto</button></form>
+        <form action="<?= base_url('carrito/vaciar') ?>" method="post">
+            <button type="submit">Vaciar Carrito</button>
+        </form>
+
+        <form action="<?php echo base_url('productos'); ?>"><button type="submit">Añadir Producto</button></form>
     </div>
     <div class="acciones-derecha">
         <span class="total-carrito">
-            Total: $<?= isset($total) ? number_format($total, 2) : '0.00' ?>
+            Total: $<?= number_format($total, 2) ?>
         </span>
         <form method="post">
             <button type="submit" name="comprar">Finalizar Compra</button>
         </form>
     </div>
-
 </div>

@@ -60,10 +60,13 @@ class carritoController extends BaseController
     }
 
     public function vaciar()
-    {
-        session()->remove('carrito');
-        return redirect()->to('/carrito');
-    }
+{
+    $session = session();
+    $session->remove('carrito'); // Elimina el carrito de la sesión
+
+    return redirect()->to('/carrito'); // Redirige de nuevo al carrito
+}
+
 
     public function comprar()
     {

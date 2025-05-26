@@ -118,11 +118,16 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
 <!-- Modal de advertencia -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: #461242; color: white;">
             <div class="modal-header border-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Cerrar"></button>
             </div>
             <div class="modal-body text-center">
+                <!-- Icono en la parte superior -->
+                <img src="<?= base_url('assets/img/logo/icono.png') ?>" alt="Icono"
+                    style="width: 120px; margin-top: -30px; margin-bottom: 15px;">
+
                 <p>Para tener una mejor experiencia te recomendamos iniciar sesión.<br>¿Ya tienes cuenta?</p>
                 <div class="d-grid gap-2 mt-3">
                     <a href="<?= base_url('iniciarSesion') ?>" class="btn btn-light text-black border">Iniciar
@@ -134,6 +139,7 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
         </div>
     </div>
 </div>
+
 
 <!-- JavaScript al final (después de cargar Bootstrap JS) -->
 <script>

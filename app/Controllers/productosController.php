@@ -43,11 +43,9 @@ class productosController extends BaseController
         ];
         // Cargar las diferentes partes de la plantilla
         $header = view('plantillas/header');
-        $navbar = view('plantillas/navbar');
         $productosView = view('front/productos', $data);
-        $footer = view('plantillas/footer');
         // Devolver la vista completa
-        return $header . $navbar . $productosView . $footer;
+        return $header . $productosView ;
     }
 
 

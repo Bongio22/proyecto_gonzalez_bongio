@@ -41,6 +41,8 @@ $routes->get('carrito', 'carritoController::index'); // Ruta para ver el carrito
 $routes->get('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('eliminarDelCarrito', 'carritoController::remover_producto');
+$routes->post('carrito/vaciar', 'CarritoController::vaciar');
+
 /*Rutas para el manejo del Carrito*/
 
 /*Rutas para el manejo del panel */

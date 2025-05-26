@@ -1,3 +1,14 @@
+<div id="sidebar">
+    <h2>Categorias</h2>
+    <ul>
+        <li><a href=" <?php echo base_url('principal'); ?>">Inicio</a></li>
+        <li><a href=" #" onclick="cargarVista('usuarios')">Mangas</a></li>
+        <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
+        <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
+        <li><a href=" <?php echo base_url('carrito'); ?>">Mi Carrito</a></li>
+    </ul>
+</div>
+
 <h1>Listado de Productos</h1>
 <form method="get" action="<?= site_url('productos'); ?>" style="display: flex; align-items: center; gap: 10px;">
     <select name="categoria" onchange="this.form.submit();" style="max-width: 200px;">
