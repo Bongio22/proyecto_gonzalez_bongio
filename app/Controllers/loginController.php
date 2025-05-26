@@ -1,6 +1,7 @@
 <?php
 //sesionController se manejan los datos del usuario
 namespace App\Controllers;
+
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 
@@ -95,16 +96,24 @@ class loginController extends BaseController
                 return redirect()->to('iniciarSesion');
             }
 
-            if ($password === $usuario['contrasenia']) { // Comparar sin hashing
+            if ($password === $usuario['contrasenia'] && $usuario['idRol'] == 1) {
                 // Iniciar sesión
                 session()->set('idUsuario', $usuario['idUsuario']);
-                session()->set('idRol', $usuario['idRol']); // Guardar el idRol
+                session()->set('idRol', $usuario['idRol']);
                 session()->set('nombre', $usuario['nombre']);
                 session()->set('apellido', $usuario['apellido']);
                 session()->set('nroTelefono', $usuario['nroTelefono']);
-                session()->set('fotoPerfil', $usuario['fotoPerfil']); // Guardar la foto de perfil
-
+                session()->set('fotoPerfil', $usuario['fotoPerfil']);
                 return redirect()->to('panelAdmin');
+            } else {
+                // Iniciar sesión
+                session()->set('idUsuario', $usuario['idUsuario']);
+                session()->set('idRol', $usuario['idRol']);
+                session()->set('nombre', $usuario['nombre']);
+                session()->set('apellido', $usuario['apellido']);
+                session()->set('nroTelefono', $usuario['nroTelefono']);
+                session()->set('fotoPerfil', $usuario['fotoPerfil']);
+                return redirect()->to('principal');
             }
         }
 
@@ -121,8 +130,6 @@ class loginController extends BaseController
         // Redirigir al usuario a la página de inicio de sesión
         return redirect()->to(base_url('iniciarSesion'));
     }
-
-
 
     public function modificarUsuario()
     {

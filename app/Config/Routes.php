@@ -37,10 +37,15 @@ $routes->get('productosController/eliminarProducto/(:num)', 'productosController
 
 /*Rutas para el manejo del Carrito*/
 $routes->get('agregarProducto', 'productosController::agregarProducto'); // Ruta para cargar el formulario
-
 $routes->get('carrito', 'CarritoController::carrito'); // Ruta para ver el carrito
 $routes->post('agregarAlCarrito/(:num)', 'carritoController::agregar/$1');
 $routes->get('agregarAlCarrito/(:num)', 'CarritoController::add_carrito/$1');
 $routes->post('eliminarDelCarrito', 'CarritoController::remover_producto');
-
 /*Rutas para el manejo del Carrito*/
+
+/*Rutas para el manejo del panel */
+// Rutas para el panel de administración
+$routes->get('panelAdmin', 'panelController::panelAdmin'); // Vista principal
+$routes->get('adminUsuarios', 'panelController::mostrarUsuarios'); // Cargar tabla usuarios
+$routes->get('adminProductos', 'panelController::mostrarProductos'); // Cargar tabla productos
+/*Rutas para el manejo del panel */
