@@ -4,14 +4,14 @@ namespace App\Controllers;
 
 use App\Models\ProductoModel;
 
-class Carrito extends BaseController
+class carritoController extends BaseController
 {
     public function index()
     {
         $session = session();
         $carrito = $session->get('carrito') ?? [];
 
-        return view('carrito', ['carrito' => $carrito]);
+        return view('front/carrito', ['carrito' => $carrito]);
     }
 
     public function agregar($idProducto)

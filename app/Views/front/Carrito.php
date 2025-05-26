@@ -33,7 +33,12 @@
         <form action="productos.php"><button type="submit">Añadir Producto</button></form>
     </div>
     <div class="acciones-derecha">
-        <span class="total-carrito">Total: $<?= number_format($total, 2) ?></span>
-        <form method="post"><button type="submit" name="comprar">Finalizar Compra</button></form>
+        <span class="total-carrito">
+            Total: $<?= isset($total) ? number_format($total, 2) : '0.00' ?>
+        </span>
+        <form method="post">
+            <button type="submit" name="comprar">Finalizar Compra</button>
+        </form>
     </div>
+
 </div>

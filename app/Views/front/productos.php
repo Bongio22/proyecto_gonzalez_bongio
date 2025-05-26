@@ -59,7 +59,7 @@
                         <?php if ($producto['stock'] == 0): ?>
                         <span class="text-danger">No hay stock disponible</span>
                         <?php else: ?>
-                        <a href="<?= site_url('agregarAlCarrito/' . urlencode($producto['idProducto'])); ?>"
+                        <a href="<?= site_url('agregar/' . urlencode($producto['idProducto'])); ?>"
                             class="btn btn-success">
                             Agregar al carrito
                         </a>

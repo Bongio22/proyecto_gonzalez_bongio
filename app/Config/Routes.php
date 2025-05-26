@@ -37,10 +37,10 @@ $routes->get('productosController/eliminarProducto/(:num)', 'productosController
 
 /*Rutas para el manejo del Carrito*/
 $routes->get('agregarProducto', 'productosController::agregarProducto'); // Ruta para cargar el formulario
-$routes->get('carrito', 'CarritoController::carrito'); // Ruta para ver el carrito
-$routes->post('agregarAlCarrito/(:num)', 'carritoController::agregar/$1');
-$routes->get('agregarAlCarrito/(:num)', 'CarritoController::add_carrito/$1');
-$routes->post('eliminarDelCarrito', 'CarritoController::remover_producto');
+$routes->get('carrito', 'carritoController::index'); // Ruta para ver el carrito
+$routes->get('agregar/(:num)', 'carritoController::agregar/$1');
+$routes->post('agregar/(:num)', 'carritoController::agregar/$1');
+$routes->post('eliminarDelCarrito', 'carritoController::remover_producto');
 /*Rutas para el manejo del Carrito*/
 
 /*Rutas para el manejo del panel */
