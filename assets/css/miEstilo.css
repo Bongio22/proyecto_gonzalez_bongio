@@ -302,7 +302,7 @@ body {
 /*Footer*/
 /* Estilo general para el pie de página */
 :root{
-  --color-fondofooter: #5e1759;
+  --color-fondofooter: #modal;
 }
 
   footer {
@@ -1247,10 +1247,10 @@ body {
 }
 /*Usuario*/
 
-/*Sidebar*/
-#sidebar {
+  /*Sidebar*/
+  #sidebar {
     width: 250px;
-    background-color: rgb(180, 81, 191);
+    background-color: rgb(180, 81, 191) ;
     padding: 15px;
     border-right: 1px solid #ccc;
     height: 100vh;
@@ -1259,26 +1259,26 @@ body {
     /* Sombra para dar profundidad */
     border-radius: 5px;
     /* Bordes redondeados */
-}
+  }
 
-#sidebar h2 {
+  #sidebar h2 {
     text-align: center;
     color: #fff;
     /* Color del texto del título */
     margin-bottom: 20px;
     /* Espacio debajo del título */
-}
+  }
 
-#sidebar ul {
+  #sidebar ul {
     list-style-type: none;
     padding: 0;
-}
+  }
 
-#sidebar ul li {
+  #sidebar ul li {
     margin: 15px 0;
-}
+  }
 
-#sidebar ul li a {
+  #sidebar ul li a {
     text-decoration: none;
     color: #fff;
     /* Color de los enlaces */
@@ -1291,12 +1291,12 @@ body {
     /* Bordes redondeados en los enlaces */
     transition: background-color 0.3s, color 0.3s;
     /* Transición suave */
-}
+  }
 
-#sidebar ul li a:hover {
+  #sidebar ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
     /* Fondo al pasar el mouse */
     color: #fff;
     /* Color del texto al pasar el mouse */
-}
-/*Sidebar*/
+  }
+  /*Sidebar*/

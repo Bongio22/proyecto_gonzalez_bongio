@@ -6,6 +6,7 @@
         <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
         <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
         <li><a href=" <?php echo base_url('carrito'); ?>">Mi Carrito</a></li>
+        <li><a href="<?php echo base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
     </ul>
 </div>
 
