@@ -1,30 +1,30 @@
-
 CREATE DATABASE frikiverse;
 USE frikiverse;
+
 CREATE TABLE Rol
 (
-  idRol INT NOT NULL,
+  idRol INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(20) NOT NULL,
   PRIMARY KEY (idRol)
 );
 
 CREATE TABLE Categoria
 (
-  idCategoria INT NOT NULL,
+  idCategoria INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(20) NOT NULL,
   PRIMARY KEY (idCategoria)
 );
 
 CREATE TABLE Estado
 (
-  idEstado INT NOT NULL,
+  idEstado INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(255) NOT NULL,
   PRIMARY KEY (idEstado)
 );
 
 CREATE TABLE Envio
 (
-  idEnvio INT NOT NULL,
+  idEnvio INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(220) NOT NULL,
   idEstado INT NOT NULL,
   PRIMARY KEY (idEnvio),
@@ -33,7 +33,7 @@ CREATE TABLE Envio
 
 CREATE TABLE Usuario
 (
-  idUsuario INT NOT NULL,
+  idUsuario INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(20) NOT NULL,
   apellido VARCHAR(20) NOT NULL,
   correoElectronico VARCHAR(30) NOT NULL,
@@ -44,26 +44,26 @@ CREATE TABLE Usuario
   idEstadoUsuario INT NOT NULL,
   PRIMARY KEY (idUsuario),
   FOREIGN KEY (idRol) REFERENCES Rol(idRol),
-  FOREIGN KEY (idEstado) REFERENCES Estado(idEstadoUsuario)
+  FOREIGN KEY (idEstadoUsuario) REFERENCES Estado(idEstado)
 );
 
 CREATE TABLE Producto
 (
-  idProducto INT NOT NULL,
+  idProducto INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(30) NOT NULL,
   precioUnit FLOAT NOT NULL,
   stock INT NOT NULL,
   fotoProducto VARCHAR(255) NOT NULL,
   idCategoria INT NOT NULL,
-  idEstado INT NOT NULL,
+  idEstadoProducto INT NOT NULL,
   PRIMARY KEY (idProducto),
   FOREIGN KEY (idCategoria) REFERENCES Categoria(idCategoria),
-  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
+  FOREIGN KEY (idEstadoProducto) REFERENCES Estado(idEstado)
 );
 
 CREATE TABLE MetodoPago
 (
-  idMetodoPago INT NOT NULL,
+  idMetodoPago INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(255) NOT NULL,
   idEstado INT NOT NULL,
   PRIMARY KEY (idMetodoPago),
@@ -72,7 +72,7 @@ CREATE TABLE MetodoPago
 
 CREATE TABLE Consulta
 (
-  idConsulta INT NOT NULL,
+  idConsulta INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(255) NOT NULL,
   apellido VARCHAR(255) NOT NULL,
   nroTelefono INT NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE Consulta
 
 CREATE TABLE Ventas_cabecera
 (
-  idVentas INT NOT NULL,
+  idVentas INT NOT NULL AUTO_INCREMENT,
   fecha DATE NOT NULL,
   total_venta FLOAT NOT NULL,
   usuario_id INT NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE Ventas_cabecera
 
 CREATE TABLE Ventas_detalle
 (
-  idVentasDetalle INT NOT NULL,
+  idVentasDetalle INT NOT NULL AUTO_INCREMENT,
   cantidad INT NOT NULL,
   precio FLOAT NOT NULL,
   venta_id INT NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE Ventas_detalle
 
 CREATE TABLE Factura
 (
-  idFactura INT NOT NULL,
+  idFactura INT NOT NULL AUTO_INCREMENT,
   importeTotal FLOAT NOT NULL,
   fecha DATE NOT NULL,
   idMetodoPago INT NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE Factura
 
 CREATE TABLE DetalleFactura
 (
-  idDetalleFactura INT NOT NULL,
+  idDetalleFactura INT NOT NULL AUTO_INCREMENT,
   cantidad INT NOT NULL,
   subtotal FLOAT NOT NULL,
   idProducto INT NOT NULL,
@@ -133,7 +133,20 @@ CREATE TABLE DetalleFactura
   FOREIGN KEY (idFactura) REFERENCES Factura(idFactura)
 );
 
-INSERT into Rol(idRol,descripcion) VALUES(1,"Administrador");
-INSERT into Rol(idRol,descripcion) VALUES(2,"Cliente");
-INSERT into estado(idEstado,descripcion) VALUES(1,"Activo");
-INSERT into estado(idEstado,descripcion) VALUES(2,"Desactivado");
+-- Inserts
+INSERT into Rol(descripcion) VALUES("Administrador");
+INSERT into Rol(descripcion) VALUES("Cliente");
+
+INSERT into Estado(descripcion) VALUES("Activo");
+INSERT into Estado(descripcion) VALUES("Desactivado");
+
+INSERT INTO Usuario(nombre,apellido,correoElectronico,contrasenia,fotoPerfil,nroTelefono,idRol,idEstadoUsuario) 
+VALUES ("Iara","Bongiovanni","bongiovaniiara22@gmail.com","ventana123","",2174273232,2,1);
+
+INSERT INTO Usuario(nombre,apellido,correoElectronico,contrasenia,fotoPerfil,nroTelefono,idRol,idEstadoUsuario) 
+VALUES ("Ariel","Gonzalez","arielgonzalezr9@gmail.com","admin123","",9714634637,1,1);
+
+INSERT INTO Categoria(descripcion) VALUES("Mangas");
+INSERT INTO Categoria(descripcion) VALUES("Comics");
+INSERT INTO Categoria(descripcion) VALUES("Figuras");
+INSERT INTO Categoria(descripcion) VALUES("Merchandising");

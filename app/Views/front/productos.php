@@ -1,3 +1,15 @@
+<div id="sidebar">
+    <h2>Categorias</h2>
+    <ul>
+        <li><a href=" <?php echo base_url('principal'); ?>">Inicio</a></li>
+        <li><a href=" #" onclick="cargarVista('usuarios')">Mangas</a></li>
+        <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
+        <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
+        <li><a href=" <?php echo base_url('carrito'); ?>">Mi Carrito</a></li>
+        <li><a href="<?php echo base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
+    </ul>
+</div>
+
 <h1>Listado de Productos</h1>
 <form method="get" action="<?= site_url('productos'); ?>" style="display: flex; align-items: center; gap: 10px;">
     <select name="categoria" onchange="this.form.submit();" style="max-width: 200px;">
@@ -36,8 +48,8 @@
             <tbody>
                 <?php if (!empty($productos)): ?>
                 <?php foreach ($productos as $producto): ?>
-                <?php if (session()->get('idRol') == 2 && $producto['stock'] == -1): ?>
-                <!-- No mostrar el producto si idRol = 2 y stock = -1 -->
+                <?php if (session()->get('idRol') == 2 && $producto['stock'] == 0): ?>
+                <!-- No mostrar el producto si idRol = 2 y stock = 0 -->
                 <?php continue; ?>
                 <?php endif; ?>
                 <tr>
@@ -59,7 +71,7 @@
                         <?php if ($producto['stock'] == 0): ?>
                         <span class="text-danger">No hay stock disponible</span>
                         <?php else: ?>
-                        <a href="<?= site_url('agregarAlCarrito/' . urlencode($producto['idProducto'])); ?>"
+                        <a href="<?= site_url('agregar/' . urlencode($producto['idProducto'])); ?>"
                             class="btn btn-success">
                             Agregar al carrito
                         </a>

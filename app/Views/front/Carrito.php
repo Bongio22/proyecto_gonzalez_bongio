@@ -1,55 +1,55 @@
-<div class="container">
-    <h3 class="text-center">PRODUCTOS EN TU CARRITO</h3>
+<h1 class="titulo-carrito">Carrito de Compras</h1>
 
-    <!-- Flash messages -->
-    <?php if (session()->getFlashdata('mensaje')) : ?>
-    <div class="alert alert-info text-center">
-        <?= session()->getFlashdata('mensaje') ?>
-    </div>
-    <?php endif; ?>
+<?php
+$total = 0;
+if (!empty($_SESSION['carrito'])) {
+    foreach ($_SESSION['carrito'] as $item) {
+        $total += $item['precioUnit'] * $item['cantidad'];
+    }
+}
+?>
 
-    <div class="table-responsive">
-        <?php if (!empty($productos)) : ?>
-        <table class="table table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Subtotal</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $gran_total = 0; ?>
-                <?php foreach ($productos as $producto) : ?>
-                <?php $subtotal = $producto['qty'] * $producto['price']; ?>
-                <tr>
-                    <td><?= esc($producto['id']) ?></td>
-                    <td><?= esc($producto['name']) ?></td>
-                    <td>$<?= number_format($producto['price'], 2) ?></td>
-                    <td><?= esc($producto['qty']) ?></td>
-                    <td>$<?= number_format($subtotal, 2) ?></td>
-                    <td>
-                        <a href="<?= base_url('remover_producto/' . $producto['rowid']) ?>"
-                            class="btn btn-danger btn-sm">Eliminar</a>
-                    </td>
-                </tr>
-                <?php $gran_total += $subtotal; ?>
-                <?php endforeach; ?>
-                <tr>
-                    <td colspan="4" class="text-center"><b>Total:</b></td>
-                    <td><b>$<?= number_format($gran_total, 2) ?></b></td>
-                    <td class="text-end">
-                        <a href="<?= base_url('eliminar_carrito') ?>" class="btn btn-danger btn-sm">Vaciar carrito</a>
-                        <a href="#" class="btn btn-warning btn-sm">Comprar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <?php else : ?>
-        <p class="text-center">Tu carrito está vacío. Agrega productos para continuar.</p>
+<table class="tabla-carrito">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (!empty($_SESSION['carrito'])): ?>
+        <?php foreach ($_SESSION['carrito'] as $i => $item): ?>
+        <tr>
+            <td><?= htmlspecialchars($item['descripcion']) ?></td>
+            <td>$<?= number_format($item['precioUnit'], 2) ?></td>
+            <td><?= $item['cantidad'] ?></td>
+            <td><a href="?del=<?= $i ?>" class="btn-remove">X</a></td>
+        </tr>
+        <?php endforeach; ?>
+        <?php else: ?>
+        <tr>
+            <td colspan="4">El carrito está vacío.</td>
+        </tr>
         <?php endif; ?>
+    </tbody>
+</table>
+
+<div class="acciones-carrito">
+    <div class="acciones-izquierda">
+        <form action="<?= base_url('carrito/vaciar') ?>" method="post">
+            <button type="submit">Vaciar Carrito</button>
+        </form>
+
+        <form action="<?php echo base_url('productos'); ?>"><button type="submit">Añadir Producto</button></form>
+    </div>
+    <div class="acciones-derecha">
+        <span class="total-carrito">
+            Total: $<?= number_format($total, 2) ?>
+        </span>
+        <form method="post">
+            <button type="submit" name="comprar">Finalizar Compra</button>
+        </form>
     </div>
 </div>

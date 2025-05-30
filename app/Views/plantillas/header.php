@@ -9,22 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    
+
     <!-- Hoja de estilos personalizada -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/agregarProducto.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/carrito.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/carrusel.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/comercializacion.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/contacto.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/footer.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/iniciarSesion.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/modificarProducto.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/navbar.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/principal.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/productos.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/quienesSomos.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/registro.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/usuario.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/terminosUsos.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/miEstilo.css'); ?>">
+
 
 </head>

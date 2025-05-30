@@ -1,0 +1,477 @@
+INFO - 2025-05-24 20:27:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:28:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:30:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:34:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:38:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:41:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 20:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-24 20:41:22 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`)) in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Product...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Product...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Product...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Product...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(865): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(135): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-24 20:41:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`))
+[Method: POST, Route: modificarProducto]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstado` = :idEstado:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 20:41:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_10.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_10.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstado` = :idEstado:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 20:41:22 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_10.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_10.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_10.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstado` = :idEstado:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-24 20:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-24 20:42:11 --> mysqli_sql_exception: Unknown column 'idEstado' in 'field list' in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Product...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Product...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Product...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Product...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(865): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(135): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-24 20:42:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idEstado' in 'field list'
+[Method: POST, Route: modificarProducto]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstado` = :idEstado:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 20:42:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idEstado' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_11.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_11.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstado` = :idEstado:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 20:42:11 --> [Caused by] mysqli_sql_exception: Unknown column 'idEstado' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_11.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_11.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `descripcion` = \'Jujutsu Kaisen Vol n° 1 \', `precioUnit` = \'12000\', `stock` = \'0\', `idCategoria` = \'1\', `idEstado` = 0, `fotoProducto` = \'jujustuKaisen01_11.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstado` = :idEstado:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-24 21:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:06:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:06:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:06:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:06:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-24 21:07:14 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`)) in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `Pr...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Pr...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Pr...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Pr...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(180): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-24 21:07:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+[Method: POST, Route: agregarProducto]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (:descripcion:, :precioUnit:, :stock:, :idCategoria:, :fotoProducto:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\productosController.php(180): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:07:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_12.jpg\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_12.jpg\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (:descripcion:, :precioUnit:, :stock:, :idCategoria:, :fotoProducto:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\productosController.php(180): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:07:14 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_12.jpg\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_12.jpg\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_12.jpg\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (:descripcion:, :precioUnit:, :stock:, :idCategoria:, :fotoProducto:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\productosController.php(180): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-24 21:07:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:07:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:08:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-24 21:09:07 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`)) in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `Pr...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Pr...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Pr...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Pr...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(180): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-24 21:09:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+[Method: POST, Route: agregarProducto]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (:descripcion:, :precioUnit:, :stock:, :idCategoria:, :fotoProducto:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\productosController.php(180): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:09:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_13.jpg\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_13.jpg\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (:descripcion:, :precioUnit:, :stock:, :idCategoria:, :fotoProducto:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\productosController.php(180): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:09:07 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_13.jpg\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_13.jpg\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (\'Jujutsu Kaisen Vol n° 1 \', \'12000\', \'10\', \'1\', \'jujustuKaisen01_13.jpg\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `Producto` (`descripcion`, `precioUnit`, `stock`, `idCategoria`, `fotoProducto`) VALUES (:descripcion:, :precioUnit:, :stock:, :idCategoria:, :fotoProducto:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\productosController.php(180): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->guardarProducto()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-24 21:12:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:12:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-24 21:12:35 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`)) in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Product...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Product...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Product...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Product...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(865): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(204): CodeIgniter\Model->update()
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('3')
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-24 21:12:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+[Method: GET, Route: productosController/eliminarProducto/3]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 5 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('3')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:12:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'3\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 7 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('3')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:12:35 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'3\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'3\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 8 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('3')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-24 21:14:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-24 21:14:25 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`)) in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Product...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Product...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Product...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Product...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(865): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(204): CodeIgniter\Model->update()
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('4')
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-24 21:14:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+[Method: GET, Route: productosController/eliminarProducto/4]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 5 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('4')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:14:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'4\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'4\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 7 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('4')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-24 21:14:25 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'4\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'4\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `stock` = -1, `idEstadoProducto` = 0
+WHERE `idProducto` = \'4\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 8 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('4')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-24 21:16:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:16:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:17:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:17:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 21:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 22:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 22:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 22:09:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 22:09:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-24 22:10:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
