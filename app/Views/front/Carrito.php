@@ -1,3 +1,5 @@
+<?= $this->include('plantillas/header'); ?>
+
 <h1 class="titulo-carrito">Carrito de Compras</h1>
 
 <?php
@@ -8,7 +10,6 @@ if (!empty($_SESSION['carrito'])) {
     }
 }
 ?>
-
 <table class="tabla-carrito">
     <thead>
         <tr>

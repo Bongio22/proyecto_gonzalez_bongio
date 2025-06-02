@@ -1,108 +1,119 @@
-<div id="sidebar">
-    <h2>Categorias</h2>
-    <ul>
-        <li><a href=" <?php echo base_url('principal'); ?>">Inicio</a></li>
-        <li><a href=" #" onclick="cargarVista('usuarios')">Mangas</a></li>
-        <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
-        <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
-        <li><a href=" <?php echo base_url('carrito'); ?>">Mi Carrito</a></li>
-        <li><a href="<?php echo base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
-    </ul>
-</div>
+<?= $this->include('plantillas/header'); ?>
 
-<h1>Listado de Productos</h1>
-<form method="get" action="<?= site_url('productos'); ?>" style="display: flex; align-items: center; gap: 10px;">
-    <select name="categoria" onchange="this.form.submit();" style="max-width: 200px;">
-        <option value="">Categorías</option>
-        <?php if (!empty($categorias)): ?>
-        <?php foreach ($categorias as $categoria): ?>
-        <option value="<?= htmlspecialchars($categoria['idCategoria']); ?>"
-            <?= (isset($_GET['categoria']) && $_GET['categoria'] == $categoria['idCategoria']) ? 'selected' : ''; ?>>
-            <?= htmlspecialchars($categoria['descripcion']); ?>
-        </option>
-        <?php endforeach; ?>
-        <?php else: ?>
-        <option value="">No hay categorías disponibles</option>
-        <?php endif; ?>
-    </select>
-
-    <input type="text" name="busqueda" placeholder="Buscar producto..."
-        value="<?= isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>">
-    <button type="submit">Buscar</button>
-
-    <?php if (session()->get('idRol') == 1): ?>
-    <a href="<?= site_url('agregarProducto'); ?>" class="btn btn-primary">Agregar Producto</a>
-    <?php endif; ?>
-</form>
-
-<form method="post" action="<?= site_url('agregarAlCarrito'); ?>" id="carritoForm">
-    <div class="table-responsive">
-        <table class="table-custom">
-            <thead>
-                <tr>
-                    <th>Foto</th>
-                    <th>Detalles</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($productos)): ?>
-                <?php foreach ($productos as $producto): ?>
-                <?php if (session()->get('idRol') == 2 && $producto['stock'] == 0): ?>
-                <!-- No mostrar el producto si idRol = 2 y stock = 0 -->
-                <?php continue; ?>
-                <?php endif; ?>
-                <tr>
-                    <td>
-                        <?php if (!empty($producto['fotoProducto'])): ?>
-                        <img src="<?= base_url('uploads/productos/' . htmlspecialchars($producto['fotoProducto'])); ?>"
-                            alt="Foto del Producto">
-                        <?php else: ?>
-                        Sin Imagen
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <strong>Descripción:</strong> <?= htmlspecialchars($producto['descripcion']); ?><br>
-                        <strong>Precio Unitario:</strong> $<?= htmlspecialchars($producto['precioUnit']); ?><br>
-                        <strong>Stock:</strong> <?= htmlspecialchars($producto['stock']); ?><br>
-                    </td>
-                    <td>
-                        <?php if (session()->get('idRol') == 2): ?>
-                        <?php if ($producto['stock'] == 0): ?>
-                        <span class="text-danger">No hay stock disponible</span>
-                        <?php else: ?>
-                        <a href="<?= site_url('agregar/' . urlencode($producto['idProducto'])); ?>"
-                            class="btn btn-success">
-                            Agregar al carrito
-                        </a>
-
-                        <?php endif; ?>
-                        <?php elseif (session()->get('idRol') == 1): ?>
-                        <a href="<?= site_url('modificarProducto/' . htmlspecialchars($producto['idProducto'])); ?>"
-                            class="btn btn-warning">
-                            Modificar
-                        </a>
-                        <a href="<?= site_url('productosController/eliminarProducto/' . htmlspecialchars($producto['idProducto'])); ?>"
-                            class="btn btn-danger"
-                            onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
-                            Eliminar
-                        </a>
-                        <?php endif; ?>
-                    </td>
-                </tr>
+<div class="main-container">
+    <aside id="sidebar-left">
+        <h2>Categorías</h2>
+        <ul>
+            <li><a href="<?= base_url('principal'); ?>">Inicio</a></li>
+            <li><a href="#" onclick="cargarVista('usuarios')">Mangas</a></li>
+            <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
+            <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
+            <li><a href="<?= base_url('carrito'); ?>">Mi Carrito</a></li>
+            <li><a href="<?= base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
+        </ul>
+    </aside>
+    <main class="content">
+        
+        <form method="get" action="<?= site_url('productos'); ?>" style="display: flex; align-items: center; gap: 10px;">
+            <select name="categoria" onchange="this.form.submit();" style="max-width: 200px;">
+                <option value="">Categorías</option>
+                <?php if (!empty($categorias)): ?>
+                <?php foreach ($categorias as $categoria): ?>
+                <option value="<?= htmlspecialchars($categoria['idCategoria']); ?>"
+                    <?= (isset($_GET['categoria']) && $_GET['categoria'] == $categoria['idCategoria']) ? 'selected' : ''; ?>>
+                    <?= htmlspecialchars($categoria['descripcion']); ?>
+                </option>
                 <?php endforeach; ?>
                 <?php else: ?>
-                <tr>
-                    <td colspan="3">No hay productos disponibles</td>
-                </tr>
+                <option value="">No hay categorías disponibles</option>
                 <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
-</form>
+            </select>
 
-<script>
-document.getElementById('agregarCarritoBtn').addEventListener('click', function() {
-    document.getElementById('carritoForm').submit();
-});
-</script>
+            <input type="text" name="busqueda" placeholder="Buscar producto..."
+                value="<?= isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>">
+            <button type="submit">Buscar</button>
+
+            <?php if (session()->get('idRol') == 1): ?>
+            <a href="<?= site_url('agregarProducto'); ?>" class="btn btn-primary">Agregar Producto</a>
+            <?php endif; ?>
+        </form>
+
+        <form method="post" action="<?= site_url('agregarAlCarrito'); ?>" id="carritoForm">
+            <div class="table-responsive">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Detalles</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($productos)): ?>
+                        <?php foreach ($productos as $producto): ?>
+                        <?php if (session()->get('idRol') == 2 && $producto['stock'] == 0): ?>
+                        <!-- No mostrar el producto si idRol = 2 y stock = 0 -->
+                        <?php continue; ?>
+                        <?php endif; ?>
+                        <tr>
+                            <td>
+                                <?php if (!empty($producto['fotoProducto'])): ?>
+                                <img src="<?= base_url('uploads/productos/' . htmlspecialchars($producto['fotoProducto'])); ?>"
+                                    alt="Foto del Producto">
+                                <?php else: ?>
+                                Sin Imagen
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <strong>Descripción:</strong> <?= htmlspecialchars($producto['descripcion']); ?><br>
+                                <strong>Precio Unitario:</strong> $<?= htmlspecialchars($producto['precioUnit']); ?><br>
+                                <strong>Stock:</strong> <?= htmlspecialchars($producto['stock']); ?><br>
+                            </td>
+                            <td>
+                                <?php if (session()->get('idRol') == 2): ?>
+                                <?php if ($producto['stock'] == 0): ?>
+                                <span class="text-danger">No hay stock disponible</span>
+                                <?php else: ?>
+                                <a href="<?= site_url('agregar/' . urlencode($producto['idProducto'])); ?>"
+                                    class="btn btn-success">
+                                    Agregar al carrito
+                                </a>
+
+                                <?php endif; ?>
+                                <?php elseif (session()->get('idRol') == 1): ?>
+                                <a href="<?= site_url('modificarProducto/' . htmlspecialchars($producto['idProducto'])); ?>"
+                                    class="btn btn-warning">
+                                    Modificar
+                                </a>
+                                <a href="<?= site_url('productosController/eliminarProducto/' . htmlspecialchars($producto['idProducto'])); ?>"
+                                    class="btn btn-danger"
+                                    onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                                    Eliminar
+                                </a>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php else: ?>
+                        <tr>
+                            <td colspan="3">No hay productos disponibles</td>
+                        </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+
+        <script>
+        document.getElementById('agregarCarritoBtn').addEventListener('click', function() {
+            document.getElementById('carritoForm').submit();
+        });
+        </script>
+    </main>
+    <aside id="sidebar-right">
+        <section class="sidebar-section">
+            <h3>Filtros</h3>
+            <!-- Aquí puedes poner filtros adicionales, por ejemplo por precio, stock, etc. -->
+        </section>
+    </aside>
+</div>
