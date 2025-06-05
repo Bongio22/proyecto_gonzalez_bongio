@@ -9,7 +9,7 @@
 
 <div class="form-container">
     <h2>Contacto</h2>
-    <form action="contactar.php" method="POST" id="contactForm">
+    <form action="<?= site_url('contactoController/guardarConsulta'); ?>" method=" POST" id="contactForm">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required>
 

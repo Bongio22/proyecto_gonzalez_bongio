@@ -1,7 +1,6 @@
 <?php
 //sesionController se manejan los datos del usuario
 namespace App\Controllers;
-
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 

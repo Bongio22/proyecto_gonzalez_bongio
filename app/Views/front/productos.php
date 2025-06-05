@@ -9,12 +9,13 @@
             <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
             <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
             <li><a href="<?= base_url('carrito'); ?>">Mi Carrito</a></li>
-            <li><a href="<?= base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
+            <li><a href="<?= base_url('cerrarSesion'); ?>">Cerrar Sesión</a></li>
         </ul>
     </aside>
     <main class="content">
-        
-        <form method="get" action="<?= site_url('productos'); ?>" style="display: flex; align-items: center; gap: 10px;">
+
+        <form method="get" action="<?= site_url('productos'); ?>"
+            style="display: flex; align-items: center; gap: 10px;">
             <select name="categoria" onchange="this.form.submit();" style="max-width: 200px;">
                 <option value="">Categorías</option>
                 <?php if (!empty($categorias)): ?>
@@ -110,10 +111,4 @@
         });
         </script>
     </main>
-    <aside id="sidebar-right">
-        <section class="sidebar-section">
-            <h3>Filtros</h3>
-            <!-- Aquí puedes poner filtros adicionales, por ejemplo por precio, stock, etc. -->
-        </section>
-    </aside>
 </div>

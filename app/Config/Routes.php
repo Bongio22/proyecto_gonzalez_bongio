@@ -9,7 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 /*Rutas principales*/
 $routes->get('/', 'Home::index');
 $routes->get('principal', 'Home::index');
-$routes->get('contacto', 'Home::contacto');
+$routes->get('contacto', 'contactoController::contacto');
 $routes->get('quienesSomos', 'Home::quienes_somos');
 $routes->get('comercializacion', 'Home::comercializacion');
 $routes->get('terminosyUsos', 'Home::terminos_usos');
@@ -24,6 +24,7 @@ $routes->get('cerrarSesion', 'loginController::cerrarSesion');
 $routes->get('misDatos', 'Home::modificarDatos');
 $routes->post('misDatos', 'loginController::modificarUsuario');
 $routes->get('panelAdmin', 'Home::panelAdmin');
+$routes->get('admin/usuarios', 'panelController::mostrarUsuarios');
 /*Rutas para el manejo de Usuario*/
 
 /*Rutas para el manejo de Productos*/
@@ -41,7 +42,7 @@ $routes->get('carrito', 'carritoController::index'); // Ruta para ver el carrito
 $routes->get('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('eliminarDelCarrito', 'carritoController::remover_producto');
-$routes->post('carrito/vaciar', 'CarritoController::vaciar');
+$routes->post('carrito/vaciar', 'carritoController::vaciar');
 
 /*Rutas para el manejo del Carrito*/
 
@@ -50,4 +51,10 @@ $routes->post('carrito/vaciar', 'CarritoController::vaciar');
 $routes->get('panelAdmin', 'panelController::panelAdmin'); // Vista principal
 $routes->get('adminUsuarios', 'panelController::mostrarUsuarios'); // Cargar tabla usuarios
 $routes->get('adminProductos', 'panelController::mostrarProductos'); // Cargar tabla productos
+$routes->get('listadoUsuarios', 'panelController::listadoUsuarios');
 /*Rutas para el manejo del panel */
+
+/*Contacto*/
+$routes->post('contactoController/guardarConsulta', 'ContactoController::guardarConsulta');
+$routes->get('contactoController/guardarConsulta', 'ContactoController::guardarConsulta');
+/*Contacto*/

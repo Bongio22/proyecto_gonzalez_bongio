@@ -1,21 +1,12 @@
-<div id="sidebar">
-    <h2>Panel de Administrador</h2>
-    <ul>
-        <li><a href="#" onclick="cargarVista('usuarios')">Usuarios</a></li>
-        <li><a href="#" onclick="cargarVista('productos')">Productos</a></li>
-        <li><a href="<?php echo base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
-    </ul>
-</div>
+<div class="main-container">
+    <?php include 'sidebarAdmin.php'; ?> <!-- Incluye el sidebar aquí -->
 
-<script>
-function cargarVista(vista) {
-    fetch(vista)
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('contenido-admin').innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error al cargar la vista:', error);
-        });
-}
-</script>
+    <main class="content">
+        <div class="welcome-message">
+            <h1>Bienvenido, Administrador</h1>
+            <p>Gestiona tus productos, usuarios y más desde el panel de administración.</p>
+        </div>
+        <h1>Listado de Productos - Administrador</h1>
+        <!-- Resto del contenido -->
+    </main>
+</div>
