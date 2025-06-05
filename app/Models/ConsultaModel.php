@@ -15,7 +15,7 @@ class ConsultaModel extends Model
         'nombre',
         'apellido',
         'asunto',
-        'email',
+        'correoElectronico',
         'descripcion',
         'respondido',
         'respuesta',

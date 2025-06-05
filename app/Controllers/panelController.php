@@ -24,9 +24,7 @@ class panelController extends Controller
     {
         $data['titulo'] = 'Panel de Administración';
         echo view('plantillas/header', $data);
-        echo view('plantillas/navbar');
         echo view('back/panelAdmin');
-        echo view('plantillas/footer');
     }
 
     public function panelUsuario()

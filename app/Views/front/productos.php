@@ -1,21 +1,9 @@
 <?= $this->include('plantillas/header'); ?>
 
 <div class="main-container">
-    <aside id="sidebar-left">
-        <h2>Categorías</h2>
-        <ul>
-            <li><a href="<?= base_url('principal'); ?>">Inicio</a></li>
-            <li><a href="#" onclick="cargarVista('usuarios')">Mangas</a></li>
-            <li><a href="#" onclick="cargarVista('productos')">Comics</a></li>
-            <li><a href="#" onclick="cargarVista('usuarios')">Figuras</a></li>
-            <li><a href="<?= base_url('carrito'); ?>">Mi Carrito</a></li>
-            <li><a href="<?= base_url('cerrarSesion');?>">Cerrar Sesión</a></li>
-        </ul>
-    </aside>
     <main class="content">
-        
-        <form method="get" action="<?= site_url('productos'); ?>" style="display: flex; align-items: center; gap: 10px;">
-            <select name="categoria" onchange="this.form.submit();" style="max-width: 200px;">
+        <form method="get" action="<?= site_url('productos'); ?>" class="search-form">
+            <select name="categoria" onchange="this.form.submit();" class="form-select">
                 <option value="">Categorías</option>
                 <?php if (!empty($categorias)): ?>
                 <?php foreach ($categorias as $categoria): ?>
@@ -30,11 +18,14 @@
             </select>
 
             <input type="text" name="busqueda" placeholder="Buscar producto..."
-                value="<?= isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>">
-            <button type="submit">Buscar</button>
+                value="<?= isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>" class="form-input">
+            <button type="submit" class="btn btn-search">Buscar</button>
 
             <?php if (session()->get('idRol') == 1): ?>
-            <a href="<?= site_url('agregarProducto'); ?>" class="btn btn-primary">Agregar Producto</a>
+            <div class="admin-buttons">
+                <a href="<?= site_url('agregarProducto'); ?>" class="btn btn-primary">Agregar Producto</a>
+                <a href="<?= site_url('panelAdmin'); ?>" class="btn btn-primary">Volver</a>
+            </div>
             <?php endif; ?>
         </form>
 
@@ -59,7 +50,7 @@
                             <td>
                                 <?php if (!empty($producto['fotoProducto'])): ?>
                                 <img src="<?= base_url('uploads/productos/' . htmlspecialchars($producto['fotoProducto'])); ?>"
-                                    alt="Foto del Producto">
+                                    alt="Foto del Producto" class="product-image">
                                 <?php else: ?>
                                 Sin Imagen
                                 <?php endif; ?>
@@ -78,7 +69,6 @@
                                     class="btn btn-success">
                                     Agregar al carrito
                                 </a>
-
                                 <?php endif; ?>
                                 <?php elseif (session()->get('idRol') == 1): ?>
                                 <a href="<?= site_url('modificarProducto/' . htmlspecialchars($producto['idProducto'])); ?>"

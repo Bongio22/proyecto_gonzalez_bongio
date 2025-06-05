@@ -9,7 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 /*Rutas principales*/
 $routes->get('/', 'Home::index');
 $routes->get('principal', 'Home::index');
-$routes->get('contacto', 'Home::contacto');
+$routes->get('contacto', 'contactoController::contacto');
 $routes->get('quienesSomos', 'Home::quienes_somos');
 $routes->get('comercializacion', 'Home::comercializacion');
 $routes->get('terminosyUsos', 'Home::terminos_usos');
@@ -42,7 +42,7 @@ $routes->get('carrito', 'carritoController::index'); // Ruta para ver el carrito
 $routes->get('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('eliminarDelCarrito', 'carritoController::remover_producto');
-$routes->post('carrito/vaciar', 'CarritoController::vaciar');
+$routes->post('carrito/vaciar', 'carritoController::vaciar');
 
 /*Rutas para el manejo del Carrito*/
 
@@ -53,3 +53,8 @@ $routes->get('adminUsuarios', 'panelController::mostrarUsuarios'); // Cargar tab
 $routes->get('adminProductos', 'panelController::mostrarProductos'); // Cargar tabla productos
 $routes->get('listadoUsuarios', 'panelController::listadoUsuarios');
 /*Rutas para el manejo del panel */
+
+/*Contacto*/
+$routes->post('contactoController/guardarConsulta', 'ContactoController::guardarConsulta');
+$routes->get('contactoController/guardarConsulta', 'ContactoController::guardarConsulta');
+/*Contacto*/

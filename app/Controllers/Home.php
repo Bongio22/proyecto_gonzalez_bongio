@@ -16,13 +16,6 @@ class Home extends Controller
         return view('plantillas/header', $data) . view('plantillas/navbar') . view('front/principal') . view('plantillas/footer');
     }
 
-    /*LLama a la pagina contacto*/
-    public function contacto()
-    {
-        $data['titulo'] = 'Contacto';
-        return view('plantillas/header', $data) . view('plantillas/navbar') . view('front/contacto') . view('plantillas/footer');
-    }
-
     /*LLama a la pagina quienes somos*/
     public function quienes_somos()
     {
