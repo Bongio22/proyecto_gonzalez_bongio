@@ -1,0 +1,492 @@
+INFO - 2025-06-04 17:58:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 17:59:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:04:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:04:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:05:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:06:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:06:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:06:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:07:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:08:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:09:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-04 18:10:05 --> mysqli_sql_exception: Unknown column 'idEstadoProducto' in 'field list' in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Product...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Product...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Product...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Product...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(865): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(135): CodeIgniter\Model->update('1', Array)
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-04 18:10:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idEstadoProducto' in 'field list'
+[Method: POST, Route: modificarProducto]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstadoProducto` = :idEstadoProducto:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 18:10:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idEstadoProducto' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `descripcion` = \'jujutsu kaisen n°1\', `precioUnit` = \'18000\', `stock` = \'4\', `idCategoria` = \'0\', `idEstadoProducto` = 1, `fotoProducto` = \'jujustuKaisen01_15.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `descripcion` = \'jujutsu kaisen n°1\', `precioUnit` = \'18000\', `stock` = \'4\', `idCategoria` = \'0\', `idEstadoProducto` = 1, `fotoProducto` = \'jujustuKaisen01_15.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstadoProducto` = :idEstadoProducto:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 18:10:05 --> [Caused by] mysqli_sql_exception: Unknown column 'idEstadoProducto' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Producto` SET `descripcion` = \'jujutsu kaisen n°1\', `precioUnit` = \'18000\', `stock` = \'4\', `idCategoria` = \'0\', `idEstadoProducto` = 1, `fotoProducto` = \'jujustuKaisen01_15.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `descripcion` = \'jujutsu kaisen n°1\', `precioUnit` = \'18000\', `stock` = \'4\', `idCategoria` = \'0\', `idEstadoProducto` = 1, `fotoProducto` = \'jujustuKaisen01_15.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `descripcion` = \'jujutsu kaisen n°1\', `precioUnit` = \'18000\', `stock` = \'4\', `idCategoria` = \'0\', `idEstadoProducto` = 1, `fotoProducto` = \'jujustuKaisen01_15.jpg\'
+WHERE `Producto`.`idProducto` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `descripcion` = :descripcion:, `precioUnit` = :precioUnit:, `stock` = :stock:, `idCategoria` = :idCategoria:, `idEstadoProducto` = :idEstadoProducto:, `fotoProducto` = :fotoProducto:
+WHERE `Producto`.`idProducto` IN :Producto.idProducto:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\productosController.php(135): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->modificarProducto()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-04 18:11:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:11:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:11:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:14:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:15:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:16:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:16:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-06-04 18:16:09 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`)) in C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Product...', 0)
+#1 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Product...')
+#2 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Product...')
+#3 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Product...', Array, false)
+#4 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\BaseModel.php(1028): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Model.php(865): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\xampp\htdocs\proyecto_gonzalez_bongio\app\Controllers\productosController.php(204): CodeIgniter\Model->update()
+#8 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('2')
+#9 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+#10 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_gonzalez_bongio\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_gonzalez_bongio\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-04 18:16:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+[Method: GET, Route: productosController/eliminarProducto/2]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 4 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 5 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('2')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 18:16:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `stock` = 0, `idEstadoProducto` = 2
+WHERE `idProducto` = \'2\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `stock` = 0, `idEstadoProducto` = 2
+WHERE `idProducto` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 6 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 7 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('2')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 18:16:09 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`frikiverse`.`producto`, CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`idEstadoProducto`) REFERENCES `estado` (`idEstado`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('UPDATE `Producto` SET `stock` = 0, `idEstadoProducto` = 2
+WHERE `idProducto` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `Producto` SET `stock` = 0, `idEstadoProducto` = 2
+WHERE `idProducto` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `Producto` SET `stock` = 0, `idEstadoProducto` = 2
+WHERE `idProducto` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `Producto` SET `stock` = :stock:, `idEstadoProducto` = :idEstadoProducto:
+WHERE `idProducto` = :idProducto:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 7 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 8 APPPATH\Controllers\productosController.php(204): CodeIgniter\Model->update()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\productosController->eliminarProducto('2')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\productosController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-04 18:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:22:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:25:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:26:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:28:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:28:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 18:33:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:13:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:13:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:15:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:15:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 19:50:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:43:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 23:47:23 --> ParseError: syntax error, unexpected identifier "listadoUsuarios", expecting variable
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Controllers\panelController.php on line 68.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\proyecto_gonzalez_bongio\\app\\Controllers\\panelController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\panelController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\panelController')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\panelController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:53:26 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(72): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:35 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:36 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:37 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:38 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:38 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:39 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:39 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:39 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:39 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:40 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:40 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:40 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:41 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:41 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:54:44 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:55:42 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(73): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 23:58:55 --> ParseError: syntax error, unexpected token "<", expecting end of file
+[Method: GET, Route: listadoUsuarios]
+in APPPATH\Views\front\admin\listadoUsuarios.php on line 16.
+ 1 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/listadoUsuarios', [], true)
+ 3 APPPATH\Controllers\panelController.php(65): view('front/admin/listadoUsuarios', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\panelController->listadoUsuarios()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\panelController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-04 23:58:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-04 23:59:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -24,6 +24,7 @@ $routes->get('cerrarSesion', 'loginController::cerrarSesion');
 $routes->get('misDatos', 'Home::modificarDatos');
 $routes->post('misDatos', 'loginController::modificarUsuario');
 $routes->get('panelAdmin', 'Home::panelAdmin');
+$routes->get('admin/usuarios', 'panelController::mostrarUsuarios');
 /*Rutas para el manejo de Usuario*/
 
 /*Rutas para el manejo de Productos*/
@@ -50,4 +51,5 @@ $routes->post('carrito/vaciar', 'CarritoController::vaciar');
 $routes->get('panelAdmin', 'panelController::panelAdmin'); // Vista principal
 $routes->get('adminUsuarios', 'panelController::mostrarUsuarios'); // Cargar tabla usuarios
 $routes->get('adminProductos', 'panelController::mostrarProductos'); // Cargar tabla productos
+$routes->get('listadoUsuarios', 'panelController::listadoUsuarios');
 /*Rutas para el manejo del panel */

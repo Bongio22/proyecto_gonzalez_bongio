@@ -110,10 +110,4 @@
         });
         </script>
     </main>
-    <aside id="sidebar-right">
-        <section class="sidebar-section">
-            <h3>Filtros</h3>
-            <!-- Aquí puedes poner filtros adicionales, por ejemplo por precio, stock, etc. -->
-        </section>
-    </aside>
 </div>

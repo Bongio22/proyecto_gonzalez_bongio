@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\UsuarioModel;
 
-class panel_controller extends Controller
+class panelController extends Controller
 {
     public function index()
     {
@@ -51,17 +52,20 @@ class panel_controller extends Controller
             return 'Vista no válida';
         }
     }
-    public function mostrarUsuarios()
-    {
-        $usuarioModel = new \App\Models\UsuarioModel();
-        $data['usuarios'] = $usuarioModel->findAll();
-        return view('front/admin/usuarios', $data);
-    }
-
     public function mostrarProductos()
     {
         $productoModel = new \App\Models\ProductoModel();
         $data['productos'] = $productoModel->findAll();
         return view('productos.php', $data);
+    }
+    public function listadoUsuarios()
+    {
+        $usuarioModel = new UsuarioModel();
+        $data['usuarios'] = $usuarioModel->findAll();
+        
+        // Cargar las vistas necesarias
+        $data['titulo'] = 'Lista de Usuarios'; // Título para la vista
+        echo view('plantillas/header', $data);
+        echo view('front/admin/listadoUsuarios', $data); // Asegúrate de que esta vista exista
     }
 }
