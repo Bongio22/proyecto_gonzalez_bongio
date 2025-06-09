@@ -58,14 +58,28 @@ class carritoController extends BaseController
 
         return redirect()->to('/carrito');
     }
+    public function eliminarProducto()
+    {
+        $idProducto = $this->request->getPost('idProducto');
+        $session = session();
+        $carrito = $session->get('carrito');
+
+        // Filtrar todos los productos excepto el que tiene el idProducto
+        $nuevoCarrito = array_filter($carrito, function ($item) use ($idProducto) {
+            return $item['idProducto'] != $idProducto;
+        });
+
+        $session->set('carrito', array_values($nuevoCarrito));
+        return redirect()->to('/carrito');
+    }
 
     public function vaciar()
-{
-    $session = session();
-    $session->remove('carrito'); // Elimina el carrito de la sesión
+    {
+        $session = session();
+        $session->remove('carrito'); // Elimina el carrito de la sesión
 
-    return redirect()->to('/carrito'); // Redirige de nuevo al carrito
-}
+        return redirect()->to('/carrito'); // Redirige de nuevo al carrito
+    }
 
 
     public function comprar()

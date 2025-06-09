@@ -26,7 +26,12 @@ if (!empty($_SESSION['carrito'])) {
             <td><?= htmlspecialchars($item['descripcion']) ?></td>
             <td>$<?= number_format($item['precioUnit'], 2) ?></td>
             <td><?= $item['cantidad'] ?></td>
-            <td><a href="?del=<?= $i ?>" class="btn-remove">X</a></td>
+            <td>
+                <form action="<?= base_url('carrito/eliminarProducto') ?>" method="post" style="display:inline;">
+                    <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">
+                    <button type="submit" class="btn-remove">X</button>
+                </form>
+            </td>
         </tr>
         <?php endforeach; ?>
         <?php else: ?>
