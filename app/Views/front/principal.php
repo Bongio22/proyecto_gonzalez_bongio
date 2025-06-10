@@ -54,12 +54,12 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
         <!-- Categoría: Cómics -->
         <div class="product-col">
             <div class="product-card">
-                <a href="#" class="categoria-link" data-href="<?= base_url('comics') ?>">
+                <a href="<?= base_url('front/productos/categoria/1') ?>">
                     <img src="<?= base_url("assets/img/Comics/spiderman1.jpg") ?>" alt="Cómic" class="product-image">
                 </a>
                 <div class="product-info">
                     <h2 class="product-title">
-                        <a href="#" class="categoria-link" data-href="<?= base_url('comics') ?>">Cómics</a>
+                        <a href="<?= base_url('front/productos/categoria/1') ?>">Cómics</a>
                     </h2>
                     <p class="product-description">Explora una gran variedad de cómics de tus superhéroes y villanos
                         favoritos.</p>
@@ -70,12 +70,12 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
         <!-- Categoría: Mangas -->
         <div class="product-col">
             <div class="product-card">
-                <a href="#" class="categoria-link" data-href="<?= base_url('mangas') ?>">
+                <a href="<?= base_url('front/productos/categoria/2') ?>">
                     <img src="<?= base_url("assets/img/Mangas/deathnote01.jpg") ?>" alt="Manga" class="product-image">
                 </a>
                 <div class="product-info">
                     <h2 class="product-title">
-                        <a href="#" class="categoria-link" data-href="<?= base_url('mangas') ?>">Mangas</a>
+                        <a href="<?= base_url('front/productos/categoria/2') ?>">Mangas</a>
                     </h2>
                     <p class="product-description">Descubre los mejores mangas directamente desde Japón.</p>
                 </div>
@@ -85,12 +85,12 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
         <!-- Categoría: Figuras -->
         <div class="product-col">
             <div class="product-card">
-                <a href="#" class="categoria-link" data-href="<?= base_url('figuras') ?>">
+                <a href="<?= base_url('productos/categoria/3') ?>">
                     <img src="<?= base_url("assets/img/Figuras/figuraflash.jpg") ?>" alt="Figura" class="product-image">
                 </a>
                 <div class="product-info">
                     <h2 class="product-title">
-                        <a href="#" class="categoria-link" data-href="<?= base_url('figuras') ?>">Figuras</a>
+                        <a href="<?= base_url('front/productos/categoria/3') ?>">Figuras</a>
                     </h2>
                     <p class="product-description">Figuras coleccionables de alta calidad para todos los fanáticos.</p>
                 </div>
@@ -100,20 +100,22 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
         <!-- Categoría: Merchandising -->
         <div class="product-col">
             <div class="product-card">
-                <a href="#" class="categoria-link" data-href="<?= base_url('ropa') ?>">
+                <a href="<?= base_url('front/productos/categoria/4') ?>">
                     <img src="<?= base_url("assets/img/Merch/remerahellfireclub.jpg") ?>" alt="Merchandising"
                         class="product-image">
                 </a>
                 <div class="product-info">
                     <h2 class="product-title">
-                        <a href="#" class="categoria-link" data-href="<?= base_url('ropa') ?>">Merchandising</a>
+                        <a href="<?= base_url('front/productos/categoria/4') ?>">Merchandising</a>
                     </h2>
                     <p class="product-description">Ropa temática para que muestres tu lado friki con estilo.</p>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
 
 <!-- Modal de advertencia -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">

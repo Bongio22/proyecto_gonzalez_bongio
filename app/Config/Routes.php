@@ -34,6 +34,7 @@ $routes->get('modificarProducto/(:num)', 'productosController::cargarVistaModifi
 $routes->post('modificarProducto', 'productosController::modificarProducto'); // Ruta para guardar cambios
 $routes->post('agregarProducto', 'productosController::guardarProducto');    // Ruta para guardar el producto
 $routes->get('productosController/eliminarProducto/(:num)', 'productosController::eliminarProducto/$1');
+$routes->get('front/productos/categoria/(:num)', 'productosController::porCategoria/$1');
 /*Rutas para el manejo de Productos*/
 
 /*Rutas para el manejo del Carrito*/

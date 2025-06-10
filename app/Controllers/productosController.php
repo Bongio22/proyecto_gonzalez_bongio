@@ -220,4 +220,19 @@ class productosController extends BaseController
         echo view('front/admin/productosAdmin');
         echo view('plantillas/footer');
     }
+public function porCategoria($idCategoria)
+{
+    $productoModel = new \App\Models\ProductoModel();
+    $productos = $productoModel->where('idCategoria', $idCategoria)->findAll();
+
+    $categoriaModel = new \App\Models\CategoriaModel();
+    $categorias = $categoriaModel->findAll();
+
+    return view('productos', [
+        'productos' => $productos,
+        'categorias' => $categorias
+    ]);
+}
+
+
 }
