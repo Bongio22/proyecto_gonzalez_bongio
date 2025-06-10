@@ -1,6 +1,7 @@
 <?php
 //sesionController se manejan los datos del usuario
 namespace App\Controllers;
+
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 
@@ -18,17 +19,13 @@ class loginController extends BaseController
     //se registra el usuario
     public function registrarUsuario()
     {
-
-        // Verificar que el formulario fue enviado
         if ($this->request->getMethod() === 'POST') {
-            // Capturar los datos del formulario
             $nombre = trim($this->request->getPost('nombre'));
             $apellido = trim($this->request->getPost('apellido'));
             $email = trim($this->request->getPost('email'));
             $telefono = trim($this->request->getPost('telefono'));
             $password = $this->request->getPost('password');
 
-            // Validar datos
             $errores = [];
             if (empty($nombre)) $errores[] = "El nombre es obligatorio.";
             if (empty($apellido)) $errores[] = "El apellido es obligatorio.";
@@ -36,89 +33,86 @@ class loginController extends BaseController
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errores[] = "El correo electrónico no es válido.";
             if (empty($password)) $errores[] = "La contraseña es obligatoria.";
 
-            // Si hay errores, almacenarlos en la sesión y redirigir
             if (!empty($errores)) {
                 session()->setFlashdata('errores', $errores);
                 return redirect()->to('registrarse');
             }
 
-            // Verificar si el email ya está registrado
             if ($this->usuarioModel->where('correoElectronico', $email)->countAllResults() > 0) {
                 session()->setFlashdata('errores', ["El correo electrónico ya está registrado."]);
                 return redirect()->to('registrarse');
             }
+
+            $hashedPassword = hashPassword($password);
 
             $data = [
                 'nombre' => $nombre,
                 'apellido' => $apellido,
                 'correoElectronico' => $email,
                 'nroTelefono' => $telefono,
-                'contrasenia' => $password,
-                'idRol' => 2, // Rol por defecto para usuarios
-                'idEstadoUsuario' => 1 // Estado activo por defecto
+                'contrasenia' => $hashedPassword,
+                'idRol' => 2,
+                'idEstadoUsuario' => 1
             ];
 
             if ($this->usuarioModel->insert($data)) {
-                session()->setFlashdata('mensaje', "Usuario registrado con éxito");
                 return redirect()->to('registrarse');
             } else {
-                session()->setFlashdata('errores', ["Hubo un problema al registrar al usuario. Por favor, intenta nuevamente más tarde."]);
+                session()->setFlashdata('errores', ["Hubo un problema al registrar al usuario."]);
                 return redirect()->to('registrarse');
             }
         }
 
-        // Si no es POST, redirigir al formulario
         return redirect()->to('/registrarse');
     }
+public function iniciarSesion()
+{
+    $correo = $this->request->getPost('email');
+    $password = $this->request->getPost('password');
 
+    if (!$correo || !$password) {
+        session()->setFlashdata('error', 'Debes completar ambos campos.');
+        return redirect()->to('iniciarSesion');
+    }
 
-    public function iniciarSesion()
-    {
-        // Obtener los datos del formulario
-        $correo = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+    // Verificar que usuarioModel está instanciado correctamente
+    if (!is_object($this->usuarioModel)) {
+        error_log("Error: usuarioModel no está instanciado correctamente.");
+        session()->setFlashdata('error', 'Error interno, intenta más tarde.');
+        return redirect()->to('iniciarSesion');
+    }
 
-        // Verificar que se hayan completado ambos campos
-        if (!$correo || !$password) {
-            session()->setFlashdata('error', 'Debes completar ambos campos.');
-            return redirect()->to('iniciarSesion');
-        }
+    // Buscar el usuario en la base de datos
+    $usuario = $this->usuarioModel->where('correoElectronico', $correo)->first();
 
-        // Buscar al usuario en la base de datos
-        $usuario = $this->usuarioModel->where('correoElectronico', $correo)->first();
-
-        // Verificar las credenciales
-        if ($usuario) {
-            // Verificar si la cuenta está activa
-            if ($usuario['idEstadoUsuario'] == 0) {
-                session()->setFlashdata('error', 'Tu cuenta está dada de baja. Por favor, contacta al administrador.');
-                return redirect()->to('iniciarSesion');
-            }
-
-            if ($password === $usuario['contrasenia'] && $usuario['idRol'] == 1) {
-                // Iniciar sesión
-                session()->set('idUsuario', $usuario['idUsuario']);
-                session()->set('idRol', $usuario['idRol']);
-                session()->set('nombre', $usuario['nombre']);
-                session()->set('apellido', $usuario['apellido']);
-                session()->set('nroTelefono', $usuario['nroTelefono']);
-                session()->set('fotoPerfil', $usuario['fotoPerfil']);
-                return redirect()->to('panelAdmin');
-            } else {
-                // Iniciar sesión
-                session()->set('idUsuario', $usuario['idUsuario']);
-                session()->set('idRol', $usuario['idRol']);
-                session()->set('nombre', $usuario['nombre']);
-                session()->set('apellido', $usuario['apellido']);
-                session()->set('nroTelefono', $usuario['nroTelefono']);
-                session()->set('fotoPerfil', $usuario['fotoPerfil']);
-                return redirect()->to('principal');
-            }
-        }
-
+    if (!$usuario) {
+        error_log("Error: No se encontró un usuario con el correo: " . $correo);
         session()->setFlashdata('error', 'Credenciales inválidas.');
         return redirect()->to('iniciarSesion');
     }
+    // Verificar si la cuenta está activa
+    if ($usuario['idEstadoUsuario'] == 0) {
+        session()->setFlashdata('error', 'Tu cuenta está dada de baja.');
+        error_log("Error: La cuenta está desactivada.");
+        return redirect()->to('iniciarSesion');
+    }
+
+    // Verificación correcta usando password_verify()
+    if (password_verify($password, $usuario['contrasenia'])) {
+        // Guardar datos en la sesión
+        session()->set('idUsuario', $usuario['idUsuario']);
+        session()->set('idRol', $usuario['idRol']);
+        session()->set('nombre', $usuario['nombre']);
+        session()->set('apellido', $usuario['apellido']);
+        session()->set('nroTelefono', $usuario['nroTelefono']);
+        session()->set('fotoPerfil', $usuario['fotoPerfil']);
+        return ($usuario['idRol'] == 1) ? redirect()->to('panelAdmin') : redirect()->to('principal');
+    } else {
+        error_log("Error: La contraseña no coincide.");
+        session()->setFlashdata('error', 'Credenciales inválidas.');
+        return redirect()->to('iniciarSesion');
+    }
+}
 
     public function cerrarSesion()
     {
@@ -193,4 +187,9 @@ class loginController extends BaseController
 
         return redirect()->to('principal')->with('mensaje', 'Datos actualizados correctamente.');
     }
+}
+
+function hashPassword($password)
+{
+    return password_hash($password, PASSWORD_BCRYPT);
 }
