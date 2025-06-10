@@ -10,8 +10,8 @@ class carritoController extends BaseController
     {
         $session = session();
         $carrito = $session->get('carrito') ?? [];
-
-        return view('front/carrito', ['carrito' => $carrito]);
+        $data['titulo'] = 'Carrito';
+        return view('plantillas/header', $data) .view('plantillas/navbar') . view('front/carrito', ['carrito' => $carrito]) . view('plantillas/footer');
     }
 
     public function agregar($idProducto)
