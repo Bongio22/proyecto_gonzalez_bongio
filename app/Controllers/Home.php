@@ -36,41 +36,4 @@ class Home extends Controller
         $data['titulo'] = 'Términos y Usos';
         return view('plantillas/header', $data) . view('plantillas/navbar') . view('front/terminosyUsos') . view('plantillas/footer');
     }
-
-    /*LLama a la pagina iniciar sesión*/
-    public function iniciar_sesion()
-    {
-        $data['titulo'] = 'Iniciar Sesión';
-        return view('plantillas/header', $data) . view('plantillas/navbar') . view('back/iniciarSesion') . view('plantillas/footer');
-    }
-
-    /*LLama a la pagina de registro*/
-    public function registrarse()
-    {
-        $data['titulo'] = 'Registrarse';
-        return view('plantillas/header', $data) . view('plantillas/navbar') . view('back/registrarse') . view('plantillas/footer');
-    }
-
-    public function modificarDatos()
-    {
-        $data['titulo'] = 'MisDatos';
-        return view('plantillas/header', $data) . view('plantillas/navbar') . view('usuario/misDatos') . view('plantillas/footer');
-    }
-    
-
-    public function panelAdmin(){
-        $data['titulo'] = 'Panel de Administración';
-        echo view('plantillas/header',$data);
-        echo view('front/admin/panelAdmin');
-        echo view('plantillas/footer');
-    }
-
-    public function panelUsuario(){
-        $data['titulo'] = 'Panel de Administración';
-        echo view('plantillas/header',$data);
-        echo view('front/admin/panelUsuario');
-        echo view('plantillas/footer');
-    }
-
-   
 }

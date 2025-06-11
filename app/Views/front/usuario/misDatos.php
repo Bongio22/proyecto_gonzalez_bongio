@@ -1,16 +1,9 @@
 <div class="form-wrapper">
     <div class="form-container-usuario">
-        <!-- Sección de Imagen -->
-        <div class="profile-image-section">
-            <img src="ruta_a_imagen_predeterminada.jpg" alt="Foto de Perfil">
-            <label for="uploadImage">Cambiar Foto</label>
-            <input type="file" id="uploadImage" name="profileImage" accept="image/*">
-        </div>
-
         <!-- Sección del Formulario -->
         <div class="form-content">
             <h2>Modificar Datos</h2>
-            <form action="<?php echo base_url('misDatos'); ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url('usuario/misDatos'); ?>" method="POST" enctype="multipart/form-data">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
 
@@ -29,8 +22,10 @@
 
                 <div class="buttons">
                     <button type="submit" class="save-btn">Guardar</button>
+                    <input type="reset" value="Limpiar" class="btn-reset">
                     <button type="button" class="cancel-btn"
-                        onclick="window.location.href='<?php echo base_url('inicio'); ?>';">Cancelar</button>
+                        onclick="window.location.href='<?php echo base_url('inicio'); ?>';">Cancelar
+                    </button>
                 </div>
             </form>
         </div>

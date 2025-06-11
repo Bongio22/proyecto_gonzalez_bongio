@@ -25,31 +25,35 @@ class productosController extends BaseController
     }
 
     //vista productos
-    public function productos()
-    {
-        // Obtener las categorías
-        $categorias = $this->obtenerCategorias();
-        // Obtener parámetros de búsqueda
-        $categoria = $this->request->getGet('categoria'); // Obtener la categoría seleccionada
-        $busqueda = $this->request->getGet('busqueda'); // Obtener el término de búsqueda
+    public function productos($categoriaSegment = null)
+{
+    $categorias = $this->obtenerCategorias();
 
-        // Cargar productos según los filtros aplicados
-        $productos = $this->cargarProductos($categoria, $busqueda);
+    // Categoría por GET o por segmento
+    $categoriaGet = $this->request->getGet('categoria');
+    $categoria = $categoriaGet ?? $categoriaSegment;
 
-        // Pasar los datos a la vista
-        $data = [
-            'productos' => $productos,
-            'categorias' => $categorias,
-        ];
-        // Cargar las diferentes partes de la plantilla
-        $header = view('plantillas/header');
-        $productosView = view('front/productos', $data);
-        $navbarView = view('plantillas/navbar');
-        $footerView = view('plantillas/footer');
-        // Devolver la vista completa
-        return $header . $navbarView . $productosView  . $footerView;
+    // Validar que sea un número válido
+    if (!empty($categoria) && !is_numeric($categoria)) {
+        // Si algo raro viene como texto en vez de número
+        throw new \CodeIgniter\Exceptions\PageNotFoundException("Categoría inválida");
     }
 
+    // Buscar productos filtrados
+    $busqueda = $this->request->getGet('busqueda');
+    $productos = $this->cargarProductos($categoria, $busqueda);
+
+    $data = [
+        'productos' => $productos,
+        'categorias' => $categorias,
+        'categoriaSeleccionada' => $categoria
+    ];
+
+    return view('plantillas/header')
+         . view('plantillas/navbar')
+         . view('front/productos', $data)
+         . view('plantillas/footer');
+}
 
 
     private function cargarProductos($categoria = null, $busqueda = null)
@@ -76,7 +80,7 @@ class productosController extends BaseController
     }
 
 
-    public function cargarVistaModificarProducto($idProducto)
+    public function viewModificarProducto($idProducto)
     {
         // Verificar si llega el ID
         if (!$idProducto) {
@@ -220,19 +224,4 @@ class productosController extends BaseController
         echo view('front/admin/productosAdmin');
         echo view('plantillas/footer');
     }
-public function porCategoria($idCategoria)
-{
-    $productoModel = new \App\Models\ProductoModel();
-    $productos = $productoModel->where('idCategoria', $idCategoria)->findAll();
-
-    $categoriaModel = new \App\Models\CategoriaModel();
-    $categorias = $categoriaModel->findAll();
-
-    return view('productos', [
-        'productos' => $productos,
-        'categorias' => $categorias
-    ]);
-}
-
-
 }

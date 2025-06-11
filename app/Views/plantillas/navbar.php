@@ -57,7 +57,8 @@
 
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="<?php echo base_url('misDatos'); ?>">Mis datos</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('misDatos'); ?>">Mis datos</a>
+                        </li>
                         <li><a class="dropdown-item" href="<?php echo base_url('cerrarSesion'); ?>">Mis compras</a>
                         <li><a class="dropdown-item" href="<?php echo base_url('cerrarSesion'); ?>">Cerrar sesión</a>
                         </li>

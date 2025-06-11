@@ -16,25 +16,26 @@ $routes->get('terminosyUsos', 'Home::terminos_usos');
 /*Rutas principales*/
 
 /*Rutas par el manejo de Usuario*/
-$routes->get('registrarse', 'Home::registrarse'); // Ruta para mostrar el formulario
+$routes->get('registrarse', 'loginController::registrarse'); // Ruta para mostrar el formulario
 $routes->post('registrarse', 'loginController::registrarUsuario');
-$routes->get('iniciarSesion', 'Home::iniciar_sesion');
+$routes->get('iniciarSesion', 'loginController::iniciar_sesion');
 $routes->post('iniciarSesion', 'loginController::iniciarSesion');
 $routes->get('cerrarSesion', 'loginController::cerrarSesion');
-$routes->get('misDatos', 'Home::modificarDatos');
+$routes->get('misDatos', 'loginController::modificarDatos');
 $routes->post('misDatos', 'loginController::modificarUsuario');
-$routes->get('panelAdmin', 'Home::panelAdmin');
+$routes->get('panelAdmin', 'loginController::panelAdmin');
 $routes->get('admin/usuarios', 'panelController::mostrarUsuarios');
 /*Rutas para el manejo de Usuario*/
 
 /*Rutas para el manejo de Productos*/
-$routes->get('productos', 'productosController::productos'); // Ruta para listar productos
+$routes->get('productos', 'productosController::productos'); 
 $routes->get('productosAdmin', 'productosController::productosAdmin');
-$routes->get('modificarProducto/(:num)', 'productosController::cargarVistaModificarProducto/$1');
+$routes->get('modificarProducto/(:num)', 'productosController::viewModificarProducto/$1');
 $routes->post('modificarProducto', 'productosController::modificarProducto'); // Ruta para guardar cambios
 $routes->post('agregarProducto', 'productosController::guardarProducto');    // Ruta para guardar el producto
 $routes->get('productosController/eliminarProducto/(:num)', 'productosController::eliminarProducto/$1');
-$routes->get('front/productos/categoria/(:num)', 'productosController::porCategoria/$1');
+$routes->get('front/productos/categoria/(:num)', 'productosController::productos/$1'); // con categoría
+
 /*Rutas para el manejo de Productos*/
 
 /*Rutas para el manejo del Carrito*/
