@@ -19,7 +19,7 @@
 
             <input type="text" name="busqueda" placeholder="Buscar producto..."
                 value="<?= isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>" class="form-input">
-            <button type="submit" class="btn btn-search">Buscar</button>
+            <button type="submit" class="btn btn-outline-dark me-2">Buscar</button>
 
             <?php if (session()->get('idRol') == 1): ?>
             <div class="admin-buttons">

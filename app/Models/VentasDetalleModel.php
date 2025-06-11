@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class VentaDetalleModel extends Model
+class VentasDetalleModel extends Model
 {
     protected $table = 'Ventas_detalle'; // Nombre de la tabla en la base de datos
     protected $primaryKey = 'idVentasDetalle'; // Clave primaria

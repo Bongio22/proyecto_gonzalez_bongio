@@ -83,19 +83,49 @@ class carritoController extends BaseController
 
 
     public function comprar()
-    {
-        $carrito = session()->get('carrito');
-        $idUsuario = session()->get('idUsuario'); // asumimos que se guarda el ID de usuario
+{
+    $session = session();
+    $carrito = $session->get('carrito') ?? [];
+    $idUsuario = $session->get('idUsuario');
 
-        if ($carrito && $idUsuario) {
-            // Aquí deberías insertar la venta en la base de datos
-            // y los detalles en otra tabla (ej: 'ventas' y 'detalle_venta')
-
-            session()->remove('carrito');
-
-            return redirect()->to('/carrito')->with('mensaje', '¡Compra realizada con éxito!');
-        }
-
+    if (empty($carrito) || !$idUsuario) {
         return redirect()->to('/carrito')->with('mensaje', 'No se pudo realizar la compra.');
     }
+
+    $productoModel = new \App\Models\ProductoModel();
+    $cabeceraController = new \App\Controllers\VentasCabeceraController();
+    $detalleController = new \App\Controllers\VentasDetalleController();
+
+    // Verificar stock antes de hacer cualquier operación
+    foreach ($carrito as $item) {
+        $producto = $productoModel->find($item['idProducto']);
+
+        if (!$producto || $producto['stock'] < $item['cantidad']) {
+            return redirect()->to('/carrito')->with('mensaje', 'Stock insuficiente para: ' . $item['descripcion']);
+        }
+    }
+
+    // Calcular total de la compra
+    $total = 0;
+    foreach ($carrito as $item) {
+        $total += $item['precioUnit'] * $item['cantidad'];
+    }
+
+    // Crear cabecera de venta
+    $ventaId = $cabeceraController->crear($total, $idUsuario);
+
+    // Insertar cada detalle y actualizar stock
+    foreach ($carrito as $item) {
+        $detalleController->crear($ventaId, $item['idProducto'], $item['cantidad'], $item['precioUnit']);
+
+        $producto = $productoModel->find($item['idProducto']);
+        $productoModel->update($item['idProducto'], [
+            'stock' => $producto['stock'] - $item['cantidad']
+        ]);
+    }
+
+    $session->remove('carrito');
+    return redirect()->to('/carrito')->with('mensaje', '¡Compra realizada con éxito!');
+}
+
 }

@@ -140,12 +140,6 @@ INSERT into Rol(descripcion) VALUES("Cliente");
 INSERT into Estado(descripcion) VALUES("Activo");
 INSERT into Estado(descripcion) VALUES("Desactivado");
 
-INSERT INTO Usuario(nombre,apellido,correoElectronico,contrasenia,fotoPerfil,nroTelefono,idRol,idEstadoUsuario) 
-VALUES ("Iara","Bongiovanni","bongiovaniiara22@gmail.com","ventana123","",2174273232,2,1);
-
-INSERT INTO Usuario(nombre,apellido,correoElectronico,contrasenia,fotoPerfil,nroTelefono,idRol,idEstadoUsuario) 
-VALUES ("Ariel","Gonzalez","arielgonzalezr9@gmail.com","admin123","",9714634637,1,1);
-
 INSERT INTO Categoria(descripcion) VALUES("Mangas");
 INSERT INTO Categoria(descripcion) VALUES("Comics");
 INSERT INTO Categoria(descripcion) VALUES("Figuras");

@@ -44,7 +44,7 @@ $routes->get('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('carrito/eliminarProducto', 'CarritoController::eliminarProducto');
 $routes->post('carrito/vaciar', 'carritoController::vaciar');
-
+$routes->post('/carrito/comprar', 'CarritoController::comprar');
 /*Rutas para el manejo del Carrito*/
 
 /*Rutas para el manejo del panel */

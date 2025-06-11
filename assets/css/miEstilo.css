@@ -583,12 +583,13 @@ body {
   
   /* Botones de sesión y registro */
   .btn-outline-dark {
-    color: black; /* Letras negras */
+    color: black !important; /* Letras negras */
     border: 1px solid #ddd; /* Borde fino */
-    background-color: white !important; /* Fondo blanco */
+    background-color: white ; /* Fondo blanco */
   }
   
   .btn-outline-dark:hover {
+    color: white !important;
     background-color: black !important; /* Fondo negro al pasar el mouse */
   }
   
@@ -1005,7 +1006,7 @@ body {
 }
 
 .btn-reset {
-    background-color: #f0ad4e; /* Color de fondo para el botón de limpieza */
+    background-color: #007bff; /* Color de fondo para el botón de limpieza */
     border: none;
     border-radius: 4px; /* Bordes redondeados */
     color: #ffffff; /* Color del texto */
@@ -2220,7 +2221,7 @@ aside ul li a:hover {
 
 /* Ajustes para el pie de página */
 footer {
-  background-color: #333;
+  background-color: var(--fondo-navbar) !important;
   color: white;
   text-align: center;
   padding: 20px;

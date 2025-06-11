@@ -15,7 +15,6 @@ class UsuarioModel extends Model
         'apellido',
         'correoElectronico',
         'contrasenia',
-        'fotoPerfil',
         'nroTelefono',
         'idRol',
         'idEstadoUsuario'

@@ -65,54 +65,53 @@ class loginController extends BaseController
 
         return redirect()->to('/registrarse');
     }
-public function iniciarSesion()
-{
-    $correo = $this->request->getPost('email');
-    $password = $this->request->getPost('password');
+    public function iniciarSesion()
+    {
+        $correo = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
 
-    if (!$correo || !$password) {
-        session()->setFlashdata('error', 'Debes completar ambos campos.');
-        return redirect()->to('iniciarSesion');
-    }
+        if (!$correo || !$password) {
+            session()->setFlashdata('error', 'Debes completar ambos campos.');
+            return redirect()->to('iniciarSesion');
+        }
 
-    // Verificar que usuarioModel está instanciado correctamente
-    if (!is_object($this->usuarioModel)) {
-        error_log("Error: usuarioModel no está instanciado correctamente.");
-        session()->setFlashdata('error', 'Error interno, intenta más tarde.');
-        return redirect()->to('iniciarSesion');
-    }
+        // Verificar que usuarioModel está instanciado correctamente
+        if (!is_object($this->usuarioModel)) {
+            error_log("Error: usuarioModel no está instanciado correctamente.");
+            session()->setFlashdata('error', 'Error interno, intenta más tarde.');
+            return redirect()->to('iniciarSesion');
+        }
 
-    // Buscar el usuario en la base de datos
-    $usuario = $this->usuarioModel->where('correoElectronico', $correo)->first();
+        // Buscar el usuario en la base de datos
+        $usuario = $this->usuarioModel->where('correoElectronico', $correo)->first();
 
-    if (!$usuario) {
-        error_log("Error: No se encontró un usuario con el correo: " . $correo);
-        session()->setFlashdata('error', 'Credenciales inválidas.');
-        return redirect()->to('iniciarSesion');
-    }
-    // Verificar si la cuenta está activa
-    if ($usuario['idEstadoUsuario'] == 0) {
-        session()->setFlashdata('error', 'Tu cuenta está dada de baja.');
-        error_log("Error: La cuenta está desactivada.");
-        return redirect()->to('iniciarSesion');
-    }
+        if (!$usuario) {
+            error_log("Error: No se encontró un usuario con el correo: " . $correo);
+            session()->setFlashdata('error', 'Credenciales inválidas.');
+            return redirect()->to('iniciarSesion');
+        }
+        // Verificar si la cuenta está activa
+        if ($usuario['idEstadoUsuario'] == 0) {
+            session()->setFlashdata('error', 'Tu cuenta está dada de baja.');
+            error_log("Error: La cuenta está desactivada.");
+            return redirect()->to('iniciarSesion');
+        }
 
-    // Verificación correcta usando password_verify()
-    if (password_verify($password, $usuario['contrasenia'])) {
-        // Guardar datos en la sesión
-        session()->set('idUsuario', $usuario['idUsuario']);
-        session()->set('idRol', $usuario['idRol']);
-        session()->set('nombre', $usuario['nombre']);
-        session()->set('apellido', $usuario['apellido']);
-        session()->set('nroTelefono', $usuario['nroTelefono']);
-        session()->set('fotoPerfil', $usuario['fotoPerfil']);
-        return ($usuario['idRol'] == 1) ? redirect()->to('panelAdmin') : redirect()->to('principal');
-    } else {
-        error_log("Error: La contraseña no coincide.");
-        session()->setFlashdata('error', 'Credenciales inválidas.');
-        return redirect()->to('iniciarSesion');
+        // Verificación correcta usando password_verify()
+        if (password_verify($password, $usuario['contrasenia'])) {
+            // Guardar datos en la sesión
+            session()->set('idUsuario', $usuario['idUsuario']);
+            session()->set('idRol', $usuario['idRol']);
+            session()->set('nombre', $usuario['nombre']);
+            session()->set('apellido', $usuario['apellido']);
+            session()->set('nroTelefono', $usuario['nroTelefono']);
+            return ($usuario['idRol'] == 1) ? redirect()->to('panelAdmin') : redirect()->to('principal');
+        } else {
+            error_log("Error: La contraseña no coincide.");
+            session()->setFlashdata('error', 'Credenciales inválidas.');
+            return redirect()->to('iniciarSesion');
+        }
     }
-}
 
     public function cerrarSesion()
     {
@@ -141,21 +140,12 @@ public function iniciarSesion()
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $nroTelefono = $this->request->getPost('nroTelefono');
-        $profileImage = $this->request->getFile('profileImage');
 
         // Validar el número de teléfono
         if (!ctype_digit($nroTelefono)) {
             return redirect()->back()->with('error', 'El número de teléfono debe contener solo dígitos.');
         }
         $nroTelefono = intval($nroTelefono);
-
-        // Validar y procesar la imagen (si fue enviada)
-        $imagePath = null;
-        if ($profileImage && $profileImage->isValid()) {
-            $imagePath = 'uploads/perfiles/' . $profileImage->getRandomName();
-            $profileImage->move('uploads/perfiles', $imagePath);
-        }
-
         // Datos a actualizar
         $data = [
             'nombre' => $nombre,
@@ -163,11 +153,6 @@ public function iniciarSesion()
             'correoElectronico' => $email,
             'nroTelefono' => $nroTelefono,
         ];
-
-        // Si hay imagen, agregarla al array
-        if ($imagePath) {
-            $data['fotoPerfil'] = $imagePath;
-        }
 
         // Solo actualizar la contraseña si se ha ingresado una nueva
         if (!empty($password)) {
@@ -181,9 +166,6 @@ public function iniciarSesion()
         session()->set('nombre', $nombre);
         session()->set('apellido', $apellido);
         session()->set('nroTelefono', $nroTelefono);
-        if ($imagePath) {
-            session()->set('fotoPerfil', $imagePath);
-        }
 
         return redirect()->to('principal')->with('mensaje', 'Datos actualizados correctamente.');
     }
