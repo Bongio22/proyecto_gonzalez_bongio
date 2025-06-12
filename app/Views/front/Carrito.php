@@ -55,7 +55,7 @@ if (!empty($_SESSION['carrito'])) {
             Total: $<?= number_format($total, 2) ?>
         </span>
         <form action="<?= base_url('/carrito/comprar') ?>" method="post">
-            <button type="submit">Finalizar Compra</button>
+            <button type="submit">Finalizar</button>
         </form>
 
     </div>

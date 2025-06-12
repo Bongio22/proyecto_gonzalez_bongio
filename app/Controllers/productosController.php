@@ -200,7 +200,7 @@ class productosController extends BaseController
             return redirect()->to(site_url('productos'));
         }
 
-        // Datos a actualizar: stock = -1 y estado = 2
+        // Datos a actualizar: stock = 0 y estado = 2
         $data = [
             'stock' => 0,
             'idEstadoProducto' => 2

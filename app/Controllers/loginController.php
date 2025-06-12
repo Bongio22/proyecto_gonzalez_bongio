@@ -80,6 +80,7 @@ class loginController extends BaseController
             ];
 
             if ($this->usuarioModel->insert($data)) {
+                session()->setFlashdata('mensaje', 'Te has registrado con éxito.');
                 return redirect()->to('registrarse');
             } else {
                 session()->setFlashdata('errores', ["Hubo un problema al registrar al usuario."]);

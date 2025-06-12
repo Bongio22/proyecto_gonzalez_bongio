@@ -944,9 +944,19 @@ body {
 }
 
 .alert {
-    padding: 15px; /* Espaciado interno para las alertas */
-    border-radius: 8px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espaciado inferior */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda; /* Color de fondo para éxito */
+    color: #155724; /* Color del texto */
+}
+
+.alert-danger {
+    background-color: #f8d7da; /* Color de fondo para error */
+    color: #721c24; /* Color del texto */
 }
 
 .alert svg {
@@ -2142,23 +2152,18 @@ aside ul li a:hover {
 /* Mensajes de éxito y error */
 .alert {
   padding: 15px;
+  border-radius: 5px;
   margin-bottom: 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background-color: #d4edda; /* Color de fondo para éxito */
+  color: #155724; /* Color del texto */
 }
 
 .alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background-color: #f8d7da; /* Color de fondo para error */
+  color: #721c24; /* Color del texto */
 }
 
 /* Estilo para las tarjetas de productos en el carrito (si se usan) */

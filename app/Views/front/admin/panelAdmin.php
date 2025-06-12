@@ -3,11 +3,11 @@
         <div class="stats">
             <div class="stat-item">
                 <h2>Total Productos</h2>
-                <p>150</p>
+                <p><5></p>
             </div>
             <div class="stat-item">
                 <h2>Total Usuarios</h2>
-                <p>300</p>
+                <p><55></p>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
             <div class="action-buttons">
                 <a href="<?= base_url('productos'); ?>" class="btn">Crud Producto</a>
                 <a href="<?= base_url('listadoUsuarios'); ?>" class="btn">Crud Usuario</a>
-                <a href="<?= base_url('listadoUsuarios'); ?>" class="btn">Detalle Ventas</a>
+                <a href="<?= base_url('listadoVentas'); ?>" class="btn">Detalle Ventas</a>
             </div>
             <a href="<?= base_url('cerrarSesion'); ?>" class="btn-Volver">Cerrar Sesion</a>
         </div>

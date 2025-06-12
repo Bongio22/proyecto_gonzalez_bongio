@@ -7,6 +7,8 @@ use App\Models\UsuarioModel;
 
 class panelController extends Controller
 {
+
+
     public function index()
     {
         $session = session();
@@ -22,9 +24,19 @@ class panelController extends Controller
 
     public function panelAdmin()
     {
-        $data['titulo'] = 'Panel de Administración';
+
+        $totalProductos = $this->productoModel->countAll();
+        $totalUsuarios = $this->usuarioModel->countAll();
+        $data = [
+            'titulo' => 'Panel de Administración',
+            'totalProductos' => $totalProductos,
+            'totalUsuarios' => $totalUsuarios,
+
+        ];
+
         echo view('plantillas/header', $data);
-        echo view('back/panelAdmin');
+        echo view('front/admin/panelAdmin', $data);
+        echo view('plantillas/footer');
     }
 
     public function panelUsuario()
@@ -50,12 +62,14 @@ class panelController extends Controller
             return 'Vista no válida';
         }
     }
+
     public function mostrarProductos()
     {
         $productoModel = new \App\Models\ProductoModel();
         $data['productos'] = $productoModel->findAll();
         return view('productos.php', $data);
     }
+
     public function listadoUsuarios()
     {
         $usuarioModel = new UsuarioModel();

@@ -128,4 +128,8 @@ class carritoController extends BaseController
     return redirect()->to('/carrito')->with('mensaje', '¡Compra realizada con éxito!');
 }
 
+
+
+
+
 }

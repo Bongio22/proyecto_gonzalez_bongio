@@ -5,7 +5,6 @@
     <!-- Mensaje de éxito -->
     <?php if (session()->getFlashdata('mensaje')): ?>
         <div class="alert alert-success p-3 rounded shadow" role="alert">
-            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
             <strong class="h5"><?= session()->getFlashdata('mensaje'); ?></strong>
             <br>
             <a href="<?= base_url('iniciarSesion'); ?>" class="alert-link">Iniciar sesión</a>
@@ -15,7 +14,6 @@
     <!-- Mensaje de errores -->
     <?php if (session()->getFlashdata('errores')): ?>
         <div class="alert alert-danger p-3 rounded shadow" role="alert">
-            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <strong class="h5">
                 <?php foreach (session()->getFlashdata('errores') as $error): ?>
                     <p><?= esc($error) ?></p>
