@@ -35,7 +35,7 @@ $routes->post('modificarProducto', 'productosController::modificarProducto'); //
 $routes->post('agregarProducto', 'productosController::guardarProducto');    // Ruta para guardar el producto
 $routes->get('productosController/eliminarProducto/(:num)', 'productosController::eliminarProducto/$1');
 $routes->get('front/productos/categoria/(:num)', 'productosController::productos/$1'); // con categoría
-
+$routes->get('misCompras', 'productosController::misCompras');
 /*Rutas para el manejo de Productos*/
 
 /*Rutas para el manejo del Carrito*/
