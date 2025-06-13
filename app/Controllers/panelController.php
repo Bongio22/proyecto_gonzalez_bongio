@@ -72,12 +72,33 @@ class panelController extends Controller
 
     public function listadoUsuarios()
     {
+        $session = session();
+        $idUsuarioActual = $session->get('idUsuario');
+
         $usuarioModel = new UsuarioModel();
-        $data['usuarios'] = $usuarioModel->findAll();
+        
+        // Obtener todos los usuarios activos excepto el de la sesión actual
+        $data['usuarios'] = $usuarioModel->where('idUsuario !=', $idUsuarioActual)
+                                        ->where('idEstadoUsuario', 1)
+                                        ->findAll();
         
         // Cargar las vistas necesarias
         $data['titulo'] = 'Lista de Usuarios'; // Título para la vista
         echo view('plantillas/header', $data);
         echo view('front/admin/listadoUsuarios', $data); // Asegúrate de que esta vista exista
+    }
+
+    public function bajaUsuario($idUsuario)
+    {
+        $usuarioModel = new UsuarioModel();
+
+        // Actualizar el estado del usuario a 2 (inactivo)
+        if ($usuarioModel->update($idUsuario, ['idEstadoUsuario' => 2])) {
+            session()->setFlashdata('success', 'Usuario dado de baja correctamente.');
+        } else {
+            session()->setFlashdata('error', 'Error al dar de baja al usuario.');
+        }
+
+        return redirect()->to(site_url('admin/listadoUsuarios'));
     }
 }
