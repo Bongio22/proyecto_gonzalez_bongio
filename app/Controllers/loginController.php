@@ -100,12 +100,6 @@ class loginController extends BaseController
             return redirect()->to('iniciarSesion');
         }
 
-        // Verificar que usuarioModel está instanciado correctamente
-        if (!is_object($this->usuarioModel)) {
-            error_log("Error: usuarioModel no está instanciado correctamente.");
-            session()->setFlashdata('error', 'Error interno, intenta más tarde.');
-            return redirect()->to('iniciarSesion');
-        }
 
         // Buscar el usuario en la base de datos
         $usuario = $this->usuarioModel->where('correoElectronico', $correo)->first();
@@ -116,7 +110,7 @@ class loginController extends BaseController
             return redirect()->to('iniciarSesion');
         }
         // Verificar si la cuenta está activa
-        if ($usuario['idEstadoUsuario'] == 0) {
+        if ($usuario['idEstadoUsuario'] == 2) {
             session()->setFlashdata('error', 'Tu cuenta está dada de baja.');
             error_log("Error: La cuenta está desactivada.");
             return redirect()->to('iniciarSesion');

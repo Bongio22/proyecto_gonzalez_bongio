@@ -7,26 +7,12 @@ use App\Models\UsuarioModel;
 
 class panelController extends Controller
 {
-
-
-    public function index()
-    {
-        $session = session();
-        $nombre = $session->get('idUsuario');
-        $perfil = $session->get('idRol');
-
-        if ($nombre == null) {
-            return redirect()->to(base_url('iniciarSesion'));
-        }
-
-        $data['idRol'] = $perfil;
-    }
-
     public function panelAdmin()
     {
-
-        $totalProductos = $this->productoModel->countAll();
-        $totalUsuarios = $this->usuarioModel->countAll();
+        $usuarioModel = new \App\Models\UsuarioModel();
+        $productoModel = new \App\Models\ProductoModel();
+        $totalProductos = $productoModel->countAll();
+        $totalUsuarios = $usuarioModel->countAll();
         $data = [
             'titulo' => 'Panel de Administración',
             'totalProductos' => $totalProductos,
@@ -34,40 +20,9 @@ class panelController extends Controller
 
         ];
 
-        echo view('plantillas/header', $data);
-        echo view('front/admin/panelAdmin', $data);
-        echo view('plantillas/footer');
-    }
-
-    public function panelUsuario()
-    {
-        $data['titulo'] = 'Panel de Administración';
-        echo view('plantillas/header', $data);
-        echo view('plantillas/navbar');
-        echo view('back/panelUsuario');
-        echo view('plantillas/footer');
-    }
-
-    public function cargarVista($vista)
-    {
-        if ($vista === 'usuarios') {
-            $usuarioModel = new \App\Models\UsuarioModel();
-            $data['usuarios'] = $usuarioModel->findAll();
-            return view('admin/usuarios', $data);
-        } elseif ($vista === 'productos') {
-            $productoModel = new \App\Models\ProductoModel();
-            $data['productos'] = $productoModel->findAll();
-            return view('admin/productos', $data);
-        } else {
-            return 'Vista no válida';
-        }
-    }
-
-    public function mostrarProductos()
-    {
-        $productoModel = new \App\Models\ProductoModel();
-        $data['productos'] = $productoModel->findAll();
-        return view('productos.php', $data);
+        return  view('plantillas/header', $data) .
+            view('front/admin/panelAdmin', $data) .
+            view('plantillas/footer');
     }
 
     public function listadoUsuarios()
@@ -76,16 +31,16 @@ class panelController extends Controller
         $idUsuarioActual = $session->get('idUsuario');
 
         $usuarioModel = new UsuarioModel();
-        
+
         // Obtener todos los usuarios activos excepto el de la sesión actual
         $data['usuarios'] = $usuarioModel->where('idUsuario !=', $idUsuarioActual)
-                                        ->where('idEstadoUsuario', 1)
-                                        ->findAll();
-        
+            ->findAll();
+
         // Cargar las vistas necesarias
         $data['titulo'] = 'Lista de Usuarios'; // Título para la vista
-        echo view('plantillas/header', $data);
-        echo view('front/admin/listadoUsuarios', $data); // Asegúrate de que esta vista exista
+        return view('plantillas/header', $data)
+            . view('front/admin/listadoUsuarios', $data) .
+            view('plantillas/footer');
     }
 
     public function bajaUsuario($idUsuario)
@@ -99,6 +54,35 @@ class panelController extends Controller
             session()->setFlashdata('error', 'Error al dar de baja al usuario.');
         }
 
-        return redirect()->to(site_url('admin/listadoUsuarios'));
+        return redirect()->to(site_url('front/admin/listadoUsuarios'));
+    }
+
+    public function altaUsuario($idUsuario)
+    {
+        $usuarioModel = new UsuarioModel();
+
+        // Actualizar el estado del usuario a 1 (activo)
+        if ($usuarioModel->update($idUsuario, ['idEstadoUsuario' => 1])) {
+            session()->setFlashdata('success', 'Usuario dato de alta correctamente.');
+        } else {
+            session()->setFlashdata('error', 'Error al dar de alta al usuario.');
+        }
+
+        return redirect()->to(site_url('front/admin/listadoUsuarios'));
+    }
+
+    public function modificarUsuario($idUsuario)
+    {
+        $usuarioModel = new UsuarioModel();
+        $usuario = $usuarioModel->find($idUsuario);
+        // Modifica el rol del usuario
+        //De administrador a Cliente
+        if ($usuario['idRol'] == 1) {
+            $usuarioModel->update($idUsuario, ['idRol' => 2]);
+            //De cliente a Administrador
+        } else if ($usuario['idRol'] == 2) {
+            $usuarioModel->update($idUsuario, ['idRol' => 1]);
+        }
+        return redirect()->to(site_url('front/admin/listadoUsuarios'));
     }
 }

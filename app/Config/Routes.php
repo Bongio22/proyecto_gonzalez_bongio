@@ -23,13 +23,10 @@ $routes->post('iniciarSesion', 'loginController::iniciarSesion');
 $routes->get('cerrarSesion', 'loginController::cerrarSesion');
 $routes->get('misDatos', 'loginController::modificarDatos');
 $routes->post('misDatos', 'loginController::modificarUsuario');
-$routes->get('panelAdmin', 'loginController::panelAdmin');
-$routes->get('admin/usuarios', 'panelController::mostrarUsuarios');
 /*Rutas para el manejo de Usuario*/
 
 /*Rutas para el manejo de Productos*/
-$routes->get('productos', 'productosController::productos'); 
-$routes->get('productosAdmin', 'productosController::productosAdmin');
+$routes->get('productos', 'productosController::productos');
 $routes->get('modificarProducto/(:num)', 'productosController::viewModificarProducto/$1');
 $routes->post('modificarProducto', 'productosController::modificarProducto'); // Ruta para guardar cambios
 $routes->post('agregarProducto', 'productosController::guardarProducto');    // Ruta para guardar el producto
@@ -51,9 +48,10 @@ $routes->post('/carrito/comprar', 'CarritoController::comprar');
 /*Rutas para el manejo del panel */
 // Rutas para el panel de administración
 $routes->get('panelAdmin', 'panelController::panelAdmin'); // Vista principal
-$routes->get('adminUsuarios', 'panelController::mostrarUsuarios'); // Cargar tabla usuarios
-$routes->get('adminProductos', 'panelController::mostrarProductos'); // Cargar tabla productos
-$routes->get('listadoUsuarios', 'panelController::listadoUsuarios');
+$routes->get('front/admin/listadoUsuarios', 'panelController::listadoUsuarios');
+$routes->get('admin/bajaUsuario/(:num)', 'panelController::bajaUsuario/$1');
+$routes->get('admin/altaUsuario/(:num)', 'panelController::altaUsuario/$1');
+$routes->get('admin/modificarUsuario/(:num)', 'panelController::modificarUsuario/$1');
 /*Rutas para el manejo del panel */
 
 /*Contacto*/

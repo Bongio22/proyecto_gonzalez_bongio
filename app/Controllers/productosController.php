@@ -219,14 +219,6 @@ class productosController extends BaseController
         return redirect()->to(site_url('productos'));
     }
 
-    public function productosAdmin()
-    {
-        $data['titulo'] = 'Productos Administrador';
-        echo view('plantillas/header', $data);
-        echo view('front/admin/productosAdmin');
-        echo view('plantillas/footer');
-    }
-    
     public function misCompras()
     {
         $usuarioId = session()->get('idUsuario');
