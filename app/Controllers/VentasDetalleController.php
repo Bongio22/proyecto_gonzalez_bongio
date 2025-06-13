@@ -62,4 +62,32 @@ class VentasDetalleController extends Controller
             'precio' => $precio
         ]);
     }
+public function ventaDetalle()
+{
+    if (!session()->has('idUsuario')) {
+        return view('modales/error_sesion');
+    }
+
+    $usuarioModel = new \App\Models\UsuarioModel();
+    $productoModel = new \App\Models\ProductoModel();
+    $carrito = session('carrito') ?? [];
+
+    $usuario = $usuarioModel->find(session('idUsuario'));
+
+    $detalle = [];
+    foreach ($carrito as $item) {
+        $producto = $productoModel->find($item['idProducto']);
+        $detalle[] = [
+            'descripcion' => $producto['descripcion'],
+            'cantidad' => $item['cantidad'],
+            'precio' => $producto['precioUnit']
+        ];
+    }
+
+    return view('front/usuario/ventaDetalle', [
+        'usuario' => $usuario,
+        'detalle' => $detalle
+    ]);
+}
+
 }

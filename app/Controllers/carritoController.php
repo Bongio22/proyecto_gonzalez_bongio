@@ -82,7 +82,7 @@ class carritoController extends BaseController
     }
 
 
-    public function comprar()
+    public function finalizarCompra()
     {
         $session = session();
         $carrito = $session->get('carrito') ?? [];
@@ -134,9 +134,5 @@ class carritoController extends BaseController
             'localizador' => rand(10000000, 99999999) // Generar un localizador aleatorio
         ]);
     }
-
-
-
-
 
 }

@@ -24,7 +24,7 @@ if (!empty($_SESSION['carrito'])) {
         <?php foreach ($_SESSION['carrito'] as $i => $item): ?>
         <tr>
             <td><?= htmlspecialchars($item['descripcion']) ?></td>
-            <td>$<?= number_format($item['precioUnit'], 2) ?></td>
+            <td>$<?= number_format($item['precioUnit'], 2, ',', '.') ?></td>
             <td><?= $item['cantidad'] ?></td>
             <td>
                 <form action="<?= base_url('carrito/eliminarProducto') ?>" method="post" style="display:inline;">
@@ -54,55 +54,49 @@ if (!empty($_SESSION['carrito'])) {
         <span class="total-carrito">
             Total: $<?= number_format($total, 2) ?>
         </span>
-        <form id="comprarForm" action="<?php echo base_url('carrito/comprar'); ?>">
-            <button type="submit">Finalizar</button>
-        </form>
+        <button type="button" id="btnFinalizarCompra" class="btn btn-primary">
+            Finalizar compra
+        </button>
+
     </div>
 </div>
 
-<!-- Modal -->
-<div id="modalResumen" style="display:none;">
-    <h2>Resumen de Compra</h2>
-    <div id="detallesCompra"></div>
-    <button id="cerrarModal">Cerrar</button>
+<!-- Modal resumen de compra -->
+<div class="modal fade" id="modalResumenCompra" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color: #461242; color: white;">
+            <div class="modal-header border-0">
+                <h5 class="modal-title">Resumen de compra</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="contenidoResumenCompra">
+                <p class="text-center">Cargando datos...</p>
+            </div>
+            <div class="modal-footer border-0 d-flex justify-content-between">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="btnConfirmarCompra">Confirmar</button>
+            </div>
+        </div>
+    </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('#comprarForm').on('submit', function(e) {
-        e.preventDefault(); // Evitar el envío normal del formulario
+document.addEventListener("DOMContentLoaded", function() {
+    const btnFinalizar = document.getElementById("btnFinalizarCompra");
 
-        $.ajax({
-            url: '<?= base_url('carrito/comprar') ?>',
-            method: 'POST',
-            dataType: 'json',
-            success: function(response) {
-                // Mostrar el modal con los detalles de la compra
-                let detallesHtml = '<table><tr><th>Descripción</th><th>Precio Unitario</th><th>Cantidad</th><th>Total</th></tr>';
-                response.detalles.forEach(function(detalle) {
-                    detallesHtml += `<tr>
-                        <td>${detalle.descripcion}</td>
-                        <td>$${detalle.precioUnit.toFixed(2)}</td>
-                        <td>${detalle.cantidad}</td>
-                        <td>$${(detalle.precioUnit * detalle.cantidad).toFixed(2)}</td>
-                    </tr>`;
-                });
-                detallesHtml += '</table>';
-                detallesHtml += `<h3>Total: $${response.total.toFixed(2)}</h3>`;
-                detallesHtml += `<p>Tu localizador de reserva es el <strong>${response.localizador}</strong></p>`;
-
-                $('#detallesCompra').html(detallesHtml);
-                $('#modalResumen').show(); // Mostrar el modal
-            },
-            error: function() {
-                alert('Error al procesar la compra.');
-            }
-        });
-    });
-
-    $('#cerrarModal').on('click', function() {
-        $('#modalResumen').hide(); // Cerrar el modal
+    btnFinalizar.addEventListener("click", function() {
+        // Cargar datos por AJAX
+        fetch("<?= base_url('carrito/comprar/confirmar') ?>")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("contenidoResumenCompra").innerHTML = html;
+                const modal = new bootstrap.Modal(document.getElementById("modalResumenCompra"));
+                modal.show();
+            })
+            .catch(() => {
+                document.getElementById("contenidoResumenCompra").innerHTML =
+                    "<div class='text-danger'>Error al cargar los datos.</div>";
+            });
     });
 });
 </script>

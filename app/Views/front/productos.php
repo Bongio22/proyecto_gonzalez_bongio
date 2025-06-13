@@ -57,7 +57,9 @@
                             </td>
                             <td>
                                 <strong>Descripción:</strong> <?= htmlspecialchars($producto['descripcion']); ?><br>
-                                <strong>Precio Unitario:</strong> $<?= htmlspecialchars($producto['precioUnit']); ?><br>
+                                <strong>Precio Unitario:</strong>
+                                $<?= htmlspecialchars(number_format($producto['precioUnit'], 2, ',', '.')); ?><br>
+
                                 <strong>Stock:</strong> <?= htmlspecialchars($producto['stock']); ?><br>
                             </td>
                             <td>

@@ -172,7 +172,7 @@ class productosController extends BaseController
 
         // Establecer el estado del producto según el stock
         if ($data['stock'] == 0) {
-            $data['idEstadoProducto'] = 0; // Producto no disponible
+            $data['idEstadoProducto'] = 2; // Producto no disponible
         } else {
             $data['idEstadoProducto'] = 1; // Producto disponible
         }
