@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (empty($compras)): ?>
+                <?php if (!empty($compras)): ?>
                 <?php foreach ($compras as $compra): ?>
                 <tr>
                     <td><?= htmlspecialchars($compra['fecha']); ?></td>
