@@ -66,12 +66,10 @@ CREATE TABLE Consulta
   apellido VARCHAR(255) NOT NULL,
   nroTelefono INT NOT NULL,
   asunto VARCHAR(255) NOT NULL,
-  respondido VARCHAR(2) NOT NULL,
-  respuesta VARCHAR(255) NOT NULL,
-  descripcion VARCHAR(255) NOT NULL,
-  idUsuario INT NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,,
+  idEstado INT NOT NULL,
   PRIMARY KEY (idConsulta),
-  FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
 );
 
 CREATE TABLE Ventas_cabecera

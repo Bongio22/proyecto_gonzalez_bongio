@@ -11,14 +11,12 @@ class ConsultaModel extends Model
 
     // Columnas permitidas para operaciones de inserción y actualización
     protected $allowedFields = [
-        'idUsuario',
         'nombre',
         'apellido',
         'asunto',
         'correoElectronico',
-        'descripcion',
-        'respondido',
-        'respuesta',
+        'descripcion',,
+        'idEstado',
         'telefono'
     ];
 }
