@@ -62,7 +62,7 @@ class VentasDetalleController extends Controller
             'precio' => $precio
         ]);
     }
-public function ventaDetalle()
+public function ventaDetalle() 
 {
     if (!session()->has('idUsuario')) {
         return view('modales/error_sesion');
@@ -70,6 +70,8 @@ public function ventaDetalle()
 
     $usuarioModel = new \App\Models\UsuarioModel();
     $productoModel = new \App\Models\ProductoModel();
+    $metodoPagoModel = new \App\Models\MetodoPagoModel(); 
+
     $carrito = session('carrito') ?? [];
 
     $usuario = $usuarioModel->find(session('idUsuario'));
@@ -84,10 +86,14 @@ public function ventaDetalle()
         ];
     }
 
+    $metodos = $metodoPagoModel->where('idEstado', 1)->findAll(); 
+
     return view('front/usuario/ventaDetalle', [
         'usuario' => $usuario,
-        'detalle' => $detalle
+        'detalle' => $detalle,
+        'metodos' => $metodos // <- Agregado
     ]);
 }
+
 
 }

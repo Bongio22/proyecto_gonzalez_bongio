@@ -66,7 +66,7 @@ if (!empty($_SESSION['carrito'])) {
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content" style="background-color: #461242; color: white;">
             <div class="modal-header border-0">
-                <h5 class="modal-title">Resumen de compra</h5>
+                <h5 class="modal-title">Detalle de compra</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Cerrar"></button>
             </div>

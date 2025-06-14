@@ -1,44 +1,31 @@
-CREATE DATABASE frikiverse;
-USE frikiverse;
-
 CREATE TABLE Rol
 (
-  idRol INT NOT NULL AUTO_INCREMENT,
+  idRol INT NOT NULL,
   descripcion VARCHAR(20) NOT NULL,
   PRIMARY KEY (idRol)
 );
 
 CREATE TABLE Categoria
 (
-  idCategoria INT NOT NULL AUTO_INCREMENT,
+  idCategoria INT NOT NULL,
   descripcion VARCHAR(20) NOT NULL,
   PRIMARY KEY (idCategoria)
 );
 
 CREATE TABLE Estado
 (
-  idEstado INT NOT NULL AUTO_INCREMENT,
+  idEstado INT NOT NULL,
   descripcion VARCHAR(255) NOT NULL,
   PRIMARY KEY (idEstado)
 );
 
-CREATE TABLE Envio
-(
-  idEnvio INT NOT NULL AUTO_INCREMENT,
-  descripcion VARCHAR(220) NOT NULL,
-  idEstado INT NOT NULL,
-  PRIMARY KEY (idEnvio),
-  FOREIGN KEY (idEstado) REFERENCES Estado(idEstado)
-);
-
 CREATE TABLE Usuario
 (
-  idUsuario INT NOT NULL AUTO_INCREMENT,
+  idUsuario INT NOT NULL,
   nombre VARCHAR(20) NOT NULL,
   apellido VARCHAR(20) NOT NULL,
   correoElectronico VARCHAR(30) NOT NULL,
-  contrasenia VARCHAR(100) NOT NULL,
-  fotoPerfil VARCHAR(255) NOT NULL,
+  contrasenia VARCHAR(20) NOT NULL,
   nroTelefono INT NOT NULL,
   idRol INT NOT NULL,
   idEstadoUsuario INT NOT NULL,
@@ -49,7 +36,7 @@ CREATE TABLE Usuario
 
 CREATE TABLE Producto
 (
-  idProducto INT NOT NULL AUTO_INCREMENT,
+  idProducto INT NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   precioUnit FLOAT NOT NULL,
   stock INT NOT NULL,
@@ -63,7 +50,7 @@ CREATE TABLE Producto
 
 CREATE TABLE MetodoPago
 (
-  idMetodoPago INT NOT NULL AUTO_INCREMENT,
+  idMetodoPago INT NOT NULL,
   nombre VARCHAR(255) NOT NULL,
   idEstado INT NOT NULL,
   PRIMARY KEY (idMetodoPago),
@@ -72,7 +59,7 @@ CREATE TABLE MetodoPago
 
 CREATE TABLE Consulta
 (
-  idConsulta INT NOT NULL AUTO_INCREMENT,
+  idConsulta INT NOT NULL,
   nombre VARCHAR(255) NOT NULL,
   apellido VARCHAR(255) NOT NULL,
   nroTelefono INT NOT NULL,
@@ -87,17 +74,19 @@ CREATE TABLE Consulta
 
 CREATE TABLE Ventas_cabecera
 (
-  idVentas INT NOT NULL AUTO_INCREMENT,
+  idVentas INT NOT NULL,
   fecha DATE NOT NULL,
   total_venta FLOAT NOT NULL,
   usuario_id INT NOT NULL,
+  idMetodoPago INT NOT NULL,
   PRIMARY KEY (idVentas),
-  FOREIGN KEY (usuario_id) REFERENCES Usuario(idUsuario)
+  FOREIGN KEY (usuario_id) REFERENCES Usuario(idUsuario),
+  FOREIGN KEY (idMetodoPago) REFERENCES MetodoPago(idMetodoPago)
 );
 
 CREATE TABLE Ventas_detalle
 (
-  idVentasDetalle INT NOT NULL AUTO_INCREMENT,
+  idVentasDetalle INT NOT NULL,
   cantidad INT NOT NULL,
   precio FLOAT NOT NULL,
   venta_id INT NOT NULL,
@@ -106,39 +95,15 @@ CREATE TABLE Ventas_detalle
   FOREIGN KEY (venta_id) REFERENCES Ventas_cabecera(idVentas),
   FOREIGN KEY (producto_id) REFERENCES Producto(idProducto)
 );
-
-CREATE TABLE Factura
-(
-  idFactura INT NOT NULL AUTO_INCREMENT,
-  importeTotal FLOAT NOT NULL,
-  fecha DATE NOT NULL,
-  idMetodoPago INT NOT NULL,
-  idEnvio INT NOT NULL,
-  idUsuario INT NOT NULL,
-  PRIMARY KEY (idFactura),
-  FOREIGN KEY (idMetodoPago) REFERENCES MetodoPago(idMetodoPago),
-  FOREIGN KEY (idEnvio) REFERENCES Envio(idEnvio),
-  FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
-);
-
-CREATE TABLE DetalleFactura
-(
-  idDetalleFactura INT NOT NULL AUTO_INCREMENT,
-  cantidad INT NOT NULL,
-  subtotal FLOAT NOT NULL,
-  idProducto INT NOT NULL,
-  idFactura INT NOT NULL,
-  PRIMARY KEY (idDetalleFactura),
-  FOREIGN KEY (idProducto) REFERENCES Producto(idProducto),
-  FOREIGN KEY (idFactura) REFERENCES Factura(idFactura)
-);
-
 -- Inserts
 INSERT into Rol(descripcion) VALUES("Administrador");
 INSERT into Rol(descripcion) VALUES("Cliente");
 
 INSERT into Estado(descripcion) VALUES("Activo");
 INSERT into Estado(descripcion) VALUES("Desactivado");
+
+INSERT INTO metodoPago(nombre,idEstado) VALUES("Debito",1);
+INSERT INTO metodoPago(nombre,idEstado) VALUES("Credito",1);
 
 INSERT INTO Categoria(descripcion) VALUES("Mangas");
 INSERT INTO Categoria(descripcion) VALUES("Comics");
