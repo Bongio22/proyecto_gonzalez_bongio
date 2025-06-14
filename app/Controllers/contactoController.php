@@ -23,7 +23,11 @@ class contactoController extends BaseController
     public function consultas()
     {
         $consultas = $this->consultaModel->findAll();
-        return view('consultas', ['consultas' => $consultas]);
+        return view('plantillas/header')
+    . view('plantillas/navbar')
+    . view('front/admin/consultas', ['consultas' => $consultas])
+    . view('plantillas/footer');
+
     }
     
     

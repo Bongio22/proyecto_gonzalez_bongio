@@ -20,6 +20,7 @@
                 <a href="<?= base_url('productos'); ?>" class="btn">Crud Producto</a>
                 <a href="<?= base_url('front/admin/listadoUsuarios'); ?>" class="btn">Crud Usuario</a>
                 <a href="<?= base_url('listadoVentas'); ?>" class="btn">Detalle Ventas</a>
+                <a href="<?= base_url('consultas'); ?>" class="btn">Consultas</a>
             </div>
             <a href="<?= base_url('cerrarSesion'); ?>" class="btn-Volver">Cerrar Sesion</a>
         </div>

@@ -933,3 +933,96 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
 INFO - 2025-06-14 23:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-06-14 23:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-06-14 23:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:18:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:19:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-14 23:20:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "front/consultas.php"
+[Method: GET, Route: consultas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front/consultas.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/consultas', [], true)
+ 3 APPPATH\Controllers\contactoController.php(26): view('front/consultas')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\contactoController->consultas()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\contactoController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-14 23:21:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-14 23:21:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "front/consultas.php"
+[Method: GET, Route: consultas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front/consultas.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/consultas', [], true)
+ 3 APPPATH\Controllers\contactoController.php(26): view('front/consultas')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\contactoController->consultas()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\contactoController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-14 23:21:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-14 23:21:44 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "front/consultas.php"
+[Method: GET, Route: consultas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front/consultas.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/consultas', [], true)
+ 3 APPPATH\Controllers\contactoController.php(26): view('front/consultas')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\contactoController->consultas()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\contactoController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-14 23:21:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-14 23:21:48 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "front/consultas.php"
+[Method: GET, Route: consultas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front/consultas.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/consultas', [], true)
+ 3 APPPATH\Controllers\contactoController.php(26): view('front/consultas')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\contactoController->consultas()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\contactoController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-14 23:22:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-14 23:22:25 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/consultas.php"
+[Method: GET, Route: consultas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/consultas.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/consultas', [], true)
+ 3 APPPATH\Controllers\contactoController.php(26): view('admin/consultas')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\contactoController->consultas()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\contactoController))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-14 23:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:23:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-14 23:23:20 --> ErrorException: Undefined variable $consultas
+[Method: GET, Route: consultas]
+in APPPATH\Views\front\admin\consultas.php on line 19.
+ 1 APPPATH\Views\front\admin\consultas.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $consultas', 'C:\\xampp\\htdocs\\proyecto_gonzalez_bongio\\app\\Views\\front\\admin\\consultas.php', 19)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\proyecto_gonzalez_bongio\\app\\Views\\front\\admin\\consultas.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('front/admin/consultas', [], true)
+ 5 APPPATH\Controllers\contactoController.php(26): view('front/admin/consultas')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\contactoController->consultas()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\contactoController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-06-14 23:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:26:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 23:26:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
