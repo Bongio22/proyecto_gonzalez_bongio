@@ -1,41 +1,63 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\ConsultaModel;
-use CodeIgniter\Controller;
 
-class ContactoController extends BaseController
+use App\Controllers\BaseController;
+use App\Models\ConsultaModel;
+
+class contactoController extends BaseController
 {
+    protected $consultaModel;
+
+    public function __construct()
+    {
+        $this->consultaModel = new ConsultaModel();
+    }
     public function contacto()
     {
-        $data['titulo'] = 'Contacto';
+        $data['titulo'] = 'contacto';
         return view('plantillas/header', $data) . view('plantillas/navbar') . view('front/contacto') . view('plantillas/footer');
     }
 
-    public function guardarConsulta()
+    // Mostrar todas las consultas
+    public function consultas()
     {
-        $consultaModel = new ConsultaModel();
-
-        // Obtener datos del formulario
-        $datos = [
-            'idUsuario'   => session()->get('idUsuario') ?? null, // si no hay sesión puede quedar null
-            'nombre'      => $this->request->getPost('nombre'),
-            'apellido'    => $this->request->getPost('apellido'),
-            'email'       => $this->request->getPost('email'),
-            'asunto'      => $this->request->getPost('motivo'),
-            'descripcion' => $this->request->getPost('consulta'),
-            'respondido'  => 0,  // Por defecto no respondido
-            'respuesta'   => null,
-            'telefono'    => null 
+        $consultas = $this->consultaModel->findAll();
+        return view('consultas', ['consultas' => $consultas]);
+    }
+    
+    
+    public function crearConsulta()
+    {
+        $data = [
+            'nombre'            => $this->request->getPost('nombre'),
+            'apellido'          => $this->request->getPost('apellido'),
+            'asunto'            => $this->request->getPost('asunto'),
+            'correoElectronico' => $this->request->getPost('email'),
+            'descripcion'       => $this->request->getPost('descripcion'),
+            'idEstado'          => 1
         ];
 
-        // Guardar en la base de datos
-        if ($consultaModel->insert($datos)) {
-            // Redireccionar o mostrar mensaje de éxito
-            return redirect()->to(site_url('contacto'))->with('mensaje', 'Consulta enviada correctamente.');
-        } else {
-            // Manejar error, podrías pasar errores a la vista o mostrar un mensaje
-            return redirect()->to(site_url('contacto'))->with('error', 'Hubo un problema al enviar la consulta.');
+        $this->consultaModel->insert($data);
+        return redirect()->to('contacto')->with('mensaje', 'Consulta enviada correctamente.');
+    }
+
+    // Ver detalle de una consulta
+    public function ver($idConsulta)
+    {
+        $consulta = $this->consultaModel->find($idConsulta);
+        if (!$consulta) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Consulta no encontrada");
         }
+        return view('consultas/ver', ['consulta' => $consulta]);
+    }
+
+    // Cambiar estado de una consulta
+    public function actualizarEstado($id)
+    {
+        $nuevoEstado = $this->request->getPost('idEstado');
+        $this->consultaModel->update($id, ['idEstado' => $nuevoEstado]);
+
+        return redirect()->to('/consultas')->with('mensaje', 'Estado actualizado.');
     }
 }

@@ -56,6 +56,7 @@ $routes->get('admin/modificarUsuario/(:num)', 'panelController::modificarUsuario
 /*Rutas para el manejo del panel */
 
 /*Contacto*/
-$routes->post('contactoController/guardarConsulta', 'ContactoController::guardarConsulta');
-$routes->get('contactoController/guardarConsulta', 'ContactoController::guardarConsulta');
+$routes->post('contacto/crearConsulta', 'ContactoController::crearConsulta');
+$routes->get('contacto/crearConsulta', 'ContactoController::crearConsulta');
+$routes->get('contacto', 'contactoController::contacto');
 /*Contacto*/

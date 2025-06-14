@@ -9,7 +9,7 @@
 
 <div class="form-container">
     <h2>Contacto</h2>
-    <form action="<?= site_url('contactoController/guardarConsulta'); ?>" method=" POST" id="contactForm">
+    <form action="<?= site_url('contacto/crearConsulta'); ?>" method="POST" id="contactForm">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -20,10 +20,10 @@
         <input type="email" id="email" name="email" required>
 
         <label for="motivo">Asunto</label>
-        <input type="text" id="motivo" name="motivo" required>
+        <input type="text" id="asunto" name="asunto" required>
 
         <label for="consulta">Desarrolla tu consulta</label>
-        <textarea id="consulta" name="consulta" rows="4" required></textarea>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
 
         <input type="submit" value="Enviar Consulta">
     </form>

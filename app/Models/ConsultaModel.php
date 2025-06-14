@@ -15,8 +15,7 @@ class ConsultaModel extends Model
         'apellido',
         'asunto',
         'correoElectronico',
-        'descripcion',,
-        'idEstado',
-        'telefono'
+        'descripcion',
+        'idEstado'
     ];
 }
