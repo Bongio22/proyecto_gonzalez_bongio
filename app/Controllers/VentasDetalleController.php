@@ -91,7 +91,7 @@ public function ventaDetalle()
     return view('front/usuario/ventaDetalle', [
         'usuario' => $usuario,
         'detalle' => $detalle,
-        'metodos' => $metodos // <- Agregado
+        'metodos' => $metodos 
     ]);
 }
 

@@ -83,10 +83,11 @@ if (!empty($_SESSION['carrito'])) {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const btnFinalizar = document.getElementById("btnFinalizarCompra");
+    const btnConfirmar = document.getElementById("btnConfirmarCompra");
 
     btnFinalizar.addEventListener("click", function() {
         // Cargar datos por AJAX
-        fetch("<?= base_url('carrito/comprar/confirmar') ?>")
+        fetch("<?= base_url('carrito/comprar') ?>")
             .then(response => response.text())
             .then(html => {
                 document.getElementById("contenidoResumenCompra").innerHTML = html;
@@ -96,6 +97,37 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(() => {
                 document.getElementById("contenidoResumenCompra").innerHTML =
                     "<div class='text-danger'>Error al cargar los datos.</div>";
+            });
+    });
+    btnConfirmar.addEventListener("click", function() {
+        // Enviar confirmación de compra a la ruta especificada
+        fetch("<?= base_url('carrito/comprar/confirmar') ?>", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // Si necesitás enviar datos extra como método de pago u otros, agregalos acá
+                    metodoPago: document.getElementById('metodoPago').value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Aquí podés mostrar un mensaje, redirigir o cerrar el modal
+                    alert("Compra confirmada con éxito.");
+                    const modalEl = document.getElementById("modalResumenCompra");
+                    const modal = bootstrap.Modal.getInstance(modalEl);
+                    modal.hide();
+                    // Opcional: redirigir a otra página
+                    // window.location.href = "<?= base_url('carrito/compra_exitosa') ?>";
+                } else {
+                    alert("Error al confirmar la compra: " + (data.message ||
+                        "Intente nuevamente."));
+                }
+            })
+            .catch(() => {
+                alert("Error de comunicación con el servidor.");
             });
     });
 });

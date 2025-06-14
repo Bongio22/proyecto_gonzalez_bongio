@@ -7,16 +7,18 @@ use CodeIgniter\Controller;
 
 class VentasCabeceraController extends Controller
 {
-    public function crear($total, $usuarioId)
-    {
-        $ventaModel = new VentasCabeceraModel();
+   public function crear($total, $usuarioId, $idMetodoPago)
+{
+    $ventaModel = new VentasCabeceraModel();
 
-        $ventaModel->insert([
-            'fecha' => date('Y-m-d H:i:s'),
-            'total_venta' => $total,
-            'usuario_id' => $usuarioId
-        ]);
+    $ventaModel->insert([
+        'fecha' => date('Y-m-d H:i:s'),
+        'total_venta' => $total,
+        'usuario_id' => $usuarioId,
+        'idMetodoPago' => $idMetodoPago
+    ]);
 
-        return $ventaModel->insertID();
-    }
+    return $ventaModel->insertID();
+}
+
 }

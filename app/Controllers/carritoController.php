@@ -83,56 +83,67 @@ class carritoController extends BaseController
 
 
     public function finalizarCompra()
-    {
-        $session = session();
-        $carrito = $session->get('carrito') ?? [];
-        $idUsuario = $session->get('idUsuario');
+{
+    $session = session();
+    $carrito = $session->get('carrito') ?? [];
+    $idUsuario = $session->get('idUsuario');
 
-        if (empty($carrito) || !$idUsuario) {
-            return redirect()->to('/carrito')->with('mensaje', 'No se pudo realizar la compra.');
+    if (empty($carrito) || !$idUsuario) {
+        return redirect()->to('/carrito')->with('mensaje', 'No se pudo realizar la compra.');
+    }
+
+    // Obtener método de pago desde POST
+    $idMetodoPago = $this->request->getPost('idMetodoPago');
+    if (!$idMetodoPago) {
+        return redirect()->to('/carrito')->with('mensaje', 'Método de pago no especificado.');
+    }
+
+    // Verificar que el método de pago exista
+    $metodoPagoModel = new \App\Models\MetodoPagoModel();
+    if (!$metodoPagoModel->find($idMetodoPago)) {
+        return redirect()->to('/carrito')->with('mensaje', 'Método de pago inválido.');
+    }
+
+    $productoModel = new \App\Models\ProductoModel();
+    $cabeceraController = new \App\Controllers\VentasCabeceraController();
+    $detalleController = new \App\Controllers\VentasDetalleController();
+
+    // Verificar stock antes de hacer cualquier operación
+    foreach ($carrito as $item) {
+        $producto = $productoModel->find($item['idProducto']);
+
+        if (!$producto || $producto['stock'] < $item['cantidad']) {
+            return redirect()->to('/carrito')->with('mensaje', 'Stock insuficiente para: ' . $item['descripcion']);
         }
+    }
 
-        $productoModel = new \App\Models\ProductoModel();
-        $cabeceraController = new \App\Controllers\VentasCabeceraController();
-        $detalleController = new \App\Controllers\VentasDetalleController();
+    // Calcular total de la compra
+    $total = 0;
+    foreach ($carrito as $item) {
+        $total += $item['precioUnit'] * $item['cantidad'];
+    }
 
-        // Verificar stock antes de hacer cualquier operación
-        foreach ($carrito as $item) {
-            $producto = $productoModel->find($item['idProducto']);
+    // Crear cabecera de venta
+    $ventaId = $cabeceraController->crear($total, $idUsuario, $idMetodoPago);
 
-            if (!$producto || $producto['stock'] < $item['cantidad']) {
-                return redirect()->to('/carrito')->with('mensaje', 'Stock insuficiente para: ' . $item['descripcion']);
-            }
-        }
+    // Insertar cada detalle y actualizar stock
+    foreach ($carrito as $item) {
+        $detalleController->crear($ventaId, $item['idProducto'], $item['cantidad'], $item['precioUnit']);
 
-        // Calcular total de la compra
-        $total = 0;
-        foreach ($carrito as $item) {
-            $total += $item['precioUnit'] * $item['cantidad'];
-        }
-
-        // Crear cabecera de venta
-        $ventaId = $cabeceraController->crear($total, $idUsuario);
-
-        // Insertar cada detalle y actualizar stock
-        foreach ($carrito as $item) {
-            $detalleController->crear($ventaId, $item['idProducto'], $item['cantidad'], $item['precioUnit']);
-
-            $producto = $productoModel->find($item['idProducto']);
-            $productoModel->update($item['idProducto'], [
-                'stock' => $producto['stock'] - $item['cantidad']
-            ]);
-        }
-
-        $session->remove('carrito');
-
-        // En lugar de redirigir, puedes devolver los detalles de la compra
-        return $this->response->setJSON([
-            'mensaje' => '¡Compra realizada con éxito!',
-            'total' => $total,
-            'detalles' => $carrito,
-            'localizador' => rand(10000000, 99999999) // Generar un localizador aleatorio
+        $producto = $productoModel->find($item['idProducto']);
+        $productoModel->update($item['idProducto'], [
+            'stock' => $producto['stock'] - $item['cantidad']
         ]);
     }
 
+    $session->remove('carrito');
+
+    // En lugar de redirigir, puedes devolver los detalles de la compra
+    return $this->response->setJSON([
+        'mensaje' => '¡Compra realizada con éxito!',
+        'total' => $total,
+        'detalles' => $carrito,
+        'localizador' => rand(10000000, 99999999) // Generar un localizador aleatorio
+    ]);
+}
 }

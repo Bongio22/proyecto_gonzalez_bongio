@@ -13,6 +13,7 @@ class VentasCabeceraModel extends Model
     protected $allowedFields = [
         'fecha',
         'total_venta',
-        'usuario_id'
+        'usuario_id',
+        'idMetodoPago'
     ];
 }

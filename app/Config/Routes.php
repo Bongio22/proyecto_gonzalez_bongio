@@ -42,7 +42,9 @@ $routes->get('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('carrito/eliminarProducto', 'CarritoController::eliminarProducto');
 $routes->post('carrito/vaciar', 'carritoController::vaciar');
-$routes->get('/carrito/comprar/confirmar', 'ventasDetalleController::ventaDetalle');
+$routes->get('/carrito/comprar', 'ventasDetalleController::ventaDetalle');
+$routes->post('/carrito/comprar/confirmar', 'carritoController::finalizarCompra');
+
 
 
 
