@@ -34,3 +34,4 @@ in APPPATH\Views\front\usuario\ventaDetalle.php on line 32.
 INFO - 2025-06-14 13:37:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-06-14 13:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-06-14 13:37:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-06-14 14:27:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
