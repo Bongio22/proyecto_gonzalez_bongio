@@ -101,34 +101,27 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     btnConfirmar.addEventListener("click", function() {
         // Enviar confirmación de compra a la ruta especificada
+        const formData = new FormData();
+        formData.append("idMetodoPago", document.getElementById("metodoPago").value);
+
         fetch("<?= base_url('carrito/comprar/confirmar') ?>", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // Si necesitás enviar datos extra como método de pago u otros, agregalos acá
-                    metodoPago: document.getElementById('metodoPago').value
-                })
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
-                    // Aquí podés mostrar un mensaje, redirigir o cerrar el modal
-                    alert("Compra confirmada con éxito.");
-                    const modalEl = document.getElementById("modalResumenCompra");
-                    const modal = bootstrap.Modal.getInstance(modalEl);
-                    modal.hide();
-                    // Opcional: redirigir a otra página
-                    // window.location.href = "<?= base_url('carrito/compra_exitosa') ?>";
+                if (data.mensaje) {
+                    alert(data.mensaje);
+                    location.reload(); // 🔁 Recarga la página luego de aceptar el mensaje
                 } else {
-                    alert("Error al confirmar la compra: " + (data.message ||
-                        "Intente nuevamente."));
+                    alert("Error al confirmar la compra.");
                 }
             })
+
             .catch(() => {
                 alert("Error de comunicación con el servidor.");
             });
+
     });
 });
 </script>
