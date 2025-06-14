@@ -44,6 +44,7 @@ $routes->post('carrito/eliminarProducto', 'CarritoController::eliminarProducto')
 $routes->post('carrito/vaciar', 'carritoController::vaciar');
 $routes->get('/carrito/comprar', 'ventasDetalleController::ventaDetalle');
 $routes->post('/carrito/comprar/confirmar', 'carritoController::finalizarCompra');
+$routes->get('listadoVentas', 'ventasCabeceraController::listarVentas');
 /*Rutas para el manejo del Carrito*/
 
 /*Rutas para el manejo del panel */
