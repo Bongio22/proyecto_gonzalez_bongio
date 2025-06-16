@@ -754,8 +754,10 @@ h1{
   
 .product-image {
   width: 100%;
-  height: 200px;
-  object-fit: contain;
+  height: 200px; /* Altura fija para todas las imágenes */
+  object-fit: contain; /* Asegura que la imagen completa sea visible y sin distorsión */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 10px; /* Espacio debajo de la imagen */
 }
   
 .product-info {
@@ -2074,12 +2076,11 @@ aside ul li a:hover {
 
 /* Estilos específicos para imágenes de productos */
 .product-image {
-  max-width: 120px; /* Tamaño máximo para las imágenes de producto */
-  height: auto;
+  width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+  height: 200px; /* Fija una altura estándar para las imágenes */
+  object-fit: contain; /* Ajusta la imagen al contenedor sin deformarla */
   border-radius: 8px; /* Bordes redondeados para las imágenes */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para las imágenes */
-  display: block; /* Eliminar espacio extra debajo de la imagen */
-  margin: 0 auto; /* Centrar imagen si está en su propia celda */
+  margin-bottom: 10px; /* Espacio debajo de la imagen */
 }
 
 /* Estilo para el formulario de agregar producto */
