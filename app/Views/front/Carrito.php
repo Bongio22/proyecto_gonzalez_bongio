@@ -81,6 +81,7 @@ if (!empty($_SESSION['carrito'])) {
     </div>
 </div>
 <script>
+
 document.addEventListener("DOMContentLoaded", function() {
     const btnFinalizar = document.getElementById("btnFinalizarCompra");
     const btnConfirmar = document.getElementById("btnConfirmarCompra");
@@ -124,4 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 });
+
 </script>
+</body>
+</html>

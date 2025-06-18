@@ -4,13 +4,13 @@
             <div class="stat-item">
                 <h2>Total Productos</h2>
                 <p>
-                    <5>
+                    <?= esc($totalProductos) ?>
                 </p>
             </div>
             <div class="stat-item">
                 <h2>Total Usuarios</h2>
                 <p>
-                    <55>
+                    <?= esc($totalUsuarios) ?>
                 </p>
             </div>
         </div>

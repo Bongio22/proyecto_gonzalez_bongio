@@ -15,15 +15,15 @@
                     required>
 
                 <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required readonly>
 
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
 
                 <div class="buttons">
-                    <button type="submit" class="save-btn">Guardar</button>
-                    <input type="reset" value="Limpiar" class="btn-reset">
-                    <button type="button" class="cancel-btn"
+                    <button type="submit" class="btn btn-dark">Guardar</button>
+                    <input type="reset" value="Limpiar" class="btn btn-warning">
+                    <button type="button" class="btn btn-danger"
                         onclick="window.location.href='<?php echo base_url('inicio'); ?>';">Cancelar
                     </button>
                 </div>

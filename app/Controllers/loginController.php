@@ -127,7 +127,7 @@ class loginController extends BaseController
             return ($usuario['idRol'] == 1) ? redirect()->to('panelAdmin') : redirect()->to('principal');
         } else {
             error_log("Error: La contraseña no coincide.");
-            session()->setFlashdata('error', 'MAL TU CONTRASEÑA.');
+            session()->setFlashdata('error', 'Contraseña incorrecta.');
             return redirect()->to('iniciarSesion');
         }
     }
