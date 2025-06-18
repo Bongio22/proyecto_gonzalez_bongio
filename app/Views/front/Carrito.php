@@ -1,4 +1,3 @@
-<?= $this->include('plantillas/header'); ?>
 
 <h1 class="titulo-carrito">Carrito de Compras</h1>
 
@@ -25,7 +24,14 @@ if (!empty($_SESSION['carrito'])) {
         <tr>
             <td><?= htmlspecialchars($item['descripcion']) ?></td>
             <td>$<?= number_format($item['precioUnit'], 2, ',', '.') ?></td>
-            <td><?= $item['cantidad'] ?></td>
+            <td>
+    <form action="<?= base_url('carrito/actualizarCantidad') ?>" method="post" style="display:inline-flex; flex-direction:column; align-items:center;">
+        <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">
+        <button type="submit" name="accion" value="sumar" class="btn-cantidad btn-up">&#9650;</button>
+        <span style="margin: 4px 0;"><?= $item['cantidad'] ?></span>
+        <button type="submit" name="accion" value="restar" class="btn-cantidad btn-down">&#9660;</button>
+    </form>
+</td>
             <td>
                 <form action="<?= base_url('carrito/eliminarProducto') ?>" method="post" style="display:inline;">
                     <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">

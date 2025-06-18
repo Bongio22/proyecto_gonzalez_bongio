@@ -12,6 +12,7 @@
                     <th>Asunto</th>
                     <th>Descripción</th>
                     <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,11 +26,15 @@
                     <td><?= esc($consulta['asunto']) ?></td>
                     <td><?= esc($consulta['descripcion']) ?></td>
                     <td><?= $consulta['idEstado'] == 1 ? 'Pendiente' : 'Respondida' ?></td>
+                    <td>
+                        <a href="<?= base_url('atenderConsulta' . $consulta['idConsulta']) ?>" class="btn-editar">Atender Consulta</a>
+                        <a href="<?= base_url('eliminarConsulta' . $consulta['idConsulta']) ?>" class="btn-baja" onclick="return confirm('¿Seguro que deseas eliminar esta consulta?');">Eliminar</a>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
                 <?php else: ?>
                 <tr>
-                    <td colspan="7">No hay consultas registradas.</td>
+                    <td colspan="8">No hay consultas registradas.</td>
                 </tr>
                 <?php endif; ?>
             </tbody>
@@ -56,5 +61,14 @@
 
 .btn-Volver:hover {
     background-color: #218838;
+}
+
+.btn-editar, .btn-baja {
+    padding: 4px 10px !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    line-height: 1.2 !important;
 }
 </style>

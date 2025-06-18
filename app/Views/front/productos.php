@@ -1,4 +1,3 @@
-<?= $this->include('plantillas/header'); ?>
 
 <div class="main-container">
     <main class="content">

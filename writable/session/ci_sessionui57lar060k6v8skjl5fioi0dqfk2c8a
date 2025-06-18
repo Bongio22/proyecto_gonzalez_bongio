@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1750273840;_ci_previous_url|s:49:"http://localhost/proyecto_gonzalez_bongio/carrito";idUsuario|s:1:"2";idRol|s:1:"2";nombre|s:4:"Iara";apellido|s:6:"Bongio";nroTelefono|s:10:"2147483647";carrito|a:1:{i:0;a:4:{s:10:"idProducto";s:1:"1";s:11:"descripcion";s:12:"Death Note 1";s:10:"precioUnit";s:5:"15000";s:8:"cantidad";i:1;}}

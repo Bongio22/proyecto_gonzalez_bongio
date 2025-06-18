@@ -146,4 +146,25 @@ class carritoController extends BaseController
         'localizador' => rand(10000000, 99999999) // Generar un localizador aleatorio
     ]);
 }
+
+public function actualizarCantidad()
+{
+    $idProducto = $this->request->getPost('idProducto');
+    $accion = $this->request->getPost('accion'); // 'sumar' o 'restar'
+    $session = session();
+    $carrito = $session->get('carrito') ?? [];
+
+    foreach ($carrito as &$item) {
+        if ($item['idProducto'] == $idProducto) {
+            if ($accion === 'sumar') {
+                $item['cantidad'] += 1;
+            } elseif ($accion === 'restar' && $item['cantidad'] > 1) {
+                $item['cantidad'] -= 1;
+            }
+            break;
+        }
+    }
+    $session->set('carrito', $carrito);
+    return redirect()->to('/carrito');
+}
 }

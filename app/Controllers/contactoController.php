@@ -44,9 +44,11 @@ class contactoController extends BaseController
         return redirect()->to('contacto')->with('mensaje', 'Consulta enviada correctamente.');
     }
 
-    // Ver detalle de una consulta
+    // Ver detalle de una consulta y marcar como respondida
     public function ver($idConsulta)
     {
+        // Marcar como respondida (idEstado = 2)
+        $this->consultaModel->update($idConsulta, ['idEstado' => 2]);
         $consulta = $this->consultaModel->find($idConsulta);
         if (!$consulta) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Consulta no encontrada");
@@ -57,9 +59,22 @@ class contactoController extends BaseController
     // Cambiar estado de una consulta
     public function actualizarEstado($id)
     {
-        $nuevoEstado = $this->request->getPost('idEstado');
-        $this->consultaModel->update($id, ['idEstado' => $nuevoEstado]);
-
+        $consulta = $this->consultaModel->find($id);
+        if ($consulta) {
+            $nuevoEstado = ($consulta['idEstado'] == 1) ? 2 : 1;
+            $this->consultaModel->update($id, ['idEstado' => $nuevoEstado]);
+        }
         return redirect()->to('/consultas')->with('mensaje', 'Estado actualizado.');
     }
+
+    // Eliminar una consulta
+    public function eliminarConsulta($id)
+    {
+        // Baja lógica: actualiza el estado a 0 (eliminado)
+        $this->consultaModel->update($id, ['idEstado' => 0]);
+        return redirect()->to('/consultas')->with('mensaje', 'Consulta eliminada correctamente.');
+    }
+
+    
+
 }

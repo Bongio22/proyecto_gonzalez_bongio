@@ -45,6 +45,7 @@ $routes->post('carrito/vaciar', 'carritoController::vaciar');
 $routes->get('/carrito/comprar', 'ventasDetalleController::ventaDetalle');
 $routes->post('/carrito/comprar/confirmar', 'carritoController::finalizarCompra');
 $routes->get('listadoVentas', 'ventasCabeceraController::listarVentas');
+$routes->post('carrito/actualizarCantidad', 'carritoController::actualizarCantidad');
 /*Rutas para el manejo del Carrito*/
 
 /*Rutas para el manejo del panel */
@@ -62,3 +63,7 @@ $routes->get('contacto/crearConsulta', 'ContactoController::crearConsulta');
 $routes->get('consultas', 'ContactoController::consultas');
 $routes->get('contacto', 'contactoController::contacto');
 /*Contacto*/
+
+$routes->post('atenderConsulta', 'contactoController::actualizarEstado');
+$routes->post('eliminarConsulta', 'contactoController::eliminarConsulta');
+$routes->get('consultas/eliminar/(:num)', 'contactoController::eliminarConsulta/$1');
