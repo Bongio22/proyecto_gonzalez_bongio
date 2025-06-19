@@ -24,20 +24,26 @@ public function listarVentas()
 {
     $ventaModel = new \App\Models\VentasCabeceraModel();
     $metodoModel = new \App\Models\MetodoPagoModel();
+    $usuarioModel = new \App\Models\UsuarioModel();
 
     // Trae todas las ventas
     $ventas = $ventaModel->findAll();
 
-    // Opcional: Mapear ID de método a nombre (si tenés pocos métodos de pago)
+    // Mapear métodos de pago
     $metodos = $metodoModel->findAll();
     $metodosMap = [];
     foreach ($metodos as $m) {
         $metodosMap[$m['idMetodoPago']] = $m['nombre'];
     }
 
-    // Agrega el nombre del método de pago a cada venta
+    // Agrega el nombre del método y los datos del usuario
     foreach ($ventas as &$venta) {
         $venta['metodo'] = $metodosMap[$venta['idMetodoPago']] ?? 'Desconocido';
+
+        $usuario = $usuarioModel->find($venta['usuario_id']);
+        $venta['nombre'] = $usuario['nombre'] ?? '';
+        $venta['apellido'] = $usuario['apellido'] ?? '';
+        $venta['correoElectronico'] = $usuario['correoElectronico'] ?? '';
     }
 
     $data['compras'] = $ventas;

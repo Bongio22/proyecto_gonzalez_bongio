@@ -64,6 +64,5 @@ $routes->get('consultas', 'ContactoController::consultas');
 $routes->get('contacto', 'contactoController::contacto');
 /*Contacto*/
 
-$routes->post('atenderConsulta', 'contactoController::actualizarEstado');
-$routes->post('eliminarConsulta', 'contactoController::eliminarConsulta');
-$routes->get('consultas/eliminar/(:num)', 'contactoController::eliminarConsulta/$1');
+$routes->post('atenderConsulta', 'ContactoController::atenderConsulta');
+$routes->get('eliminarConsulta/(:num)', 'contactoController::eliminarConsulta/$1');

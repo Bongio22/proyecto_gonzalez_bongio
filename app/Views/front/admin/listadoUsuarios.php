@@ -2,52 +2,54 @@
     <div class="container">
         <h1>Lista de Usuarios</h1>
 
-        <table class="tabla-usuarios">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Teléfono</th>
-                    <th>Estado</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($usuarios)): ?>
-                <?php foreach ($usuarios as $usuario): ?>
-                <tr>
-                    <td><?= htmlspecialchars($usuario['idUsuario']) ?></td>
-                    <td><?= htmlspecialchars($usuario['nombre']) ?></td>
-                    <td><?= htmlspecialchars($usuario['correoElectronico']) ?></td>
-                    <td><?= htmlspecialchars($usuario['nroTelefono']) ?></td>
-                    <td><?= $usuario['idEstadoUsuario'] == 1 ? 'Activo' : 'Inactivo' ?></td>
-                    <td><?= $usuario['idRol'] == 1 ? 'Administrador' : 'Cliente' ?></td>
-                    <td>
-                        <a href="<?= base_url('admin/modificarUsuario/' . $usuario['idUsuario']) ?>"
-                            class="btn-editar">Editar</a>
-                        <?php if ($usuario['idEstadoUsuario'] == 1): ?>
-                        <a href="<?= base_url('admin/bajaUsuario/' . $usuario['idUsuario']) ?>" class="btn-baja">Dar de
-                            Baja</a>
-                        <?php else: ?>
-                        <a href="<?= base_url('admin/altaUsuario/' . $usuario['idUsuario']) ?>"
-                            class="btn-alta">Reactivar</a>
-                        <?php endif; ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-                <?php else: ?>
-                <tr>
-                    <td colspan="6">No hay usuarios registrados.</td>
-                </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
+        <div class="table-responsive-container">
+            <table class="tabla-usuarios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Estado</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($usuarios)): ?>
+                    <?php foreach ($usuarios as $usuario): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($usuario['idUsuario']) ?></td>
+                        <td><?= htmlspecialchars($usuario['nombre']) ?></td>
+                        <td><?= htmlspecialchars($usuario['correoElectronico']) ?></td>
+                        <td><?= htmlspecialchars($usuario['nroTelefono']) ?></td>
+                        <td><?= $usuario['idEstadoUsuario'] == 1 ? 'Activo' : 'Inactivo' ?></td>
+                        <td><?= $usuario['idRol'] == 1 ? 'Administrador' : 'Cliente' ?></td>
+                        <td>
+                            <a href="<?= base_url('admin/modificarUsuario/' . $usuario['idUsuario']) ?>"
+                                class="btn-editar">Editar</a>
+                            <?php if ($usuario['idEstadoUsuario'] == 1): ?>
+                            <a href="<?= base_url('admin/bajaUsuario/' . $usuario['idUsuario']) ?>" class="btn-baja">Dar
+                                de
+                                Baja</a>
+                            <?php else: ?>
+                            <a href="<?= base_url('admin/altaUsuario/' . $usuario['idUsuario']) ?>"
+                                class="btn-alta">Reactivar</a>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                    <tr>
+                        <td colspan="7">No hay usuarios registrados.</td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
         <a href="<?= base_url('panelAdmin'); ?>" class="btn-Volver">Volver al Panel de Administración</a>
     </div>
 </div>
-
 <style>
 .btn-Volver {
     background-color: #28a745;

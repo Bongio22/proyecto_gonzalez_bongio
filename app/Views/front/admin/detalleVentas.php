@@ -6,6 +6,9 @@
             <thead>
                 <tr>
                     <th>Fecha de Compra</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo Electronico</th>
                     <th>Total</th>
                     <th>Método de Pago</th>
                 </tr>
@@ -15,6 +18,9 @@
                 <?php foreach ($compras as $compra): ?>
                 <tr>
                     <td><?= htmlspecialchars($compra['fecha']); ?></td>
+                    <td><?= htmlspecialchars($compra['apellido']); ?></td>
+                    <td><?= htmlspecialchars($compra['nombre']); ?></td>
+                    <td><?= htmlspecialchars($compra['correoElectronico']); ?></td>
                     <td>$<?= htmlspecialchars(number_format($compra['total_venta'], 2)); ?></td>
                     <td>
                         <?= isset($compra['metodo']) 

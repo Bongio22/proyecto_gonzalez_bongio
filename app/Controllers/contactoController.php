@@ -22,7 +22,8 @@ class contactoController extends BaseController
     // Mostrar todas las consultas
     public function consultas()
     {
-        $consultas = $this->consultaModel->findAll();
+        $consultas = $this->consultaModel->where('idEstado !=', 2)->findAll();
+
         return view('plantillas/header')
         . view('front/admin/consultas', ['consultas' => $consultas])
         . view('plantillas/footer');
@@ -44,37 +45,40 @@ class contactoController extends BaseController
         return redirect()->to('contacto')->with('mensaje', 'Consulta enviada correctamente.');
     }
 
-    // Ver detalle de una consulta y marcar como respondida
-    public function ver($idConsulta)
-    {
-        // Marcar como respondida (idEstado = 2)
-        $this->consultaModel->update($idConsulta, ['idEstado' => 2]);
-        $consulta = $this->consultaModel->find($idConsulta);
-        if (!$consulta) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Consulta no encontrada");
-        }
-        return view('consultas/ver', ['consulta' => $consulta]);
+public function atenderConsulta()
+{
+    // Obtener JSON (porque el fetch lo envía así)
+    $data = $this->request->getJSON(true); // <- clave
+
+    $idConsulta = $data['idConsulta'] ?? null;
+    $respuesta = $data['respuesta'] ?? null;
+
+    if (!$idConsulta || !$respuesta) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Datos incompletos'
+        ]);
     }
 
-    // Cambiar estado de una consulta
-    public function actualizarEstado($id)
-    {
-        $consulta = $this->consultaModel->find($id);
-        if ($consulta) {
-            $nuevoEstado = ($consulta['idEstado'] == 1) ? 2 : 1;
-            $this->consultaModel->update($id, ['idEstado' => $nuevoEstado]);
-        }
-        return redirect()->to('/consultas')->with('mensaje', 'Estado actualizado.');
-    }
+    $consultaModel = new \App\Models\ConsultaModel();
 
+    $consultaModel->update($idConsulta, [
+        'respuesta' => $respuesta,
+    ]);
+
+    return $this->response->setJSON([
+        'success' => true,
+        'message' => 'Consulta respondida correctamente'
+    ]);
+}
+
+    
     // Eliminar una consulta
     public function eliminarConsulta($id)
     {
-        // Baja lógica: actualiza el estado a 0 (eliminado)
-        $this->consultaModel->update($id, ['idEstado' => 0]);
+        // Baja lógica: actualiza el estado a 2 (eliminado)
+        $this->consultaModel->update($id, ['idEstado' => 2]);
         return redirect()->to('/consultas')->with('mensaje', 'Consulta eliminada correctamente.');
     }
-
-    
 
 }

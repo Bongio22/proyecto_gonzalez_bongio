@@ -1898,7 +1898,6 @@ h1 {
 
 
 
-
 /*Productos*/
 /* Globales y Resets */
 * {
@@ -1917,51 +1916,6 @@ body {
 .main-container {
   display: flex; /* Usamos flexbox para el layout principal */
   min-height: 100vh; /* Ocupa al menos el 100% de la altura de la ventana */
-}
-
-/* Barra Lateral (Aside) */
-aside {
-  width: 250px; /* Ancho fijo para la barra lateral */
-  background-color: #fff; /* Fondo blanco para la barra lateral */
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* Sombra sutil a la derecha */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-right: 1px solid #eee; /* Borde sutil a la derecha */
-}
-
-aside h2 {
-  color: #6a1b9a; /* Color de título de la barra lateral */
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-  border-bottom: 2px solid #e5d0ee; /* Línea decorativa */
-  padding-bottom: 10px;
-  width: 100%; /* Ocupa todo el ancho */
-}
-
-aside ul {
-  list-style: none;
-  padding: 0;
-  width: 100%; /* Ocupa todo el ancho */
-}
-
-aside ul li {
-  margin-bottom: 10px;
-}
-
-aside ul li a {
-  text-decoration: none;
-  color: #555;
-  padding: 10px 15px;
-  display: block;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-aside ul li a:hover {
-  background-color: #e5d0ee; /* Color de fondo al pasar el mouse */
-  color: #6a1b9a; /* Color de texto al pasar el mouse */
 }
 
 /* Contenido Principal */
@@ -2062,7 +2016,7 @@ aside ul li a:hover {
 .btn {
   padding: 12px 20px; /* Más padding para botones */
   border-radius: 8px; /* Bordes más redondeados */
-  color: white;
+  color: black;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
   display: inline-block; /* Para aplicar padding y transform correctamente */
@@ -2444,11 +2398,6 @@ footer {
     color: #333; /* Color de texto más oscuro */
     font-weight: bold;
 }
-
-
-
-
-
 
 .btn-cantidad {
   background: #a259c6;
