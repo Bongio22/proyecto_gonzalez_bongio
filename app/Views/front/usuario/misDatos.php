@@ -24,7 +24,7 @@
                     <button type="submit" class="btn btn-dark">Guardar</button>
                     <input type="reset" value="Limpiar" class="btn btn-warning">
                     <button type="button" class="btn btn-danger"
-                        onclick="window.location.href='<?php echo base_url('inicio'); ?>';">Cancelar
+                        onclick="window.location.href='<?php echo base_url('principal'); ?>';">Cancelar
                     </button>
                 </div>
             </form>

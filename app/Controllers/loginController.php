@@ -119,6 +119,7 @@ class loginController extends BaseController
         // Verificación correcta usando password_verify()
         if (password_verify($password, $usuario['contrasenia'])) {
             // Guardar datos en la sesión
+            session()->set(['logged_in' => true]);
             session()->set('idUsuario', $usuario['idUsuario']);
             session()->set('idRol', $usuario['idRol']);
             session()->set('nombre', $usuario['nombre']);
