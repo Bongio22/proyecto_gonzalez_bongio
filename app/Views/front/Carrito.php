@@ -93,10 +93,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnConfirmar = document.getElementById("btnConfirmarCompra");
 
     btnFinalizar.addEventListener("click", function() {
-        // Cargar datos por AJAX
         fetch("<?= base_url('carrito/comprar') ?>")
-            .then(response => response.text())
-            .then(html => {
+            .then(async response => {
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.includes("application/json")) {
+                    const data = await response.json();
+                    if (data.mensaje) {
+                        alert(data.mensaje);
+                        return;
+                    }
+                }
+                // Si no es JSON, es el HTML del resumen
+                const html = await response.text();
                 document.getElementById("contenidoResumenCompra").innerHTML = html;
                 const modal = new bootstrap.Modal(document.getElementById("modalResumenCompra"));
                 modal.show();

@@ -62,38 +62,47 @@ class VentasDetalleController extends Controller
             'precio' => $precio
         ]);
     }
-public function ventaDetalle() 
-{
-    if (!session()->has('idUsuario')) {
-        return view('modales/error_sesion');
+
+    public function ventaDetalle() 
+    {
+        if (!session()->has('idUsuario')) {
+            return view('modales/error_sesion');
+        }
+
+        $usuarioModel = new \App\Models\UsuarioModel();
+        $productoModel = new \App\Models\ProductoModel();
+        $metodoPagoModel = new \App\Models\MetodoPagoModel(); 
+
+        $carrito = session('carrito') ?? [];
+
+        // Validación de stock antes de mostrar el resumen
+        foreach ($carrito as $item) {
+            $producto = $productoModel->find($item['idProducto']);
+            if (!$producto || $producto['stock'] < $item['cantidad']) {
+                return $this->response->setJSON([
+                    'mensaje' => 'El stock no es suficiente para: ' . ($producto['descripcion'] ?? $item['descripcion'])
+                ]);
+            }
+        }
+
+        $usuario = $usuarioModel->find(session('idUsuario'));
+
+        $detalle = [];
+        foreach ($carrito as $item) {
+            $producto = $productoModel->find($item['idProducto']);
+            $detalle[] = [
+                'descripcion' => $producto['descripcion'],
+                'cantidad' => $item['cantidad'],
+                'precio' => $producto['precioUnit']
+            ];
+        }
+
+        $metodos = $metodoPagoModel->where('idEstado', 1)->findAll(); 
+
+        return view('front/usuario/ventaDetalle', [
+            'usuario' => $usuario,
+            'detalle' => $detalle,
+            'metodos' => $metodos 
+        ]);
     }
-
-    $usuarioModel = new \App\Models\UsuarioModel();
-    $productoModel = new \App\Models\ProductoModel();
-    $metodoPagoModel = new \App\Models\MetodoPagoModel(); 
-
-    $carrito = session('carrito') ?? [];
-
-    $usuario = $usuarioModel->find(session('idUsuario'));
-
-    $detalle = [];
-    foreach ($carrito as $item) {
-        $producto = $productoModel->find($item['idProducto']);
-        $detalle[] = [
-            'descripcion' => $producto['descripcion'],
-            'cantidad' => $item['cantidad'],
-            'precio' => $producto['precioUnit']
-        ];
-    }
-
-    $metodos = $metodoPagoModel->where('idEstado', 1)->findAll(); 
-
-    return view('front/usuario/ventaDetalle', [
-        'usuario' => $usuario,
-        'detalle' => $detalle,
-        'metodos' => $metodos 
-    ]);
-}
-
-
 }
