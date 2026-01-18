@@ -19,4 +19,12 @@ class UsuarioModel extends Model
         'idRol',
         'idEstadoUsuario'
     ];
+
+    public function buscarUsuario($idUsuario)
+    {
+        return $this->builder()
+            ->where('idUsuario', (int)$idUsuario)
+            ->get()
+            ->getRowArray();
+    }
 }

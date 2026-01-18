@@ -5,13 +5,10 @@ namespace App\Controllers;
 use App\Models\UsuarioModel;
 use App\Models\ProductoModel;
 use App\Models\CategoriaModel;
-use App\Models\VentasDetalleModel;
-use App\Models\VentasCabeceraModel;
 use CodeIgniter\Database\Config;
 
 class productosController extends BaseController
 {
-
     protected $productoModel;
     protected $usuarioModel;
     protected $categoriaModel;
@@ -156,35 +153,5 @@ class productosController extends BaseController
         return redirect()->to(site_url('productos'));
     }
 
-    public function misCompras()
-    {
-        $usuarioId = session()->get('idUsuario');
-        $ventasCabeceraModel = new VentasCabeceraModel();
-        $ventasDetalleModel = new VentasDetalleModel();
-        $productoModel = new ProductoModel();
-
-        $ventas = $ventasCabeceraModel->where('usuario_id', $usuarioId)->findAll();
-        $compras = [];
-
-        foreach ($ventas as $venta) {
-            $detalles = $ventasDetalleModel->where('venta_id', $venta['idVentas'])->findAll();
-
-            foreach ($detalles as $detalle) {
-                $producto = $productoModel->find($detalle['producto_id']);
-
-                if ($producto) {
-                    $compras[] = [
-                        'fecha' => $venta['fecha'],
-                        'descripcion' => $producto['descripcion'],
-                        'precioUnit' => $producto['precioUnit'],
-                        'cantidad' => $detalle['cantidad']
-                    ];
-                }
-            }
-        }
-        $data['compras'] = $compras; 
-        return view('plantillas/header', $data) . view('plantillas/navbar') 
-        . view('front/usuario/misCompras', $data)
-        . view('plantillas/footer');
-    }
+    
 }

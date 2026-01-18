@@ -16,4 +16,13 @@ class VentasDetalleModel extends Model
         'venta_id',
         'producto_id'
     ];
+
+    public function buscarVentaDetalle($idVenta){
+        $builder = $this->builder();
+
+        return $builder
+            ->where('venta_id', (int)$idVenta)
+            ->get()
+            ->getResult();
+    }
 }

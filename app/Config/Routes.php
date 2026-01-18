@@ -35,7 +35,7 @@ $routes->post('modificarProducto', 'productosController::modificarProducto',['fi
 $routes->post('crearProducto', 'productosController::crearProducto',['filter' => 'auth']);    // Ruta para guardar el producto
 $routes->get('productosController/eliminarProducto/(:num)', 'productosController::eliminarProducto/$1',['filter' => 'auth']);
 $routes->get('front/productos/categoria/(:num)', 'productosController::productos/$1'); // con categoría
-$routes->get('misCompras', 'productosController::misCompras',['filter' => 'cliente']);
+$routes->get('misCompras', 'ventasCabeceraController::misCompras',['filter' => 'cliente']);
 /*Rutas para el manejo de Productos*/
 
 /*Rutas para el manejo del Carrito*/

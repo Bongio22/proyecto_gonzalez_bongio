@@ -14,4 +14,23 @@ class MetodoPagoModel extends Model
         'nombre',
         'idEstado'
     ];
+
+    public function listarMetodosPago()
+    {
+        return $this->builder()
+            ->get()
+            ->getResultArray();
+    }
+    public function obtenerMetodosPagoMap()
+    {
+        $metodos = $this->listarMetodosPago();
+        $map = [];
+
+        foreach ($metodos as $m) {
+            $map[$m['idMetodoPago']] = $m['nombre'];
+        }
+
+        return $map;
+    }
+
 }

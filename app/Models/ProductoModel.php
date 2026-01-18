@@ -66,5 +66,11 @@ class ProductoModel extends Model
 
         return $builder->get()->getResultArray();
     }
-
+    public function buscarProducto($idProducto)
+    {
+        return $this->builder()
+            ->where('idProducto', (int)$idProducto)
+            ->get()
+            ->getRowArray();
+    }
 }
