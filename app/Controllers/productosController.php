@@ -27,61 +27,26 @@ class productosController extends BaseController
     }
 
     //vista productos
-    public function productos($categoriaSegment = null)
-{
-    $categorias = $this->obtenerCategorias();
-
-    // Categoría por GET o por segmento
-    $categoriaGet = $this->request->getGet('categoria');
-    $categoria = $categoriaGet ?? $categoriaSegment;
-
-    // Validar que sea un número válido
-    if (!empty($categoria) && !is_numeric($categoria)) {
-        // Si algo raro viene como texto en vez de número
-        throw new \CodeIgniter\Exceptions\PageNotFoundException("Categoría inválida");
-    }
-
-    // Buscar productos filtrados
-    $busqueda = $this->request->getGet('busqueda');
-    $productos = $this->cargarProductos($categoria, $busqueda);
-
-    $data = [
-        'productos' => $productos,
-        'categorias' => $categorias,
-        'categoriaSeleccionada' => $categoria
-    ];
-
-    return view('plantillas/header')
-         . view('plantillas/navbar')
-         . view('front/productos', $data)
-         . view('plantillas/footer');
-}
-
-
-    private function cargarProductos($categoria = null, $busqueda = null)
+    public function productos($categoriaRuta = null)
     {
-        $conditions = [];
-
-        // Filtrar por categoría
-        if ($categoria) {
-            $conditions['idCategoria'] = intval($categoria); // Filtrar por categoría seleccionada
-        }
-
-        // Filtrar por búsqueda
-        if ($busqueda) {
-            $conditions['LOWER(descripcion) LIKE'] = '%' . strtolower($busqueda) . '%';
-        }
-
-        return $this->productoModel->where($conditions)->findAll(); // Retornar productos filtrados
+        // Categoría por filtro
+        $categoriaGet = $this->request->getGet('categoria');
+        
+        //Buscar categoria por filtro o por ruta
+        $categoriaBuscada = $this->categoriaModel->buscarCategoria($categoriaGet,$categoriaRuta);
+        
+        //Guarda los datos
+        $data = [
+            'productos' => $this->productoModel->buscarProductos($categoriaBuscada, $this->request->getGet('busqueda')),
+            'categorias' => $this->categoriaModel->obtenerCategorias(),
+            'categoriaSeleccionada' => $categoriaBuscada
+        ];
+        //Devuelve la vista
+        return view('plantillas/header')
+            . view('plantillas/navbar')
+            . view('front/productos', $data)
+            . view('plantillas/footer');
     }
-
-
-    public function obtenerCategorias()
-    {
-        return $this->categoriaModel->findAll();
-    }
-
-
     public function viewModificarProducto($idProducto)
     {
         // Verificar si llega el ID
@@ -149,19 +114,16 @@ class productosController extends BaseController
         return redirect()->to(site_url('productos'));
     }
 
-
     public function agregarProducto()
     {
-        $categoriaModel = new \App\Models\CategoriaModel();
-        $data['categorias'] = $categoriaModel->findAll(); // Obtener todas las categorías
-
+        $data['categorias'] = $this->categoriaModel->findAll(); // Obtener todas las categorías
         return view('plantillas/header', $data)
             . view('plantillas/navbar')
             . view('front/admin/agregarProducto', $data) // Pasar las categorías a la vista
             . view('plantillas/footer');
     }
 
-    public function guardarProducto()
+    public function crearProducto()
     {
         $data = [
             'descripcion' => $this->request->getPost('descripcion'),
@@ -169,27 +131,14 @@ class productosController extends BaseController
             'stock' => $this->request->getPost('stock'),
             'idCategoria' => $this->request->getPost('idCategoria'),
         ];
-
-        // Establecer el estado del producto según el stock
-        if ($data['stock'] == 0) {
-            $data['idEstadoProducto'] = 2; // Producto no disponible
-        } else {
-            $data['idEstadoProducto'] = 1; // Producto disponible
-        }
-
         // Procesar la subida de imagen si se proporciona
         if ($this->request->getFile('foto')->isValid()) {
             $foto = $this->request->getFile('foto');
             $foto->move('uploads/productos', $foto->getName());
             $data['fotoProducto'] = $foto->getName(); // Cambiar 'foto' por 'fotoProducto'
         }
-
-        // Guardar el producto en la base de datos
-        if ($this->productoModel->insert($data)) {
-            session()->setFlashdata('success', 'Producto agregado correctamente.');
-        } else {
-            session()->setFlashdata('error', 'Error al agregar el producto.');
-        }
+        
+        $this->productoModel->crearProducto($data);
 
         return redirect()->to(site_url('productos'));
     }
@@ -201,20 +150,8 @@ class productosController extends BaseController
             session()->setFlashdata('error', 'No se seleccionó ningún producto para eliminar.');
             return redirect()->to(site_url('productos'));
         }
-
-        // Datos a actualizar: stock = 0 y estado = 2
-        $data = [
-            'stock' => 0,
-            'idEstadoProducto' => 2
-        ];
-
-        // Actualizar el producto en la base de datos
-        if ($this->productoModel->where('idProducto', $idProducto)->set($data)->update()) {
-            session()->setFlashdata('success', 'Producto eliminado correctamente.');
-        } else {
-            session()->setFlashdata('error', 'Error al eliminar el producto.');
-        }
-
+        //Llama a la funcion para eliminar
+        $this->productoModel->eliminarProducto($idProducto);
         // Redirigir de nuevo a la página de productos
         return redirect()->to(site_url('productos'));
     }

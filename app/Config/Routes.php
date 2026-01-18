@@ -29,16 +29,17 @@ $routes->post('misDatos', 'loginController::modificarUsuario');
 
 /*Rutas para el manejo de Productos*/
 $routes->get('productos', 'productosController::productos');
+$routes->get('agregarProducto', 'productosController::agregarProducto',['filter' => 'auth']); // Ruta para cargar el formulario
 $routes->get('modificarProducto/(:num)', 'productosController::viewModificarProducto/$1',['filter' => 'auth']);
 $routes->post('modificarProducto', 'productosController::modificarProducto',['filter' => 'auth']); // Ruta para guardar cambios
-$routes->post('agregarProducto', 'productosController::guardarProducto',['filter' => 'auth']);    // Ruta para guardar el producto
+$routes->post('crearProducto', 'productosController::crearProducto',['filter' => 'auth']);    // Ruta para guardar el producto
 $routes->get('productosController/eliminarProducto/(:num)', 'productosController::eliminarProducto/$1',['filter' => 'auth']);
 $routes->get('front/productos/categoria/(:num)', 'productosController::productos/$1'); // con categoría
 $routes->get('misCompras', 'productosController::misCompras',['filter' => 'cliente']);
 /*Rutas para el manejo de Productos*/
 
 /*Rutas para el manejo del Carrito*/
-$routes->get('agregarProducto', 'productosController::agregarProducto',['filter' => 'auth']); // Ruta para cargar el formulario
+
 $routes->get('carrito', 'carritoController::index',['filter' => 'cliente']); // Ruta para ver el carrito
 $routes->get('agregar/(:num)', 'carritoController::agregar/$1',['filter' => 'cliente']);
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');

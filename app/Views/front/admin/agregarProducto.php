@@ -1,6 +1,6 @@
 <h1>Agregar Producto</h1>
 
-<form method="post" action="<?= site_url('agregarProducto'); ?>" enctype="multipart/form-data"
+<form method="post" action="<?= site_url('crearProducto'); ?>" enctype="multipart/form-data"
     class="form-agregar-producto">
     <label for="descripcion">Descripción:</label>
     <input type="text" id="descripcion" name="descripcion" placeholder="Ingrese la descripción" required>

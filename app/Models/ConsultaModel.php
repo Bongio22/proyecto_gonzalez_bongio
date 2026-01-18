@@ -19,4 +19,9 @@ class ConsultaModel extends Model
         'respuesta',
         'idEstado'
     ];
+
+    public function obtenerConsultas()
+    {
+        return $this->findAll();
+    }
 }

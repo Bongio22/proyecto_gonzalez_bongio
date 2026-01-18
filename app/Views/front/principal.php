@@ -85,7 +85,7 @@ $usuarioLogueado = isset($_SESSION['idRol']) && $_SESSION['idRol'] == 2;
         <!-- Categoría: Figuras -->
         <div class="product-col">
             <div class="product-card">
-                <a href="<?= base_url('productos/categoria/3') ?>" class="category-link">
+                <a href="<?= base_url('front/productos/categoria/3') ?>" class="category-link">
                     <img src="<?= base_url("assets/img/Figuras/figuraflash.jpg") ?>" alt="Figura" class="product-image">
                 </a>
                 <div class="product-info">
