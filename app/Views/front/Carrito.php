@@ -1,4 +1,3 @@
-
 <h1 class="titulo-carrito">Carrito de Compras</h1>
 
 <?php
@@ -20,30 +19,30 @@ if (!empty($_SESSION['carrito'])) {
     </thead>
     <tbody>
         <?php if (!empty($_SESSION['carrito'])): ?>
-        <?php foreach ($_SESSION['carrito'] as $i => $item): ?>
-        <tr>
-            <td><?= htmlspecialchars($item['descripcion']) ?></td>
-            <td>$<?= number_format($item['precioUnit'], 2, ',', '.') ?></td>
-            <td>
-    <form action="<?= base_url('carrito/actualizarCantidad') ?>" method="post" style="display:inline-flex; flex-direction:column; align-items:center;">
-        <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">
-        <button type="submit" name="accion" value="sumar" class="btn-cantidad btn-up">&#9650;</button>
-        <span style="margin: 4px 0;"><?= $item['cantidad'] ?></span>
-        <button type="submit" name="accion" value="restar" class="btn-cantidad btn-down">&#9660;</button>
-    </form>
-</td>
-            <td>
-                <form action="<?= base_url('carrito/eliminarProducto') ?>" method="post" style="display:inline;">
-                    <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">
-                    <button type="submit" class="btn-remove">X</button>
-                </form>
-            </td>
-        </tr>
-        <?php endforeach; ?>
+            <?php foreach ($_SESSION['carrito'] as $i => $item): ?>
+                <tr>
+                    <td><?= htmlspecialchars($item['descripcion']) ?></td>
+                    <td>$<?= number_format($item['precioUnit'], 2, ',', '.') ?></td>
+                    <td>
+                        <form action="<?= base_url('carrito/actualizarCantidad') ?>" method="post" style="display:inline-flex; flex-direction:column; align-items:center;">
+                            <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">
+                            <button type="submit" name="accion" value="sumar" class="btn-cantidad btn-up">&#9650;</button>
+                            <span style="margin: 4px 0;"><?= $item['cantidad'] ?></span>
+                            <button type="submit" name="accion" value="restar" class="btn-cantidad btn-down">&#9660;</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="<?= base_url('carrito/eliminarProducto') ?>" method="post" style="display:inline;">
+                            <input type="hidden" name="idProducto" value="<?= $item['idProducto'] ?>">
+                            <button type="submit" class="btn-remove">X</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         <?php else: ?>
-        <tr>
-            <td colspan="4">El carrito está vacío.</td>
-        </tr>
+            <tr>
+                <td colspan="4">El carrito está vacío.</td>
+            </tr>
         <?php endif; ?>
     </tbody>
 </table>
@@ -87,59 +86,58 @@ if (!empty($_SESSION['carrito'])) {
     </div>
 </div>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const btnFinalizar = document.getElementById("btnFinalizarCompra");
+        const btnConfirmar = document.getElementById("btnConfirmarCompra");
 
-document.addEventListener("DOMContentLoaded", function() {
-    const btnFinalizar = document.getElementById("btnFinalizarCompra");
-    const btnConfirmar = document.getElementById("btnConfirmarCompra");
+        btnFinalizar.addEventListener("click", function() {
+            fetch("<?= base_url('carrito/comprar') ?>")
+                .then(async response => {
+                    const contentType = response.headers.get("content-type");
+                    if (contentType && contentType.includes("application/json")) {
+                        const data = await response.json();
+                        if (data.mensaje) {
+                            alert(data.mensaje);
+                            return;
+                        }
+                    }
+                    // Si no es JSON, es el HTML del resumen
+                    const html = await response.text();
+                    document.getElementById("contenidoResumenCompra").innerHTML = html;
+                    const modal = new bootstrap.Modal(document.getElementById("modalResumenCompra"));
+                    modal.show();
+                })
+                .catch(() => {
+                    document.getElementById("contenidoResumenCompra").innerHTML =
+                        "<div class='text-danger'>Error al cargar los datos.</div>";
+                });
+        });
+        btnConfirmar.addEventListener("click", function() {
+            // Enviar confirmación de compra a la ruta especificada
+            const formData = new FormData();
+            formData.append("idMetodoPago", document.getElementById("metodoPago").value);
 
-    btnFinalizar.addEventListener("click", function() {
-        fetch("<?= base_url('carrito/comprar') ?>")
-            .then(async response => {
-                const contentType = response.headers.get("content-type");
-                if (contentType && contentType.includes("application/json")) {
-                    const data = await response.json();
+            fetch("<?= base_url('carrito/comprar/confirmar') ?>", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
                     if (data.mensaje) {
                         alert(data.mensaje);
-                        return;
+                        location.reload(); // 🔁 Recarga la página luego de aceptar el mensaje
+                    } else {
+                        alert("Error al confirmar la compra.");
                     }
-                }
-                // Si no es JSON, es el HTML del resumen
-                const html = await response.text();
-                document.getElementById("contenidoResumenCompra").innerHTML = html;
-                const modal = new bootstrap.Modal(document.getElementById("modalResumenCompra"));
-                modal.show();
-            })
-            .catch(() => {
-                document.getElementById("contenidoResumenCompra").innerHTML =
-                    "<div class='text-danger'>Error al cargar los datos.</div>";
-            });
+                })
+
+                .catch(() => {
+                    alert("Error de comunicación con el servidor.");
+                });
+
+        });
     });
-    btnConfirmar.addEventListener("click", function() {
-        // Enviar confirmación de compra a la ruta especificada
-        const formData = new FormData();
-        formData.append("idMetodoPago", document.getElementById("metodoPago").value);
-
-        fetch("<?= base_url('carrito/comprar/confirmar') ?>", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.mensaje) {
-                    alert(data.mensaje);
-                    location.reload(); // 🔁 Recarga la página luego de aceptar el mensaje
-                } else {
-                    alert("Error al confirmar la compra.");
-                }
-            })
-
-            .catch(() => {
-                alert("Error de comunicación con el servidor.");
-            });
-
-    });
-});
-
 </script>
 </body>
+
 </html>

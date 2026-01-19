@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1768847848;_ci_previous_url|s:57:"http://localhost/proyecto_gonzalez_bongio/carrito/comprar";logged_in|b:1;idUsuario|s:1:"9";idRol|s:1:"2";nombre|s:6:"Fatima";apellido|s:4:"Bret";nroTelefono|s:6:"231313";carrito|a:1:{i:0;a:4:{s:10:"idProducto";s:1:"9";s:11:"descripcion";s:30:"Wolverine "La guardia del infi";s:10:"precioUnit";s:4:"9000";s:8:"cantidad";i:1;}}

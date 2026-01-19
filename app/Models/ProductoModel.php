@@ -66,6 +66,7 @@ class ProductoModel extends Model
 
         return $builder->get()->getResultArray();
     }
+
     public function buscarProducto($idProducto)
     {
         return $this->builder()
@@ -73,4 +74,57 @@ class ProductoModel extends Model
             ->get()
             ->getRowArray();
     }
+
+    public function modificarProductoDesdeRequest($request)
+    {
+        $idProducto = $request->getPost('idProducto');
+
+        $data = $this->armarDatosProducto($request);
+        $this->procesarFoto($request, $data);
+
+        return $this->update($idProducto, $data);
+    }
+    private function armarDatosProducto($request): array
+    {
+        $stock = (int) $request->getPost('stock');
+
+        return [
+            'descripcion' => $request->getPost('descripcion'),
+            'precioUnit' => $request->getPost('precioUnit'),
+            'stock' => $stock,
+            'idCategoria' => $request->getPost('idCategoria'),
+            'idEstadoProducto' => $this->calcularEstado($stock),
+        ];
+    }
+
+    private function calcularEstado(int $stock): int
+    {
+        return ($stock === 0) ? 0 : 1;
+    }
+    private function procesarFoto($request, array &$data): void
+    {
+        $foto = $request->getFile('foto');
+
+        if ($foto && $foto->isValid() && !$foto->hasMoved()) {
+            $nombreFoto = $foto->getRandomName();
+            $foto->move('uploads/productos', $nombreFoto);
+            $data['fotoProducto'] = $nombreFoto;
+        }
+    }
+
+    public function obtenerDatosEdicion(int $idProducto): ?array
+    {
+        $producto = $this->find($idProducto);
+
+        if (!$producto) {
+            return null;
+        }
+
+        return [
+            'producto' => $producto,
+            'categorias' => model('CategoriaModel')->findAll(),
+        ];
+    }
+
+
 }

@@ -17,6 +17,28 @@ class VentasCabeceraModel extends Model
         'idMetodoPago'
     ];
 
+    public function crearVentaCabecera($total, $usuarioId, $idMetodoPago)
+    {
+        $builder = $this->builder();
+
+        $builder->insert([
+            'fecha' => date('Y-m-d H:i:s'),
+            'total_venta' => $total,
+            'usuario_id' => $usuarioId,
+            'idMetodoPago' => $idMetodoPago
+        ]);
+
+        return $this->getInsertID();
+    }
+
+    public function buscarVenta($ventaId)
+    {
+        return $this->builder()
+            ->where('idVentas', (int)$ventaId)
+            ->get()
+            ->getRowArray();
+    }
+
     public function buscarVentas($idUsuario)
     {
         $builder = $this->builder();
@@ -50,4 +72,104 @@ class VentasCabeceraModel extends Model
         }
     }
 
+    public function procesarCompra(array $carrito, $idUsuario, $idMetodoPago): array
+    {
+        if (!$this->datosValidos($carrito, $idUsuario, $idMetodoPago)) {
+            return $this->error('Datos inválidos.');
+        }
+
+        if (!$this->metodoPagoValido($idMetodoPago)) {
+            return $this->error('Método de pago inválido.');
+        }
+
+        if (!$this->stockDisponible($carrito)) {
+            return $this->error('Stock insuficiente para uno o más productos.');
+        }
+
+        $total   = $this->calcularTotal($carrito);
+        $ventaId = $this->crearCabecera($total, $idUsuario, $idMetodoPago);
+
+        $this->crearDetallesYActualizarStock($ventaId, $carrito);
+
+        return $this->exito($total);
+    }
+    private function datosValidos($carrito, $idUsuario, $idMetodoPago): bool
+    {
+        return !empty($carrito) && $idUsuario && $idMetodoPago;
+    }
+
+    private function metodoPagoValido($idMetodoPago): bool
+    {
+        $metodoPagoModel = new \App\Models\MetodoPagoModel();
+        return (bool) $metodoPagoModel->find($idMetodoPago);
+    }
+
+    private function stockDisponible(array $carrito): bool
+    {
+        $productoModel = new \App\Models\ProductoModel();
+
+        foreach ($carrito as $item) {
+            $producto = $productoModel->find($item['idProducto']);
+            if (!$producto || $producto['stock'] < $item['cantidad']) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private function calcularTotal(array $carrito): float
+    {
+        $total = 0;
+        foreach ($carrito as $item) {
+            $total += $item['precioUnit'] * $item['cantidad'];
+        }
+        return $total;
+    }
+
+    private function crearCabecera($total, $idUsuario, $idMetodoPago): int
+    {
+        return $this->insert([
+            'fecha'        => date('Y-m-d H:i:s'),
+            'total_venta'  => $total,
+            'usuario_id'   => $idUsuario,
+            'idMetodoPago' => $idMetodoPago
+        ]);
+    }
+
+    private function crearDetallesYActualizarStock(int $ventaId, array $carrito): void
+    {
+        $detalleModel  = new \App\Models\VentasDetalleModel();
+        $productoModel = new \App\Models\ProductoModel();
+
+        foreach ($carrito as $item) {
+            $detalleModel->insert([
+                'venta_id'    => $ventaId,
+                'producto_id' => $item['idProducto'],
+                'cantidad'    => $item['cantidad'],
+                'precio'      => $item['precioUnit']
+            ]);
+
+            $producto = $productoModel->find($item['idProducto']);
+            $productoModel->update($item['idProducto'], [
+                'stock' => $producto['stock'] - $item['cantidad']
+            ]);
+        }
+    }
+
+    private function error(string $mensaje): array
+    {
+        return [
+            'ok'      => false,
+            'mensaje' => $mensaje
+        ];
+    }
+
+    private function exito(float $total): array
+    {
+        return [
+            'ok'      => true,
+            'mensaje' => '¡Compra realizada con éxito!',
+            'total'   => $total
+        ];
+    }
 }

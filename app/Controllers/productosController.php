@@ -44,69 +44,29 @@ class productosController extends BaseController
             . view('front/productos', $data)
             . view('plantillas/footer');
     }
-    public function viewModificarProducto($idProducto)
+    public function viewModificarProducto($idProducto = null)
     {
-        // Verificar si llega el ID
         if (!$idProducto) {
-            session()->setFlashdata('error', 'No se recibió un ID válido.');
+            session()->setFlashdata('error', 'ID inválido.');
             return redirect()->to(site_url('productos'));
         }
 
-        // Obtener el producto por ID
-        $producto = $this->productoModel->find($idProducto);
-        if (!$producto) {
+        $data = $this->productoModel->obtenerDatosEdicion($idProducto);
+
+        if (!$data) {
             session()->setFlashdata('error', 'Producto no encontrado.');
             return redirect()->to(site_url('productos'));
         }
 
-        // Obtener las categorías
-        $categorias = $this->categoriaModel->findAll();
-
-        // retorna las vistas
-        return view('plantillas/header') .
-            view('plantillas/navbar') .
-            view('front/admin/modificarProducto', [
-                'producto' => $producto,
-                'categorias' => $categorias,
-            ]) .
-            view('plantillas/footer');
+        return view('plantillas/header')
+            . view('plantillas/navbar')
+            . view('front/admin/modificarProducto', $data)
+            . view('plantillas/footer');
     }
 
     public function modificarProducto()
     {
-        // Obtener el ID del producto del formulario
-        $idProducto = $this->request->getPost('idProducto');
-
-        // Validar que el ID del producto no esté vacío
-        if (empty($idProducto)) {
-            session()->setFlashdata('error', 'ID de producto no proporcionado.');
-            return redirect()->to(site_url('productos'));
-        }
-
-        // Obtener los datos del formulario
-        $stock = $this->request->getPost('stock');
-        $data = [
-            'descripcion' => $this->request->getPost('descripcion'),
-            'precioUnit' => $this->request->getPost('precioUnit'),
-            'stock' => $stock,
-            'idCategoria' => $this->request->getPost('idCategoria'),
-            // Actualizamos el estado según el stock
-            'idEstadoProducto' => ($stock == 0) ? 0 : 1,
-        ];
-
-        // Verificar si se ha enviado un archivo y si es válido
-        $foto = $this->request->getFile('foto');
-        if ($foto && $foto->isValid() && !$foto->hasMoved()) {
-            $foto->move('uploads/productos', $foto->getName());
-            $data['fotoProducto'] = $foto->getName();
-        }
-
-        // Actualizar el producto en la base de datos
-        if ($this->productoModel->update($idProducto, $data)) {
-            session()->setFlashdata('success', 'Producto actualizado correctamente.');
-        } else {
-            session()->setFlashdata('error', 'Error al actualizar el producto.');
-        }
+        $this->productoModel->modificarProductoDesdeRequest($this->request);
 
         return redirect()->to(site_url('productos'));
     }

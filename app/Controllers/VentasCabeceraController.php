@@ -18,7 +18,7 @@ class VentasCabeceraController extends Controller
     protected $productoModel;
     protected $metodoPagoModel;
     //Constructor
-     public function __construct()
+    public function __construct()
     {
         $this->ventasCabeceraModel = new VentasCabeceraModel();
         $this->ventasDetalleModel = new VentasDetalleModel();
@@ -29,14 +29,7 @@ class VentasCabeceraController extends Controller
 
     public function crear($total, $usuarioId, $idMetodoPago)
     {
-        $this->ventasCabeceraModel->insert([
-            'fecha' => date('Y-m-d H:i:s'),
-            'total_venta' => $total,
-            'usuario_id' => $usuarioId,
-            'idMetodoPago' => $idMetodoPago
-        ]);
-
-        return $this->ventasCabeceraModel->insertID();
+        return $this->ventasCabeceraModel->crearVentaCabecera($total, $usuarioId, $idMetodoPago);
     }
     public function listarVentas()
     {
@@ -54,6 +47,7 @@ class VentasCabeceraController extends Controller
             . view('front/admin/detalleVentas', $data)
             . view('plantillas/footer');
     }
+
     public function misCompras()
     {
         //Busca las cabeceras con respecto al id del usuario

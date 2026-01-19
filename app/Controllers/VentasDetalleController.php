@@ -10,31 +10,41 @@ use CodeIgniter\Controller;
 
 class VentasDetalleController extends Controller
 {
+    protected $ventaCabeceraModel;
+    protected $ventaDetalleModel;
+    protected $productoModel;
+    protected $usuarioModel;
+
+    public function __construct()
+    {
+        $this->ventaCabeceraModel = new VentasCabeceraModel();
+        $this->ventaDetalleModel = new VentasDetalleModel();
+        $this->productoModel = new ProductoModel();
+        $this->usuarioModel = new UsuarioModel();
+    }
+
     public function verDetalle($ventaId)
     {
-        $ventaModel = new VentasCabeceraModel();
-        $detalleModel = new VentasDetalleModel();
-        $productoModel = new ProductoModel();
-        $usuarioModel = new UsuarioModel();
+        
 
         // Obtener datos de la venta
-        $venta = $ventaModel->find($ventaId);
+        $venta = $this->ventaCabeceraModel->buscarVenta($ventaId);
 
         if (!$venta) {
             return redirect()->back()->with('error', 'Venta no encontrada');
         }
 
         // Obtener datos del usuario
-        $usuario = $usuarioModel->find($venta['usuario_id']);
+        $usuario = $this->usuarioModel->buscarUsuario($venta['usuario_id']);
 
         // Obtener los detalles de la venta
-        $detalles = $detalleModel->where('venta_id', $ventaId)->findAll();
+        $detalles = $this->ventaDetalleModel->buscarVentaDetalle($venta['venta_id']);
 
         // Combinar detalles con información del producto
         $detalleConProductos = [];
 
         foreach ($detalles as $detalle) {
-            $producto = $productoModel->find($detalle['producto_id']);
+            $producto = $this->productoModel->buscarProducto($detalles['p']);
 
             $detalleConProductos[] = [
                 'producto_descripcion' => $producto['descripcion'] ?? 'Producto desconocido',

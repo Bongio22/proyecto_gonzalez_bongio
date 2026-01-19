@@ -82,70 +82,29 @@ class carritoController extends BaseController
     }
 
 
-    public function finalizarCompra()
+public function finalizarCompra()
 {
     $session = session();
-    $carrito = $session->get('carrito') ?? [];
-    $idUsuario = $session->get('idUsuario');
 
-    if (empty($carrito) || !$idUsuario) {
-        return redirect()->to('/carrito')->with('mensaje', 'No se pudo realizar la compra.');
-    }
-
-    // Obtener método de pago desde POST
+    $carrito      = $session->get('carrito') ?? [];
+    $idUsuario    = $session->get('idUsuario');
     $idMetodoPago = $this->request->getPost('idMetodoPago');
-    if (!$idMetodoPago) {
-        return redirect()->to('/carrito')->with('mensaje', 'Método de pago no especificado.');
+
+    $ventasModel = new \App\Models\VentasCabeceraModel();
+
+    $resultado = $ventasModel->procesarCompra(
+        $carrito,
+        $idUsuario,
+        $idMetodoPago
+    );
+
+    if ($resultado['ok']) {
+        $session->remove('carrito');
     }
 
-    // Verificar que el método de pago exista
-    $metodoPagoModel = new \App\Models\MetodoPagoModel();
-    if (!$metodoPagoModel->find($idMetodoPago)) {
-        return redirect()->to('/carrito')->with('mensaje', 'Método de pago inválido.');
-    }
-
-    $productoModel = new \App\Models\ProductoModel();
-    $cabeceraController = new \App\Controllers\VentasCabeceraController();
-    $detalleController = new \App\Controllers\VentasDetalleController();
-
-    // Verificar stock antes de hacer cualquier operación
-    foreach ($carrito as $item) {
-        $producto = $productoModel->find($item['idProducto']);
-
-        if (!$producto || $producto['stock'] < $item['cantidad']) {
-            return redirect()->to('/carrito')->with('mensaje', 'Stock insuficiente para: ' . $item['descripcion']);
-        }
-    }
-
-    // Calcular total de la compra
-    $total = 0;
-    foreach ($carrito as $item) {
-        $total += $item['precioUnit'] * $item['cantidad'];
-    }
-
-    // Crear cabecera de venta
-    $ventaId = $cabeceraController->crear($total, $idUsuario, $idMetodoPago);
-
-    // Insertar cada detalle y actualizar stock
-    foreach ($carrito as $item) {
-        $detalleController->crear($ventaId, $item['idProducto'], $item['cantidad'], $item['precioUnit']);
-
-        $producto = $productoModel->find($item['idProducto']);
-        $productoModel->update($item['idProducto'], [
-            'stock' => $producto['stock'] - $item['cantidad']
-        ]);
-    }
-
-    $session->remove('carrito');
-
-    // En lugar de redirigir, puedes devolver los detalles de la compra
-    return $this->response->setJSON([
-        'mensaje' => '¡Compra realizada con éxito!',
-        'total' => $total,
-        'detalles' => $carrito,
-        'localizador' => rand(10000000, 99999999) // Generar un localizador aleatorio
-    ]);
+    return $this->response->setJSON($resultado);
 }
+
 
 public function actualizarCantidad()
 {

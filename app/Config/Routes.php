@@ -7,8 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 /*Rutas principales*/
-
-
 $routes->get('/', 'Home::index');
 $routes->get('principal', 'Home::index');
 $routes->get('contacto', 'contactoController::contacto');
@@ -45,8 +43,8 @@ $routes->get('agregar/(:num)', 'carritoController::agregar/$1',['filter' => 'cli
 $routes->post('agregar/(:num)', 'carritoController::agregar/$1');
 $routes->post('carrito/eliminarProducto', 'CarritoController::eliminarProducto');
 $routes->post('carrito/vaciar', 'carritoController::vaciar',['filter' => 'cliente']);
-$routes->get('/carrito/comprar', 'ventasDetalleController::ventaDetalle');
-$routes->post('/carrito/comprar/confirmar', 'carritoController::finalizarCompra');
+$routes->get('carrito/comprar', 'ventasDetalleController::ventaDetalle');
+$routes->post('carrito/comprar/confirmar', 'carritoController::finalizarCompra');
 $routes->get('listadoVentas', 'ventasCabeceraController::listarVentas');
 $routes->post('carrito/actualizarCantidad', 'carritoController::actualizarCantidad');
 /*Rutas para el manejo del Carrito*/
